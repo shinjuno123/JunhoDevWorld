@@ -4,7 +4,6 @@ get_header();
 
 ?>
 
-
-hi
+This is post
 
 <?php get_footer();?>
