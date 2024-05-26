@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
@@ -8,6 +8,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+
     <header class="header" role="banner">
         <div class="header__inner container">
             <!-- Profile image with a name -->
@@ -15,7 +16,7 @@
                 <img class="header__avatar" src="" alt="">
                 <span class="header__info">
                     <span>Junho Shin</span>
-                    <span class="header__verification"><img src="" alt=""></span>
+                    <span class="header__verification"><i class="fa-solid fa-check"></i></span>
                 </span>
             </a>
 
@@ -34,7 +35,7 @@
                     <!-- 01 Home, 02 writing ... -->
                     <div class="nav__content">
                         <ul class="nav__menu" id="nav__menu">
-                            <li class="nav__item"><a class="nav__link" href=""><span class="nav__num">01</span> home</a>
+                            <li class="nav__item nav__item--active"><a class="nav__link" href=""><span class="nav__num">01</span> home</a>
                             </li>
                             <li class="nav__item"><a class="nav__link" href=""><span class="nav__num">02</span>
                                     writing</a></li>
@@ -52,9 +53,6 @@
                         <div class="nav__bg__circle"></div>
                     </div>
                 </nav>
-
-                <!-- Change theme colors -->
-                <button class="iconbtn header__themebtn"></button>
             </div>
 
         </div>

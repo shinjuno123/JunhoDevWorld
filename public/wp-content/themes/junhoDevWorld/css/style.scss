@@ -1,1 +1,23 @@
+// 3rd party
 @import "../node_modules/normalize.css/normalize.css";
+
+@import "modules/header.scss";
+@import "modules/layout.scss";
+@import "modules/theme.scss";
+@import "modules/intro.scss";
+
+
+a {
+    text-decoration: none;
+}
+
+dl, ol, ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
