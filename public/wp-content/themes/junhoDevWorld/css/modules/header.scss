@@ -211,6 +211,10 @@
         transform: translateY(2rem);
     }
 
+    45% {
+        background-color: var(--color-bg-darker);
+    }
+
     56% {
         opacity: 0;
         transform: translateY(2rem);
@@ -244,7 +248,7 @@
         z-index: 100;
         top: 0;
         left: 0;
-        
+        background-color: var(--color-bg-darker);
     }
 
     .nav__togglebtn {
