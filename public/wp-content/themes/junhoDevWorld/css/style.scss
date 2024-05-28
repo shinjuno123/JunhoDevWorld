@@ -5,6 +5,7 @@
 @import "modules/layout.scss";
 @import "modules/theme.scss";
 @import "modules/intro.scss";
+@import "base/event.scss";
 
 
 a {
@@ -20,4 +21,13 @@ dl, ol, ul {
 body {
     background-color: var(--color-bg);
     color: var(--color-text);
+    overflow-x: hidden;
+}
+
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+
+button {
+    cursor: pointer;
 }

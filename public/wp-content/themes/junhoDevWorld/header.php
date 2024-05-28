@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html <?php language_attributes(); ?> data-theme="dark">
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
@@ -21,9 +21,10 @@
             </a>
 
             <div class="header__nav">
+                <!-- nav--open -> open the navigation tab in small screen size-->
                 <nav class="nav">
                     <!-- hamburger menu (visible only in a small screen) -->
-                    <button class="nav__togglebtn">
+                    <button class="iconbtn nav__togglebtn">
                         <span class="menuicon">
                             <span class="menuicon__bar"></span>
                             <span class="menuicon__bar"></span>
@@ -35,9 +36,9 @@
                     <!-- 01 Home, 02 writing ... -->
                     <div class="nav__content">
                         <ul class="nav__menu" id="nav__menu">
-                            <li class="nav__item nav__item--active"><a class="nav__link" href=""><span class="nav__num">01</span> home</a>
+                            <li class="nav__item"><a class="nav__link" href=""><span class="nav__num">01</span> home</a>
                             </li>
-                            <li class="nav__item"><a class="nav__link" href=""><span class="nav__num">02</span>
+                            <li class="nav__item nav__item--active"><a class="nav__link" href=""><span class="nav__num">02</span>
                                     writing</a></li>
                             <li class="nav__item"><a class="nav__link" href=""><span class="nav__num">03</span>
                                     notes</a></li>

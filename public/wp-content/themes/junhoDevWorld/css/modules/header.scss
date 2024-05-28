@@ -59,14 +59,23 @@
     content: "";
     display: block;
     height: 5px;
+    background-color: var(--color-border);
     position: absolute;
     left: 1.25rem;
     right: 1.25rem;
     bottom: -5px;
+    transform: scaleX(0);
     transform-origin: 0 50%;
-    transform: transform .3s cubic-bezier(.86, 0, .07, 1);
-    background-color: black;
+    transition: transform .3s cubic-bezier(.86, 0, .07, 1);
+}
+
+.nav__item:hover::after {
+    transform: scaleX(1);
+}
+
+.nav__item--active::after {
     background-color: var(--color-primary);
+    transform: scaleX(1);
 }
 
 
@@ -87,4 +96,209 @@
     display: block;
     margin-right: .375rem;
     font-weight: 700;
+}
+
+
+// hamburger menu
+.iconbtn {
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    color: var(--color-text);
+    background-color: var(--color-bg-offset);
+}
+
+.menuicon {
+    display: block;
+    width: 24px;
+    height: 16px;
+    position: relative;
+    cursor: pointer;
+    margin: 0 auto;
+    transform: translate(0, -1px) rotate(0);
+    transition-duration: .3s cubic-bezier(.165, .84, .44, 1);
+}
+
+
+.menuicon__bar {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: currentColor;
+    left: 0;
+    transform: rotate(0);
+    transition: transform .25s ease-in-out;
+}
+
+.menuicon__bar:first-child {
+    top: 0;
+}
+
+.menuicon__bar:nth-child(2), .menuicon__bar:nth-child(3) {
+    top: 50%;
+}
+
+.menuicon__bar:last-child {
+    top: 100%;
+}
+
+.nav--open .menuicon {
+    transform: translate(-1px, 0) rotate(270deg);
+}
+
+.nav--open .menuicon .menuicon__bar:first-child {
+    width: 0;
+    top: 50%;
+    left: 50%;
+}
+
+
+.nav--open .menuicon .menuicon__bar:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+
+.nav--open .menuicon .menuicon__bar:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.nav--open .menuicon .menuicon__bar:last-child {
+    width: 0;
+    top: 50%;
+    left: 50%;
+}
+
+.nav--open .nav__togglebtn {
+    border-radius: .3rem;
+}
+
+.nav__bg {
+    position: fixed;
+    z-index: 99;
+    top: 5.125rem;
+    right:  5%;
+    height: 4px;
+    width: 4px;
+    transform: translate(-22px, 22px);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.nav__bg__circle {
+    display: flex;
+    width: calc(100vw * 4);
+    height:calc(100vw * 4);
+    position: absolute;
+    top: calc(100vw * -2);
+    left:calc(100vw * -2);
+    transform: scale(0);
+    background-color: var(--color-bg-darker);
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+    transition: transform .4s cubic-bezier(.755, .05, .855, .06);
+    will-change: transform;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+
+    56% {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+// Media queries for responsisve screen
+@media (max-width: 939px) {
+    .nav__menu {
+        flex-direction: column;
+        justify-content: center;
+        flex: 1 0 auto;
+        opacity: 0;
+        transform: translateY(1.5rem);
+        transition: opacity .5s linear .25s transform .5s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .nav__content {
+        display: none;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        
+    }
+
+    .nav__togglebtn {
+        display: flex;
+        position: relative;
+        z-index: 101;
+    }
+
+
+    .nav__item {
+        padding: 0 15%;
+        font-family: var(--font-family-display);
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+        color: #fff;
+    }
+
+    .nav--open .nav__item::after {
+        height: 13px;
+    }
+
+    .nav__link {
+        padding: 1.5rem;
+        text-transform: none;
+        color: #fff !important;
+    }
+
+    .nav--open .nav__content {
+        display: flex;
+        animation-name: fade-in;
+        animation-duration: .9s;
+    }
+
+    .nav--open .nav__menu {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav--open .nav__bg__circle {
+        transform: scale(1);
+    }
+
+    .nav--open .nav__bg {
+        visibility: visible;
+    }
+}
+
+
+@media (max-width: 670px) {
+    .header {
+        padding: 1rem 0;
+    }
+
+    .nav__bg {
+        top: 3.9rem;
+    }
 }

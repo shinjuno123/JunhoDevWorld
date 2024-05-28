@@ -1,5 +1,6 @@
 [data-theme='dark'] {
     --color-bg: #191919;
+    --color-bg-darker: #0C0C0C;
     --color-bg-offset: #252526;
     --color-text: #ffffff;
     --color-text-offset: #818a91;
@@ -7,4 +8,8 @@
     --color-primary: #E3651D;
     --color-primary-offset: #E3651D;
     --color-secondary: #BED754;
+}
+
+[data-font='normal'] {
+
 }
