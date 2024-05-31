@@ -1,3 +1,5 @@
 .scroll__disable {
-    overflow: hidden;
+    position: fixed;
+    overflow-y:scroll;
+    width: 100%;
 }

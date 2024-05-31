@@ -1,11 +1,13 @@
 // 3rd party
 @import "../node_modules/normalize.css/normalize.css";
 
+
+@import "base/screen.scss";
+@import "base/event.scss";
+@import "base/theme.scss";
 @import "modules/header.scss";
 @import "modules/layout.scss";
-@import "modules/theme.scss";
 @import "modules/intro.scss";
-@import "base/event.scss";
 
 
 a {
@@ -17,6 +19,11 @@ dl, ol, ul {
     margin: 0;
     list-style-type: none;
 }
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
 
 body {
     background-color: var(--color-bg);

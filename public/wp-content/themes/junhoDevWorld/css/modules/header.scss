@@ -181,7 +181,7 @@
 .nav__bg {
     position: fixed;
     z-index: 99;
-    top: 5.125rem;
+    top: 3.125rem;
     right:  5%;
     height: 4px;
     width: 4px;
@@ -228,7 +228,7 @@
 
 
 // Media queries for responsisve screen
-@media (max-width: 939px) {
+@media (max-width: $medium-screen) {
     .nav__menu {
         flex-direction: column;
         justify-content: center;
@@ -256,6 +256,7 @@
         position: relative;
         z-index: 101;
     }
+
 
 
     .nav__item {
@@ -297,12 +298,12 @@
 }
 
 
-@media (max-width: 670px) {
+@media (max-width: $small-screen) {
     .header {
         padding: 1rem 0;
     }
 
     .nav__bg {
-        top: 3.9rem;
+        top: 1rem;
     }
 }
