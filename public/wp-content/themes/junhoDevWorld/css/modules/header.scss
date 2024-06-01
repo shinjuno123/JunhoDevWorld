@@ -17,6 +17,14 @@
     font-weight: 700;
 }
 
+.header__brand:hover {
+    color: var(--color-text);
+}
+
+.header__brand:hover > .header__info > :not(.header__verification) {
+    color: var(--color-primary);
+}
+
 .header__avatar {
     display: block;
     width: 3rem;
@@ -36,6 +44,7 @@
     padding: .15em .35em;
     border-radius: .3rem;
     font-size: .7rem;
+    color: var(--color-bg-offset);
 }
 
 .nav {
