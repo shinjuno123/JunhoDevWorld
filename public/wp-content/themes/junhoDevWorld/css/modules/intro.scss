@@ -9,7 +9,7 @@
     flex: 1 0 auto;
     flex-direction: column;
     justify-content: center;
-    padding: 2rem 0 4rem;
+    padding: 0 0 4rem;
 }
 
 .intro__inner {
@@ -37,7 +37,7 @@
 
 .intro__title {
     display: block;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     line-height: 1;
     margin-bottom: .33em;
     margin-block-start: 0px;
@@ -66,12 +66,12 @@
 @media (min-width: $medium-screen) {
     .intro {
         min-height: 500px;
-    }   
+    }
 }
 
 @media (min-width: $small-screen) {
     .intro__title {
-        font-size: 5.875rem;
+        font-size: 4rem;
     }
 
     .intro__content {

@@ -4,7 +4,7 @@
     <div class="intro">
         <!-- Intro section -->
         <div class="intro__inner">
-            <h1 class="intro__title">I do Web Development</h1>
+            <h1 class="intro__title">I do Software Development</h1>
             <p class="intro__pretitle">
                 <a href="/">Hello, my name is Junho</a>
             </p>
