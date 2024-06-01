@@ -8,9 +8,9 @@
     --color-primary: #E3651D;
     --color-primary-offset: #b14a0e;
     --color-secondary: #BED754;
+    --text-color: #fff;
 }
 
 [data-font='normal'] {
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    font-style: normal;
+    --font-family-display:  "Merriweather", serif;
 }

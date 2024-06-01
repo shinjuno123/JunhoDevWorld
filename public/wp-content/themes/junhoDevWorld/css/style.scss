@@ -8,10 +8,21 @@
 @import "modules/header.scss";
 @import "modules/layout.scss";
 @import "modules/intro.scss";
+@import "modules/featured-posts.scss";
+@import "modules/footer.scss";
 
 
 a {
     text-decoration: none;
+    color: var(--color-primary)
+}
+
+a:hover {
+    color: var(--color-primary-offset)
+}
+
+strong {
+    box-sizing: inherit;
 }
 
 dl, ol, ul {
@@ -29,6 +40,7 @@ body {
     background-color: var(--color-bg);
     color: var(--color-text);
     overflow-x: hidden;
+    font-family: var(--font-family-display);
 }
 
 *, ::after, ::before {
