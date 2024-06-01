@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> data-theme="dark">
+<html <?php language_attributes(); ?> data-theme="dark" data-font="normal">
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
@@ -36,9 +36,9 @@
                     <!-- 01 Home, 02 writing ... -->
                     <div class="nav__content">
                         <ul class="nav__menu" id="nav__menu">
-                            <li class="nav__item"><a class="nav__link" href=""><span class="nav__num">01</span> home</a>
+                            <li class="nav__item nav__item--active"><a class="nav__link" href=""><span class="nav__num">01</span> home</a>
                             </li>
-                            <li class="nav__item nav__item--active"><a class="nav__link" href=""><span class="nav__num">02</span>
+                            <li class="nav__item"><a class="nav__link" href=""><span class="nav__num">02</span>
                                     writing</a></li>
                             <li class="nav__item"><a class="nav__link" href=""><span class="nav__num">03</span>
                                     notes</a></li>
