@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 
 <main class="main container">
-    <div class="blog-page__outer post__open">
+    <!-- Add post__open to see the detail of the selected post -->
+    <div class="blog-page__outer">
         <div class="blog-page">
             <div class="blog-page__header"><span>Writing</span></div>
 
@@ -92,6 +93,7 @@
 
         <?php get_template_part('template-parts/comment'); ?>
     </div>
+
 
 </main>
 

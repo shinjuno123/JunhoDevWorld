@@ -36,16 +36,19 @@
                     <!-- 01 Home, 02 writing ... -->
                     <div class="nav__content">
                         <ul class="nav__menu" id="nav__menu">
-                            <li class="nav__item nav__item--active"><a class="nav__link" href="<?php echo site_url('/'); ?>"><span class="nav__num">01</span> home</a>
+                            <li class="nav__item nav__item--active"><a class="nav__link"
+                                    href="<?php echo site_url('/'); ?>"><span class="nav__num">01</span> home</a>
                             </li>
-                            <li class="nav__item"><a class="nav__link" href="<?php echo get_post_type_archive_link('post'); ?>"><span class="nav__num">02</span>
+                            <li class="nav__item"><a class="nav__link"
+                                    href="<?php echo get_post_type_archive_link('post'); ?>"><span
+                                        class="nav__num">02</span>
                                     writing</a></li>
                             <li class="nav__item"><a class="nav__link" href=""><span class="nav__num">03</span>
                                     notes</a></li>
-                            <li class="nav__item"><a class="nav__link" href=""><span class="nav__num">04</span>
+                            <li class="nav__item"><a class="nav__link" href=""><span
+                                        class="nav__num">04</span>Projects</a></li>
+                            <li class="nav__item"><a class="nav__link" href=""><span class="nav__num">05</span>
                                     about</a></li>
-                            <li class="nav__item"><a class="nav__link" href=""><span class="nav__num">05</span> bible
-                                    notes</a></li>
                         </ul>
                     </div>
 
