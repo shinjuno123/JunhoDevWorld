@@ -1,0 +1,37 @@
+.section__notes {
+    max-width: 45em;
+
+    .notes {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 3rem 0;
+
+        .note {
+            .note__header {
+                display: flex;
+                align-items: center;
+                gap: 0 20px;
+
+                .note-profile__image {
+                    max-width: 3rem;
+                    max-height: 3rem;
+                    border-radius: 50%;
+                }
+
+                .note-profile {
+                    
+                    .note-profile__name {
+                        display: block;
+                        margin-block-end: 5px;
+                    }
+
+                    .note-profile__uploaded {
+                        display: block;
+                    }
+                }
+
+            }
+        }
+    }
+}

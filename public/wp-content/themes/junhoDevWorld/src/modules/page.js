@@ -22,13 +22,15 @@ class Page {
     // Other methods...
     openPost() {
         this.blogPageOuter.classList.add("post__open");
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
 
         // Fetch post details from server
     }
 
     backToPostList() {
         this.blogPageOuter.classList.remove('post__open');
-
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        
         // Fetch a post list from server
     }
 }
