@@ -1,17 +1,33 @@
 .section__notes {
-    max-width: 45em;
+    max-width: 40em;
+    margin: 4rem auto 10rem auto;
+
+    .notes__header {
+        display: block;
+        margin-block-end: 4rem;
+        width: 100%;
+        text-align: center;
+        font-size: 6.5rem;
+    }
 
     .notes {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        gap: 3rem 0;
+        gap: 10rem 0;
 
         .note {
+            position: relative;
+            border: 2px var(--color-bg-offset) solid;
+            border-radius: 20px;
+            padding: 2rem 3rem;
+            box-shadow: 0px 0px 70px var(--color-bg-darker);
+
             .note__header {
                 display: flex;
                 align-items: center;
                 gap: 0 20px;
+                margin-block-end: 4rem;
 
                 .note-profile__image {
                     max-width: 3rem;
@@ -32,6 +48,76 @@
                 }
 
             }
+
+            .note__main {
+                line-height: 2;
+                margin-block-end: 5rem;
+            }
+
+            .note__footer {
+                display: flex;
+                justify-content: space-between;
+
+                .left {
+                    display: flex;
+                    gap: .5rem;
+                    align-items: center;
+
+                    i.fa-solid {
+                        display: none;
+                        opacity: 0;
+                    }
+
+                    i.fa-regular {
+                        cursor: pointer;
+                    }
+                
+
+                    span {
+                        font-size: .7rem;
+                    }
+                }
+
+                .right {
+                    button {
+                        display: flex;
+                        align-items: center;
+                        gap: .5rem;
+                        background-color: transparent;
+                        color: var(--color-text);
+                        border: none;
+
+                        i.fa-solid {
+                            display: none;
+                            opacity: 0;
+                        }
+
+                        i {
+                            font-size: 1rem;
+                        }
+
+                        span {
+                            font-size: .8rem;
+                        }
+                    }
+                }
+            }
+
+
+            ::after {
+                content: "";
+                position: absolute;
+                background-color: var(--color-bg-offset);
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: calc(0% - 10rem - 1px);
+                width: 3px;
+                height: 10rem;
+            }
+
+
         }
+
+
     }
 }
