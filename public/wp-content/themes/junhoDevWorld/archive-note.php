@@ -38,6 +38,8 @@
                         </button>
                     </div>
                 </footer>
+
+                <?php get_template_part('template-parts/note-comment', null, array()); ?>
             </li>
 
             <li class="note">

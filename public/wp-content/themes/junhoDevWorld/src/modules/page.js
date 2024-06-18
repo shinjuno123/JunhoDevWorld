@@ -1,4 +1,4 @@
-class Page {
+export default class Page {
     constructor() {
         this.blogPageOuter = document.querySelector(".main > .blog-page__outer");
         this.postLinks = document.querySelectorAll('.main > .blog-page__outer .post > .post__link');
@@ -34,5 +34,3 @@ class Page {
         // Fetch a post list from server
     }
 }
-
-export default Page;

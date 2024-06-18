@@ -1,4 +1,4 @@
-class Navigation {
+export default class Navigation {
     constructor() {
         this.iconBtn = document.querySelector(".iconbtn");
         this.nav = document.querySelector(".nav");
@@ -29,5 +29,3 @@ class Navigation {
     } 
 
 }
-
-export default Navigation;

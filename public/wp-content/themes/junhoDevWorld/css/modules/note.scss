@@ -57,6 +57,7 @@
             .note__footer {
                 display: flex;
                 justify-content: space-between;
+                margin-block-end: 3rem;
 
                 .left {
                     display: flex;
@@ -99,6 +100,58 @@
                         span {
                             font-size: .8rem;
                         }
+                    }
+                }
+
+            }
+
+            .comment__section {
+                padding: 1rem;
+
+                .comment__header {
+                    font-size: 1rem;
+                    line-height: 2;
+                }
+
+                .comment__header-hr {
+                    border: 1.5px var(--color-bg-offset) solid;
+                    margin-bottom: 1rem;
+                }
+
+                .your-comment {
+                    display: flex;
+                    gap: 1rem;
+                    align-items: center;
+                    margin-block-end: 2rem;
+
+                    img {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        border-radius: 50%;
+                    }
+
+                    .your-comment__textarea {
+                        background-color: var(--color-bg);
+                        color: var(--color-text);
+                        font-size: .8rem;
+                        width: 80%;
+                        max-width: 80%;
+                        height: 2.5rem;
+                        padding: .3rem;
+                    }
+
+                    .your-comment__submit {
+                        font-size: .6rem;
+                        width: 10%;
+                        height: 2.5rem;
+                        background-color: var(--color-bg);
+                        color: var(--color-text);
+                        border: 1px var(--color-text-offset) solid;
+                        border-radius: 5px;
+                    }
+
+                    .your-comment__submit:hover {
+                        border: 1px var(--color-text) solid;
                     }
                 }
             }
