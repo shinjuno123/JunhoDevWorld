@@ -1,0 +1,16 @@
+.project__section {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 0 5rem 0;
+
+
+
+    canvas {
+        position: relative;
+        width: 90%;
+        max-width: $big-screen;
+    }
+
+}

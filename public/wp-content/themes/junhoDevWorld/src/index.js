@@ -5,6 +5,7 @@ import axios from "axios";
 import Navigation from "./modules/navigation";
 import Note from "./modules/notes";
 import Post from "./modules/post";
+import About from "./modules/about";
 
 const currentPage = devworldData['permalink'];
 new Navigation();
@@ -15,4 +16,8 @@ if (currentPage.includes('posts')) {
 
 if (currentPage.includes('note')) {
     new Note();
+}
+
+if(currentPage.includes('about')) {
+    new About();
 }

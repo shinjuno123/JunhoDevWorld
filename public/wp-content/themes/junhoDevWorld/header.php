@@ -50,7 +50,9 @@
                             <li class="nav__item"><a class="nav__link"
                                     href="<?php echo get_post_type_archive_link('project') ?>"><span
                                         class="nav__num">04</span>Projects</a></li>
-                            <li class="nav__item"><a class="nav__link" href=""><span class="nav__num">05</span>
+                            <li class="nav__item"><a class="nav__link"
+                                    href="<?php echo get_post_type_archive_link('about') ?>"><span
+                                        class="nav__num">05</span>
                                     about</a></li>
                         </ul>
                     </div>

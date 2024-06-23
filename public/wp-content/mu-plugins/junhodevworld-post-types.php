@@ -35,6 +35,24 @@ function junhodevworld_post_types() {
             'menu_icon' => 'dashicons-clipboard'
         )
     );
+
+
+    register_post_type(
+        'about',
+        array(
+            'has_archive' => true,
+            'show_in_test' => true,
+            'public' => true,
+            'labels' => array(
+                'name' => 'About',
+                'add_new_item' => 'Add New About',
+                'edit_item' => 'Edit About',
+                'all_items' => 'All Abouts',
+                'singular_name'=>'About'
+            ),
+            'menu_icon' => 'dashicons-id-alt'
+        )
+    );
 }
 
 add_action('init','junhodevworld_post_types');
