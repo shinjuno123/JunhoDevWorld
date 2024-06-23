@@ -1,34 +1,26 @@
 export default class Note {
     constructor() {
         console.log('note is loaded!');
-        this.comments = document.querySelectorAll('.note__footer .right');
+        this.commentIcons = document.querySelectorAll('.note__footer .right');
+        this.commentSections = document.querySelectorAll('.comment__section');
         this.isCommentHidden = true;
         this.event();
     }
 
     event() {
-        this.comments.forEach((comment) => {
-            comment.addEventListener('click', ()=> {
-                if(this.isCommentHidden) {
-                    this.displayComment();
-                } else {
-
-                    this.hideComment();
-                }
-
-                this.isCommentHidden = !this.isCommentHidden;
+        this.commentIcons.forEach((commentIcon, index) => {
+            commentIcon.addEventListener('click', ()=> {
+                const commentSection = this.commentSections[index];
+                this.toggleComment(commentSection);
             });
 
         })
     }
 
 
-    displayComment() {
-
+    toggleComment(commentSection) {
+        commentSection.classList.toggle('open');
     }
 
-    hideComment() {
-
-    }
 
 }

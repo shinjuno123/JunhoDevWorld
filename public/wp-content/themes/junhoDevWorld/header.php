@@ -43,12 +43,12 @@
                                     href="<?php echo get_post_type_archive_link('post'); ?>"><span
                                         class="nav__num">02</span>
                                     writing</a></li>
-                            <li class="nav__item"><a 
-                                    class="nav__link"
-                                     href="<?php echo get_post_type_archive_link('note') ?>"><span 
-                                     class="nav__num">03</span>
+                            <li class="nav__item"><a class="nav__link"
+                                    href="<?php echo get_post_type_archive_link('note') ?>"><span
+                                        class="nav__num">03</span>
                                     notes</a></li>
-                            <li class="nav__item"><a class="nav__link" href=""><span
+                            <li class="nav__item"><a class="nav__link"
+                                    href="<?php echo get_post_type_archive_link('project') ?>"><span
                                         class="nav__num">04</span>Projects</a></li>
                             <li class="nav__item"><a class="nav__link" href=""><span class="nav__num">05</span>
                                     about</a></li>

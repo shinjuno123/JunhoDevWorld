@@ -17,6 +17,24 @@ function junhodevworld_post_types() {
             'menu_icon' => 'dashicons-welcome-write-blog'
         )
     );
+
+
+    register_post_type(
+        'project',
+        array(
+            'has_archive' => true,
+            'show_in_test' => true,
+            'public' => true,
+            'labels' => array(
+                'name' => 'Projects',
+                'add_new_item' => 'Add New Project',
+                'edit_item' => 'Edit Project',
+                'all_items' => 'All Projects',
+                'singular_name'=>'Project'
+            ),
+            'menu_icon' => 'dashicons-clipboard'
+        )
+    );
 }
 
 add_action('init','junhodevworld_post_types');

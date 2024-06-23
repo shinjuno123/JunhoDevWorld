@@ -14,12 +14,16 @@
     <ul class="note-comments">
         <li class="note-comment">
             <img src="<?php echo get_template_directory_uri() ?>/images/myface.jpg" alt="profile-picture">
-            <span>This is awesome!</span>
+            <span>This is awesome! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a finibus nisi. Phasellus congue justo et lectus varius, at vestibulum ipsum dictum. Etiam luctus ac lorem sit amet lobortis. Morbi vestibulum massa non justo bibendum, eget tempor eros porttitor. Fusce vel malesuada purus. Aenean sed velit volutpat, maximus felis sit amet, sagittis orci. Nulla leo libero, maximus ut magna id, mollis pulvinar torto</span>
         </li>
+        <hr>
+
         <li class="note-comment">
             <img src="<?php echo get_template_directory_uri() ?>/images/myface.jpg" alt="profile-picture">
             <span>This is awesome!</span>
         </li>
+
+        <hr>
         <li class="note-comment">
             <img src="<?php echo get_template_directory_uri() ?>/images/myface.jpg" alt="profile-picture">
             <span>This is awesome!</span>
