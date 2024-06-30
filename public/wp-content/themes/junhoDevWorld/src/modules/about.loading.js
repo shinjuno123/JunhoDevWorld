@@ -1,4 +1,4 @@
-import { Application, Assets, Texture, buildGeometryFromPath, Graphics, GraphicsPath, Mesh, Sprite, FillGradient } from 'pixi.js';
+import { Loader,Application, Assets, Texture, buildGeometryFromPath, Graphics, GraphicsPath, Mesh, Sprite, FillGradient } from 'pixi.js';
 
 
 export default class AboutLoading {
@@ -19,6 +19,9 @@ export default class AboutLoading {
             this.section.appendChild(this.app.canvas);
             await this.createBackground();
             await this.createQuestionMarks();
+        } else {
+            await this.createQuestionMarks();
+            this.keyholes = await this.setDynamicBackgroundColor();
         }
     }
 
@@ -48,6 +51,7 @@ export default class AboutLoading {
     async playAnim() {
         if(this.animCount >= 90) {
             this.app.ticker.stop();
+            this.app.stage.removeChildren(0, this.app.stage.children.length - 1);
         }
 
 
@@ -110,7 +114,7 @@ export default class AboutLoading {
                 questionMark.x = (i % 8 == 0) ? (j * 40) + 50 : (j * 40) + 0;
                 questionMark.angle = -90 + (crypto.getRandomValues(new Uint8Array(1))[0] / 255 * 180);
                 questionMark.fill(0xffffff);
-                questionMark.zIndex = 1;
+                questionMark.zIndex = 2;
                 questionMark.alpha = 0.3;
                 this.app.stage.addChild(questionMark);
             }
@@ -215,7 +219,7 @@ export default class AboutLoading {
                     });
 
                     this.app.stage.addChild(mesh);
-                    mesh.zIndex = 1;
+                    mesh.zIndex = 3;
 
                     meshes.push(mesh);
                 }

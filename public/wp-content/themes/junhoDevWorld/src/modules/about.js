@@ -6,7 +6,7 @@ export default class About {
         
         this.playLoading();
 
-        setTimeout(async()=>{await this.playLoading(); console.log("done")},10000);
+        setInterval(async()=>{await this.playLoading(); console.log("done")},10000);
     }
 
     async playLoading() {
