@@ -7,6 +7,7 @@ import Note from "./modules/notes";
 import Post from "./modules/post";
 import About from "./modules/about";
 
+
 const currentPage = devworldData['permalink'];
 new Navigation();
 

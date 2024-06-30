@@ -8,9 +8,33 @@
 
 
     canvas {
-        position: relative;
-        width: 90%;
+        position: fixed;
+        width: 40rem;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 3px;
         max-width: $big-screen;
     }
 
+}
+
+@media (max-width: $medium-screen) {
+    .project__section {
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding: 1.5rem 0 5rem 0;
+    
+    
+    
+        canvas {
+            position: fixed;
+            width: 60%;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 3px;
+            max-width: $big-screen;
+        }
+    }  
 }
