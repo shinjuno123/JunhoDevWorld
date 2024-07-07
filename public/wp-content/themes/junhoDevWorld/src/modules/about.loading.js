@@ -4,7 +4,7 @@ import { Loader,Application, Assets, Texture, buildGeometryFromPath, Graphics, G
 export default class AboutLoading {
     constructor() {
         this.app = new Application();
-        this.section = document.querySelector('.project__section');
+        this.section = document.querySelector('body');
         this.width = 1000;
         this.height = 600;
         this.isInitialized = false;
@@ -25,8 +25,19 @@ export default class AboutLoading {
         }
     }
 
+    display() {
+        this.app.canvas.classList.remove('loading__off');
+        this.app.canvas.classList.add('loading__on');
+    }
+
+    hide() {
+        this.app.canvas.classList.remove('loading__on');
+        this.app.canvas.classList.add('loading__off');      
+    }
+
     async play() {
         await this.setup();
+        this.display();
         this.previousAvg = 0;
 
         this.keyholes.forEach((keyhole) => {
@@ -43,15 +54,16 @@ export default class AboutLoading {
     }
 
     stop() {
-        this.app.ticker.stop();      
+        this.hide();
+        this.app.ticker.stop();
+        this.app.stage.removeChildren(0, this.app.stage.children.length - 1);      
     }
 
     // methods...
 
     async playAnim() {
         if(this.animCount >= 90) {
-            this.app.ticker.stop();
-            this.app.stage.removeChildren(0, this.app.stage.children.length - 1);
+            this.stop();
         }
 
 

@@ -1,0 +1,105 @@
+.project__section > .about__history {
+    flex-direction: column;
+    align-items: center;
+
+
+    .records {
+        background-color: var(--profile-background);
+        box-shadow: 14px 14px 60px -10px rgba(0, 0, 0, 0.3019607843);
+        border-radius: 5px;
+        display: flex;
+
+
+
+        .records__list {
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
+            align-items: center;
+            padding: 2rem 0;
+            
+            .record:nth-child(odd) {
+                .description {
+                    right: 110%;
+                }
+
+                .description::after {
+                    content: '';
+                    position: absolute;
+                    background-color: #468585;
+                    width: 3rem;
+                    
+                }
+            }
+
+            .record:nth-child(even) {
+                .description {
+                    left: 110%;
+                }
+                
+                .description::after {
+                    content: '';
+                    position: absolute;
+                    background-color: #468585;
+                    width: 3rem;
+                    
+                }
+            }
+
+            .record {
+                position: relative;
+                padding: 0 2rem;
+
+                .description {
+                    position: absolute;
+                    width: 20rem;
+                    top: 0;
+                    background-color: #468585;
+                    text-align: center;
+                    padding: 1rem;
+                    border-radius: 2px;
+
+
+                    p {
+
+                    }
+                }
+
+
+    
+            }
+        }
+    }
+
+}
+
+
+@media (max-width: $medium-screen) { 
+
+    .project__section > .about__history {
+        width: 75%;
+
+        .records { 
+            .records__list {
+
+                .record {
+                    padding: 0 .5rem;
+    
+                    .description {
+                        padding: 1rem;
+                        width: 15rem;
+                    }
+    
+        
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: $small-screen) {
+    .project__section > .about__history > .records > .records__list > .record > .description {
+        width: 10rem;
+    }   
+}

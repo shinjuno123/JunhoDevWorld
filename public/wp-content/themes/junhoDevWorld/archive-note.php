@@ -6,7 +6,7 @@
         <span class="notes__header">Notes</span>
         <ul class="notes">
             <li class="note">
-                <header class="note__header">
+                <header class="note__header ">
                     <img class="note-profile__image" src="<?php echo get_template_directory_uri() ?>/images/myface.jpg"
                         alt="">
                     <div class="note-profile">
