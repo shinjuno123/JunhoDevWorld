@@ -8,6 +8,7 @@
         box-shadow: 14px 14px 60px -10px rgba(0, 0, 0, 0.3019607843);
         border-radius: 5px;
         display: flex;
+        position: relative;
 
 
 
@@ -16,39 +17,81 @@
             flex-direction: column;
             gap: 6rem;
             align-items: center;
-            padding: 2rem 0;
+            padding: 1rem 0;
             
             .record:nth-child(odd) {
+                position: relative;
+
+                .record__month-year {
+                    position: relative;
+                    left: 120%;
+                }
+
                 .description {
                     right: 110%;
+                    border-bottom-right-radius: 30%;
+                    border-top-left-radius: 20%;
                 }
 
                 .description::after {
                     content: '';
                     position: absolute;
-                    background-color: #468585;
-                    width: 3rem;
+                    background: rgb(70,133,133);
+                    width: 6%;
+                    height: 3rem;
+                    left: 98%;
+                    top:0;
                     
+                    clip-path: polygon(100% 0, 0 0, 0 25%);
                 }
             }
 
             .record:nth-child(even) {
+                position: relative;
+
+                .record__month-year {
+                    position: relative;
+                    right: 120%;
+                }
+
                 .description {
                     left: 110%;
+                    border-bottom-left-radius: 30%;
+                    border-top-right-radius: 20%;
                 }
                 
                 .description::after {
                     content: '';
                     position: absolute;
-                    background-color: #468585;
-                    width: 3rem;
-                    
+                    background: rgb(70,133,133);
+                    width: 6%;
+                    height: 3rem;
+                    right:98%;
+                    top:0;
+                    clip-path: polygon(100% 0, 0 0, 100% 25%);
+    
                 }
             }
 
             .record {
                 position: relative;
-                padding: 0 2rem;
+                padding: 0 1rem;
+
+                .record__month-year {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: fit-content;
+                    gap: 3px;
+
+                    i {
+                        display: block;
+                    }
+
+                    span {
+                        display: block;
+                    }
+                }
 
                 .description {
                     position: absolute;
@@ -57,20 +100,50 @@
                     background-color: #468585;
                     text-align: center;
                     padding: 1rem;
-                    border-radius: 2px;
-
-
-                    p {
-
-                    }
                 }
+            }
 
-
-    
+            .record::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 1rem;
+                height: 1rem;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(0,0,0,1) 1%, rgba(254,255,0,1) 30%, rgba(0,0,0,1) 100%);
+                border: 1px solid black;
+                z-index: 150;
             }
         }
+
+        .records__list::after {
+            content: '';
+            position: absolute;
+            width: .5rem;
+            height: calc(100% - 3rem);
+            top: 1.5rem;
+            background-color: #FCDC94;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+            animation: grow-up;
+            animation-duration: 2s;
+        }
+
     }
 
+}
+
+@keyframes grow-up {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: calc(100% - 3rem);
+    }
 }
 
 
@@ -86,7 +159,7 @@
                     padding: 0 .5rem;
     
                     .description {
-                        padding: 1rem;
+                        padding: .5rem;
                         width: 15rem;
                     }
     

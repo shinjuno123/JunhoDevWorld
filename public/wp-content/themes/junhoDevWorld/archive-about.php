@@ -57,8 +57,10 @@
         <div class="records">
             <ol class="records__list">
                 <li class="record">
-                    <i class="material-symbols-outlined">school</i>
-                    <span class="record__month-year">03/2014</span>
+                    <span class="record__month-year">
+                        <i class="material-symbols-outlined">school</i>
+                        <span">03/2014</span>
+                    </span>
                     <section class="description">
                         <title>Graduated Middle school</title>
                         <p>Graduated Asan middle school in South Korea.</p>
@@ -66,8 +68,46 @@
                 </li>
 
                 <li class="record">
-                    <i class="material-symbols-outlined">school</i>
-                    <span class="record__month-year">03/2014</span>
+                    <span class="record__month-year">
+                        <i class="material-symbols-outlined">school</i>
+                        <span">03/2014</span>
+                    </span>
+                    <section class="description">
+                        <title>Graduated Middle school</title>
+                        <p>Graduated Asan middle school in South Korea.</p>
+                    </section>
+                </li>
+
+
+                <li class="record">
+                    <span class="record__month-year">
+                        <i class="material-symbols-outlined">school</i>
+                        <span">03/2014</span>
+                    </span>
+                    <section class="description">
+                        <title>Graduated Middle school</title>
+                        <p>Graduated Asan middle school in South Korea.</p>
+                    </section>
+                </li>
+
+
+                <li class="record">
+                    <span class="record__month-year">
+                        <i class="material-symbols-outlined">school</i>
+                        <span">03/2014</span>
+                    </span>
+                    <section class="description">
+                        <title>Graduated Middle school</title>
+                        <p>Graduated Asan middle school in South Korea.</p>
+                    </section>
+                </li>
+
+
+                <li class="record">
+                    <span class="record__month-year">
+                        <i class="material-symbols-outlined">school</i>
+                        <span">03/2014</span>
+                    </span>
                     <section class="description">
                         <title>Graduated Middle school</title>
                         <p>Graduated Asan middle school in South Korea.</p>
@@ -75,32 +115,10 @@
                 </li>
 
                 <li class="record">
-                    <i class="material-symbols-outlined">school</i>
-                    <span class="record__month-year">03/2014</span>
-                    <section class="description">
-                        <title>Graduated Middle school</title>
-                        <p>Graduated Asan middle school in South Korea.</p>
-                    </section>
-                </li>
-                <li class="record">
-                    <i class="material-symbols-outlined">school</i>
-                    <span class="record__month-year">03/2014</span>
-                    <section class="description">
-                        <title>Graduated Middle school</title>
-                        <p>Graduated Asan middle school in South Korea.</p>
-                    </section>
-                </li>
-                <li class="record">
-                    <i class="material-symbols-outlined">school</i>
-                    <span class="record__month-year">03/2014</span>
-                    <section class="description">
-                        <title>Graduated Middle school</title>
-                        <p>Graduated Asan middle school in South Korea.</p>
-                    </section>
-                </li>
-                <li class="record">
-                    <i class="material-symbols-outlined">school</i>
-                    <span class="record__month-year">03/2014</span>
+                    <span class="record__month-year">
+                        <i class="material-symbols-outlined">school</i>
+                        <span">03/2014</span>
+                    </span>
                     <section class="description">
                         <title>Graduated Middle school</title>
                         <p>Graduated Asan middle school in South Korea.</p>
