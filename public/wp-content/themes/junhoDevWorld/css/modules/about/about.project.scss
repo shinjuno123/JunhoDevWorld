@@ -1,0 +1,123 @@
+.glide__arrows {
+
+
+    .glide__arrow--left {
+        left: 0;
+        height: 30%;
+        border: none!important;
+        transition: all .6s ease;
+        width: 4%;
+
+        span {
+            position: relative;
+            transform: translateX(-20%);
+        }
+    }
+
+    .glide__arrow--left:hover {
+        background-color: #009FBD;
+    }
+
+    .glide__arrow--right {
+        right: 0;
+        height: 30%;
+        border: none!important;
+        transition: all .6s ease;
+        width: 4%;
+
+        span {
+            position: relative;
+            transform: translateX(-40%);
+        }
+    }
+
+    .glide__arrow--right:hover {
+        background-color: #009FBD;
+    }
+}
+
+.glide__track {
+    z-index: 200;
+    background-color: #222831;
+
+    .glide__slides {
+        position: relative;
+
+        .glide__slide {
+            display: flex;
+            justify-content: center;
+            padding: 3rem 0;
+
+
+        }
+
+        .slide__wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #31363F;
+            padding: 1.5rem;
+            border-radius: 5px;
+            width: 90%;
+            max-width: 55rem;
+            gap: 1.5rem;
+
+
+            h3 {
+                text-align: center;
+            }
+
+            h4 {
+                text-indent: 5px;
+            }
+
+            p {
+                background-color: #27005D;
+                padding: 1rem;
+                border-radius: 5px;
+            }
+
+            img {
+                position: relative;
+                object-fit: cover;
+                border-radius: 5px
+            };
+
+            ol {
+                position: relative;
+                display: flex;
+                flex-direction: row-reverse;
+                gap: .5rem;
+                flex-wrap: wrap;
+                
+                li {
+                    position: relative;
+                    padding: 5px;
+                    min-width: 50px;
+                    border-radius: 5px;
+                    background-color: #9400FF;
+
+                    span {
+                        position: relative;
+                        display: inline-block;
+                        width: 100%;
+                        text-align: center;
+
+                    }
+                }
+            }
+
+            a {
+                padding: 5px;
+            }
+        }
+    }
+}
+
+
+.project__section > .about__hero_projects {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+

@@ -1,6 +1,7 @@
 // 3rd party
 @import "../node_modules/normalize.css/normalize.css";
-
+@import "../node_modules/@glidejs/glide/src/assets/sass/glide.core.scss";
+@import "../node_modules/@glidejs/glide/src/assets/sass/glide.theme.scss";
 
 @import "base/screen.scss";
 @import "base/event.scss";

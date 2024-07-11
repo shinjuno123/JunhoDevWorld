@@ -6,6 +6,7 @@ import Navigation from "./modules/navigation";
 import Note from "./modules/notes";
 import Post from "./modules/post";
 import About from "./modules/about";
+import Glide from "@glidejs/glide";
 
 
 const currentPage = devworldData['permalink'];
@@ -20,5 +21,11 @@ if (currentPage.includes('note')) {
 }
 
 if(currentPage.includes('about')) {
+    new Glide('.glide', {
+        type: 'carousel',
+        startAt: 0,
+        perView: 1
+    }).mount();
     new About();
+
 }
