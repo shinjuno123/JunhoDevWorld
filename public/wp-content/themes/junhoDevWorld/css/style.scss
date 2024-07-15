@@ -18,8 +18,13 @@
 @import "modules/comment.scss";
 @import "modules/note.scss";
 @import "modules/about/about.scss";
+@import "modules/pagination.scss";
 
 
+span {
+    padding: 0;
+    margin: 0;
+}
 
 a {
     text-decoration: none;

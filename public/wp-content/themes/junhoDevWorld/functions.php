@@ -2,7 +2,6 @@
 
 
 function devworld_files() {
-    //<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     wp_enqueue_script('devworld-main-js', get_theme_file_uri('/build/index.js'), array(),'1.0', true);
     wp_enqueue_style('devworld-main-styles', get_theme_file_uri('/build/style-index.css'));
     wp_enqueue_style('devworld-extra-styles', get_theme_file_uri('/build/index.css'));
