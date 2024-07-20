@@ -1,5 +1,5 @@
 @import "./about.history.scss";
-@import "./about.project.scss";
+@import "./about.skillsummary.scss";
 
 canvas {
     position: fixed;
@@ -24,50 +24,10 @@ canvas.loading__off {
     display: none;
 }
 
-section.local-page.current-page {
-    display: flex;
-}
-
-section.local-page {
-    display: none;
-}
 
 
-.project__section.screen-max {
-    position: fixed;
-    bottom: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    padding: 0;
-    width: 100%;
-    background-color: #102C57;
-    min-height: 100vh;
-    top: 0;
-    z-index: 102;
 
-}
 
-.project__section-fullscreen-btn {
-    position: fixed;
-    right: 10%;
-    top: 15%;
-    color: rgba(255, 255, 255, .5);
-    background-color: rgba(0, 0, 0, 0.4);
-    border: none;
-    padding: .5rem;
-    border-radius: 5px;
-    transition: all 2s ease;
-    z-index: 200;
-    
-    i {
-        font-size: 2.5rem;
-    }
-}
-
-.project__section-fullscreen-btn:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: rgba(255, 255, 255, .7);
-}
 
 .loading-cover {
     position: fixed;
@@ -83,87 +43,78 @@ section.local-page {
 
 .loading-cover.visible {
     display: block;
-    opacity:  .7;
+    opacity: .7;
     z-index: 200;
 }
 
 
-.project__section .next-button {
 
-    button {
-        border: none;
-        background: none;
-        transition: background-color .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-        height: 5rem;
-        padding: 1rem;
-        border-radius: 5px;
-    }
 
-    button > i {
-        display: block;
-        transform: rotate(90deg);
-        transition: transform .2s ease;
-        color: #FFF455;
-    }
 
-    button:hover {
-        background-color: #151515;
-    }
 
-    button:hover > i {
-        transform: rotate(90deg) translateX(10px);
-    }
 
-    button > span {
-        display: block;
-        color: white;
-        line-height: 2;
-    }
+.about__section.screen-max {
+    position: fixed;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0;
+    width: 100%;
+    background-color: #102C57;
+    min-height: 100vh;
+    top: 0;
+    z-index: 102;
+
 }
 
-.project__section .button-padding {
-    padding:  7rem;
-}
 
-.project__section .prev-button {
-    button {
-        border: none;
-        background: none;
-        transition: background-color .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-        height: 5rem;
-        padding: 1rem;
-        border-radius: 5px;
-    }
 
-    button > i {
-        display: block;
-        transform: rotate(90deg);
-        transition: transform .2s ease;
-        color: #FFF455;
-    }
-
-    button:hover {
-        background-color: #151515;
-    }
-
-    button:hover > i {
-        transform: rotate(90deg) translateX(-10px);
-    }
-
-    button > span {
-        display: block;
-        color: white;
-    }          
-}
-
-.project__section {
+.about__section {
     width: 100%;
     position: relative;
     display: flex;
     justify-content: center;
     padding: 1.5rem 0 5rem 0;
+    transition: all 1s ease;
 
-   
+    section.local-page.current-page {
+        display: flex;
+    }
+    
+    section.local-page {
+        display: none;
+    }
+
+    .button-padding {
+        padding: 7rem;
+    }
+
+    .about__section-fullscreen-btn {
+        position: fixed;
+        right: 4%;
+        bottom: 4%;
+        color: rgba(255, 255, 255, .5);
+        background-color: rgba(0, 0, 0, 0.4);
+        border: none;
+        padding: .5rem;
+        border-radius: 5px;
+        transition: all 2s ease;
+        z-index: 200;
+        
+    
+        i {
+            font-size: 2.5rem;
+        }
+
+        span {
+            display: block;
+        }
+    }
+
+    .about__section-fullscreen-btn:hover {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: rgba(255, 255, 255, .7);
+    }
 
 
     .about__intro {
@@ -175,7 +126,7 @@ section.local-page {
             font-size: 2.7rem;
             line-height: 2;
         }
-        
+
 
         .card {
             width: 60%;
@@ -204,12 +155,77 @@ section.local-page {
                         box-shadow: 7px 7px 60px -10px rgba(0, 0, 0, 0.7);
                     }
                 }
-                
+
             }
         }
 
         .about__back-to-last {
             padding: 7rem;
+        }
+    }
+
+    .prev-button {
+        button {
+            border: none;
+            background: none;
+            transition: background-color .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            height: 5rem;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        button>i {
+            display: block;
+            transform: rotate(90deg);
+            transition: transform .2s ease;
+            color: #FFF455;
+        }
+
+        button:hover {
+            background-color: #151515;
+        }
+
+        button:hover>i {
+            transform: rotate(90deg) translateX(-10px);
+        }
+
+        button>span {
+            display: block;
+            color: white;
+        }
+    }
+
+
+    .next-button {
+
+        button {
+            border: none;
+            background: none;
+            transition: background-color .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            height: 5rem;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        button>i {
+            display: block;
+            transform: rotate(90deg);
+            transition: transform .2s ease;
+            color: #FFF455;
+        }
+
+        button:hover {
+            background-color: #151515;
+        }
+
+        button:hover>i {
+            transform: rotate(90deg) translateX(10px);
+        }
+
+        button>span {
+            display: block;
+            color: white;
+            line-height: 2;
         }
     }
 }
@@ -224,7 +240,7 @@ section.local-page {
         max-width: $big-screen;
     }
 
-    .project__section {
+    .about__section {
         width: 100%;
         position: relative;
         display: flex;
@@ -235,15 +251,15 @@ section.local-page {
             h1 {
                 font-size: 2rem;
             }
-    
+
             .card {
                 width: 75%;
-                
+
             }
 
-            .card > .card__intro > .card__sentence {
+            .card>.card__intro>.card__sentence {
                 font-size: .75rem;
             }
         }
-    }  
+    }
 }

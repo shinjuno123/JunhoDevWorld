@@ -1,16 +1,17 @@
 import AboutLoading from "./about.loading";
 
+
 export default class About {
-    constructor() {
+    constructor(glide) {
         this.Loading = new AboutLoading();
-        this.aboutSection = document.querySelector('.project__section');
-        this.screenToggleBtn = document.querySelector('.project__section-fullscreen-btn');
+        this.aboutSection = document.querySelector('.about__section');
+        this.screenToggleBtn = document.querySelector('.about__section-fullscreen-btn');
         this.nextButtons = document.querySelectorAll('.next-button');
         this.prevButtons = document.querySelectorAll('.prev-button');
         this.localPages = document.querySelectorAll('.local-page');
         this.currentPageNumber = this.findCurrentPage();
+        this.glide = glide;
         this.event();
-        this.screenToggleBtn.dispatchEvent(new Event('click'));
     }
 
     event() {
@@ -43,7 +44,7 @@ export default class About {
     }
 
     toggleScreenSize(){
-        const maxScreen = document.querySelector('.project__section');
+        const maxScreen = document.querySelector('.about__section');
         maxScreen.classList.toggle('screen-max');
     }
 
@@ -66,6 +67,7 @@ export default class About {
 
         this.localPages[prevPage].classList.remove('current-page');
         this.localPages[this.currentPageNumber].classList.add('current-page');
+        this.glide.mount();
     }
 
     prevPage(){
@@ -77,6 +79,7 @@ export default class About {
 
         this.localPages[prevPage].classList.remove('current-page');
         this.localPages[this.currentPageNumber].classList.add('current-page');
+        this.glide.mount();
     }
     
 }

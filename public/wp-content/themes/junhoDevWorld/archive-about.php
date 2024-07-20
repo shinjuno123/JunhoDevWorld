@@ -2,8 +2,8 @@
 
 <div class="loading-cover"></div>
 
-<section class="project__section">
-    <button class="project__section-fullscreen-btn"><i class="material-symbols-outlined">fullscreen</i></button>
+<section class="about__section">
+    <button class="about__section-fullscreen-btn"><i class="material-symbols-outlined">fullscreen</i><span>Full screen</span></button>
 
     <!-- Page 1 -->
     <?php get_template_part('template-parts/page.intro'); ?>

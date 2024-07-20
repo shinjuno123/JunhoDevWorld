@@ -1,7 +1,16 @@
+.project__page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 0 10rem;
+}
+
+
 .glide__arrows {
 
 
     .glide__arrow--left {
+        position: absolute;
         left: 0;
         height: 30%;
         border: none !important;
@@ -10,7 +19,9 @@
 
         span {
             position: relative;
-            transform: translateX(-20%);
+            display: block;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 
@@ -19,6 +30,7 @@
     }
 
     .glide__arrow--right {
+        position: absolute;
         right: 0;
         height: 30%;
         border: none !important;
@@ -27,7 +39,9 @@
 
         span {
             position: relative;
-            transform: translateX(-40%);
+            display: block;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 
@@ -62,55 +76,82 @@
             max-width: 55rem;
             gap: 1.5rem;
 
+            .slide__background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
 
-            h3 {
-                text-align: center;
-            }
-
-            h4 {
-                text-indent: 5px;
-            }
-
-            p {
-                background-color: #27005D;
-                padding: 1rem;
-                border-radius: 5px;
-            }
-
-            img {
-                position: relative;
-                object-fit: cover;
-                border-radius: 5px
-            }
-
-            ;
-
-            ol {
-                position: relative;
-                display: flex;
-                flex-direction: row-reverse;
-                gap: .5rem;
-                flex-wrap: wrap;
-
-                li {
+                img {
+                    width: 100%;
+                    height: 100%;
                     position: relative;
-                    padding: 5px;
-                    min-width: 50px;
-                    border-radius: 5px;
-                    background-color: #9400FF;
-
-                    span {
-                        position: relative;
-                        display: inline-block;
-                        width: 100%;
-                        text-align: center;
-
-                    }
+                    object-fit: cover;
+                    border-radius: 5px
                 }
             }
 
-            a {
-                padding: 5px;
+            .slide__background::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba($color: #000000, $alpha: .7);
+                border-radius: 5px;
+            }
+
+            .slide__description {
+                z-index: 200;
+
+                h3 {
+                    text-align: center;
+                    line-height: 3;
+                }
+
+                h4 {
+                    text-indent: 5px;
+                    padding: 1.5rem 0;
+                }
+
+                p {
+                    background-color: #27005D;
+                    padding: 1rem;
+                    border-radius: 5px;
+                }
+
+
+
+                ;
+
+                ol {
+                    position: relative;
+                    display: flex;
+                    flex-direction: row-reverse;
+                    gap: .5rem;
+                    flex-wrap: wrap;
+
+                    li {
+                        position: relative;
+                        padding: 5px;
+                        min-width: 50px;
+                        border-radius: 5px;
+                        background-color: #9400FF;
+
+                        span {
+                            position: relative;
+                            display: inline-block;
+                            width: 100%;
+                            text-align: center;
+
+                        }
+                    }
+                }
+
+                a {
+                    padding: 5px;
+                }
             }
         }
     }
@@ -243,19 +284,21 @@
     }
 }
 
-.project__section>.about__hero_projects {
+.hero_projects {
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
-.about__hero_projects {
+.hero_projects {
 
     h1 {
+        text-align: center;
         padding: 5rem;
     }
 
     h2 {
+        text-align: center;
         padding: 5rem;
     }
 }
@@ -266,6 +309,7 @@
         .projects {
             grid-template-columns: repeat(2, 1fr);
             gap: 3rem;
+
             .project {
                 min-height: 16rem;
             }
@@ -279,6 +323,7 @@
         .projects {
             gap: 1rem;
             grid-template-columns: repeat(1, 1fr);
+
             .project {
                 min-height: 10rem;
             }

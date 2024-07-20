@@ -1,0 +1,68 @@
+.about__skill-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .skills {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        background-color: #ECFFE6;
+        color: black;
+        padding: 2rem;
+        max-width: 55rem;
+        width: 80%;
+        border-radius: 5px;
+
+        .skill {
+            position: relative;
+            display: flex;
+            gap: 2.5rem;
+
+            .skill-name {
+                width: 20%;
+                word-break: break-all;
+            }
+
+
+            .skill-level {
+                width: 60%;
+                display: flex;
+                align-items: center;
+                position: relative;
+
+                .skill-level__gauge {
+                    background-color: #FF4C4C;
+                    border-radius: 2px;
+                    height: 4px;
+                    z-index: 100;
+                    animation-name: grow-skill-gauge-up;
+                    animation-duration: 4s;
+                }
+
+            }
+
+            .skill-level::after {
+                content: '';
+                position: absolute;
+                background-color: #40534C;
+                border-radius: 2px;
+                width: 100%;
+                height: 4px;
+            }
+
+            .skill-percent {
+                width: 20%;
+                text-align: end;
+            }
+        }
+    }
+}
+
+
+@keyframes grow-skill-gauge-up {
+    0% {
+        width: 0;
+    }
+}

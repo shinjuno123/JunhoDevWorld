@@ -1,6 +1,12 @@
-.project__section > .about__history {
+.about__section > .about__history {
     flex-direction: column;
     align-items: center;
+
+    h2 {
+        padding: 3rem;
+        line-height: 3;
+        font-size: 2rem;
+    }
 
 
     .records {
@@ -139,12 +145,53 @@
             transform: translateX(-50%);
             border-radius: 5px;
             animation: grow-up;
-            animation-duration: 2s;
+            animation-duration: 5s;
         }
 
     }
 
 }
+
+
+.about__history > .work-experience {
+    max-width: 55rem;
+
+    .experiences {
+
+        .experience {
+            padding: 2rem;
+            background-color: #222831;
+            margin-block-end: 3rem;
+
+            .company-logo {
+                padding: .5rem;
+                border-radius: 5px;
+                text-align: center;
+                background-color: white;
+                margin-block-end: 2rem;
+            }
+
+            .experience-description {
+                h4 {
+                    margin-block-end: 1rem;
+                }
+
+                .experience-description-details > .detail  {
+                    list-style-type: circle;
+                    margin-block-end: 1rem;
+                    list-style-position: inside;
+
+                    p {
+                        display: inline;
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 
 @keyframes grow-up {
     0% {
@@ -159,7 +206,7 @@
 
 @media (max-width: $medium-screen) { 
 
-    .project__section > .about__history {
+    .about__section > .about__history {
         width: 75%;
 
         .records { 
@@ -197,7 +244,7 @@
 }
 
 @media (max-width: $small-screen) {
-    .project__section > .about__history > .records > .records__list > .record > .description {
+    .about__section > .about__history > .records > .records__list > .record > .description {
         width: 10rem;
 
         span {
@@ -212,7 +259,7 @@
     }   
 
 
-    .project__section > .about__history > .records > .records__list > .record {
+    .about__section > .about__history > .records > .records__list > .record {
         padding: 0 .2rem;
 
         .record__month-year {

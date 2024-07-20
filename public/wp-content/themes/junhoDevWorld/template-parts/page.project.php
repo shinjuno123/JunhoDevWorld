@@ -1,14 +1,19 @@
-<section class="about__hero_projects local-page current-page">
-
-    <div class="button-padding prev-button">
-        <button>
-            <i class="material-symbols-outlined">arrow_back_ios</i>
-            <span>Previous page</span>
-        </button>
-    </div>
+<section class="hero_projects local-page">
 
 
-    <h1>Project</h1>
+    <?php
+        $showNextPrevButton = true;
+        if (array_key_exists('show-next-prev-buttons',$args)) {
+            $showNextPrevButton = $args['show-next-prev-buttons'];
+        }
+
+        if ($showNextPrevButton) {
+            get_template_part('template-parts/previous-page-btn');
+        }
+    ?>
+
+
+    <h1>Amazing Projects!</h1>
 
     <div class="glide">
 
@@ -16,146 +21,164 @@
             <ul class="glide__slides">
                 <li class="glide__slide">
                     <div class="slide__wrapper">
-                        <h3>Portfolio Website V1</h3>
-                        <img src="<?php echo get_template_directory_uri() ?>/images/example-project.png?" alt="">
-                        <h4>Project Summary</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                            est laborum.</p>
-                        <h4>Skills</h4>
-                        <ol>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                        </ol>
-                        <h4>URL</h4>
-                        <a
-                            href="https://github.com/shinjuno123/portfolio-management-client">https://github.com/shinjuno123/portfolio-management-client</a>
+                        <div class="slide__background">
+                            <img src="<?php echo get_template_directory_uri() ?>/images/example-project.png?" alt="">
+                        </div>
+
+                        <div class="slide__description">
+                            <h3>Portfolio Website V1</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+                            <h4>Skills</h4>
+                            <ol>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                            </ol>
+                            <h4>URL</h4>
+                            <a
+                                href="https://github.com/shinjuno123/portfolio-management-client">https://github.com/shinjuno123/portfWolio-management-client</a>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li class="glide__slide">
+                    <div class="slide__wrapper">
+                        <div class="slide__background">
+                            <img src="<?php echo get_template_directory_uri() ?>/images/example-project.png?" alt="">
+                        </div>
+
+                        <div class="slide__description">
+                            <h3>Portfolio Website V1</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+                            <h4>Skills</h4>
+                            <ol>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                            </ol>
+                            <h4>URL</h4>
+                            <a
+                                href="https://github.com/shinjuno123/portfolio-management-client">https://github.com/shinjuno123/portfWolio-management-client</a>
+                        </div>
                     </div>
                 </li>
 
                 <li class="glide__slide">
                     <div class="slide__wrapper">
-                        <h3>Portfolio Website V1</h3>
-                        <img src="<?php echo get_template_directory_uri() ?>/images/example-project.png?" alt="">
-                        <h4>Project Summary</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                            est laborum.</p>
-                        <h4>Skills</h4>
-                        <ol>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                        </ol>
-                        <h4>URL</h4>
-                        <a
-                            href="https://github.com/shinjuno123/portfolio-management-client">https://github.com/shinjuno123/portfolio-management-client</a>
-                    </div>
-                </li>
-                <li class="glide__slide">
-                    <div class="slide__wrapper">
-                        <h3>Portfolio Website V1</h3>
-                        <img src="<?php echo get_template_directory_uri() ?>/images/example-project.png?" alt="">
-                        <h4>Project Summary</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                            est laborum.</p>
-                        <h4>Skills</h4>
-                        <ol>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                        </ol>
-                        <h4>URL</h4>
-                        <a
-                            href="https://github.com/shinjuno123/portfolio-management-client">https://github.com/shinjuno123/portfolio-management-client</a>
-                    </div>
-                </li>
-                <li class="glide__slide">
-                    <div class="slide__wrapper">
-                        <h3>Portfolio Website V1</h3>
-                        <img src="<?php echo get_template_directory_uri() ?>/images/example-project.png?" alt="">
-                        <h4>Project Summary</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                            est laborum.</p>
-                        <h4>Skills</h4>
-                        <ol>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                            <li><span class="material-symbols-outlined">html</span></li>
-                        </ol>
-                        <h4>URL</h4>
-                        <a
-                            href="https://github.com/shinjuno123/portfolio-management-client">https://github.com/shinjuno123/portfolio-management-client</a>
+                        <div class="slide__background">
+                            <img src="<?php echo get_template_directory_uri() ?>/images/example-project.png?" alt="">
+                        </div>
+
+                        <div class="slide__description">
+                            <h3>Portfolio Website V1</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+                            <h4>Skills</h4>
+                            <ol>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                            </ol>
+                            <h4>URL</h4>
+                            <a
+                                href="https://github.com/shinjuno123/portfolio-management-client">https://github.com/shinjuno123/portfWolio-management-client</a>
+                        </div>
                     </div>
                 </li>
 
+                <li class="glide__slide">
+                    <div class="slide__wrapper">
+                        <div class="slide__background">
+                            <img src="<?php echo get_template_directory_uri() ?>/images/example-project.png?" alt="">
+                        </div>
+
+                        <div class="slide__description">
+                            <h3>Portfolio Website V1</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                                est laborum.</p>
+                            <h4>Skills</h4>
+                            <ol>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                                <li><span class="material-symbols-outlined">html</span></li>
+                            </ol>
+                            <h4>URL</h4>
+                            <a
+                                href="https://github.com/shinjuno123/portfolio-management-client">https://github.com/shinjuno123/portfWolio-management-client</a>
+                        </div>
+                    </div>
+                </li>
 
             </ul>
         </div>
@@ -174,7 +197,7 @@
         </div>
     </div>
 
-    <h2>Project list</h2>
+    <h2>Check my other projects!</h2>
 
     <div class="project-list">
         <ul class="projects">
@@ -364,10 +387,9 @@
 
 
 
-    <div class="button-padding next-button">
-        <button>
-            <span>Next page</span>
-            <i class="material-symbols-outlined">arrow_forward_ios</i>
-        </button>
-    </div>
+    <?php 
+        if ($showNextPrevButton) {
+            get_template_part('template-parts/next-page-btn');
+        }
+    ?>
 </section>
