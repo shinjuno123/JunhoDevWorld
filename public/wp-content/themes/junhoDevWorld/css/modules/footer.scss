@@ -3,7 +3,9 @@
     flex-wrap: nowrap;
     font-size: .875rem;
     padding: 2rem 0;
-    border-top: 1px solid var(--color-bg-offset);
+    border-top: 1px solid var(--secondary-color);
+    background-color: var(--primary-color);
+    color: var(--reversed-text-color);
 }
 
 .footer__inner {
@@ -23,13 +25,12 @@
 }
 
 .footer a {
-    color: var(--text-color);
     text-decoration: underline;
 }
 
 .footer a:hover {
-    color: var(--text-color);
-    text-decoration-color: var(--color-bg-offset);
+    color: var(--supplementary-color1);
+    text-decoration-color: var(--supplementary-color1);
 }
 
 @media (min-width: 940px) {

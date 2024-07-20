@@ -12,6 +12,17 @@
     --profile-background: rgba(64, 93, 114, 1);
 }
 
+[data-theme='metallic-chic'] {
+    --primary-color: #3d52a0;
+    --secondary-color: #7091e6;
+    --supplementary-color1: #8697c4;
+    --supplementary-color2: #adbbda;
+    --background-coolor: #ede8f5;
+    --text-color: #0C0C0C;
+    --reversed-text-color: #ede8f5;
+}
+
+
 [data-font='normal'] {
     --font-family-display:  "Merriweather", serif;
 }

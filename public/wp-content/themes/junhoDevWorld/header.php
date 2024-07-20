@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> data-theme="dark" data-font="normal">
+<html <?php language_attributes(); ?> data-theme="metallic-chic" data-font="normal">
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
