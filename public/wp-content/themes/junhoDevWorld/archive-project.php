@@ -2,7 +2,7 @@
 
 <section class="project__page">
     <?php
-        get_template_part('template-parts/page.project', null, array(
+        get_template_part('template-parts/pages/page.project', null, array(
             'show-next-prev-buttons' => false
         )
         );

@@ -91,7 +91,7 @@
             </div>
         </div>
 
-        <?php get_template_part('template-parts/comment'); ?>
+        <?php get_template_part('template-parts/components/component.comment'); ?>
     </div>
 
 

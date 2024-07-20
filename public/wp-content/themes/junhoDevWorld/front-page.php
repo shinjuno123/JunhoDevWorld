@@ -9,7 +9,7 @@
                 <a href="/">Hello, my name is Junho</a>
             </p>
             <div class="intro__content">
-                <p>I’m a Backend IT Support, Quality Assuarance, Quality Control and Developer, specialized in Web. I
+                <p>I’m a Software Engineer, Quality Assuarance, Quality Control and Full stack development, specialized in Web. I
                     also write about the web on my blog and elsewhere.</p>
             </div>
         </div>

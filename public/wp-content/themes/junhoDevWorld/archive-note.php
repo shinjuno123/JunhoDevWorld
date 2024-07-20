@@ -39,7 +39,7 @@
                     </div>
                 </footer>
 
-                <?php get_template_part('template-parts/note-comment', null, array()); ?>
+                <?php get_template_part('template-parts/components/component.note-comment', null, array()); ?>
             </li>
 
             <li class="note">
@@ -74,7 +74,7 @@
                     </div>
                 </footer>
 
-                <?php get_template_part('template-parts/note-comment', null, array()); ?>
+                <?php get_template_part('template-parts/components/component.note-comment', null, array()); ?>
             </li>
 
 

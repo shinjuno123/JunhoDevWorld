@@ -8,7 +8,7 @@
         }
 
         if ($showNextPrevButton) {
-            get_template_part('template-parts/previous-page-btn');
+            get_template_part('template-parts/components/component.previous-page-btn');
         }
     ?>
 
@@ -389,7 +389,7 @@
 
     <?php 
         if ($showNextPrevButton) {
-            get_template_part('template-parts/next-page-btn');
+            get_template_part('template-parts/components/component.next-page-btn');
         }
     ?>
 </section>

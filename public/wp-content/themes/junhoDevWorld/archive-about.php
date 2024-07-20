@@ -6,16 +6,16 @@
     <button class="about__section-fullscreen-btn"><i class="material-symbols-outlined">fullscreen</i><span>Full screen</span></button>
 
     <!-- Page 1 -->
-    <?php get_template_part('template-parts/page.intro'); ?>
+    <?php get_template_part('template-parts/pages/page.intro'); ?>
 
     <!-- Page 2 -->
-    <?php get_template_part('template-parts/page.history'); ?>
+    <?php get_template_part('template-parts/pages/page.history'); ?>
 
     <!-- Page 3 -->
-    <?php get_template_part('template-parts/page.project'); ?>
+    <?php get_template_part('template-parts/pages/page.project'); ?>
 
     <!-- Page 4 -->
-    <?php get_template_part('template-parts/page.skillsummary'); ?>
+    <?php get_template_part('template-parts/pages/page.skillsummary'); ?>
 
 
 </section>

@@ -1,6 +1,6 @@
 <section class="about__history local-page">
 
-    <?php get_template_part('template-parts/previous-page-btn'); ?>
+    <?php get_template_part('template-parts/components/component.previous-page-btn'); ?>
 
     <h2>History</h2>
 
@@ -171,5 +171,5 @@
 
 
 
-    <?php get_template_part('template-parts/next-page-btn'); ?>
+    <?php get_template_part('template-parts/components/component.next-page-btn'); ?>
 </section>

@@ -1,5 +1,5 @@
 <section class="about__intro local-page current-page">
-    <?php get_template_part('template-parts/previous-page-btn'); ?>
+    <?php get_template_part('template-parts/components/component.previous-page-btn'); ?>
 
     <h1>Who am I</h1>
     <div class="card">
@@ -23,5 +23,5 @@
         </div>
     </div>
 
-    <?php get_template_part('template-parts/next-page-btn'); ?>
+    <?php get_template_part('template-parts/components/component.next-page-btn'); ?>
 </section>
