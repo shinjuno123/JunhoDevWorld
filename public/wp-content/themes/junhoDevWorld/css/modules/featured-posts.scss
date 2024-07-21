@@ -40,7 +40,6 @@
     position: relative;
     border-radius: .5rem;
     overflow: hidden;
-    background-color: var(--color-bg-offset);
     box-shadow: 14px 14px 60px -10px rgba(0, 0, 0, 0.3019607843);
     transition: transform .2s ease;
     cursor: pointer;
@@ -71,7 +70,7 @@
     right: 0;
     overflow: hidden;
     border-radius: .5rem;
-    color: #fff;
+    color: var(--reversed-text-color);
     padding: 1rem;
     background-image: var(--gradient-full);
 }
@@ -82,7 +81,7 @@
     -webkit-hyphens: auto;
     hyphens: auto;
     display: block;
-    color: #fff !important;
+    color: var(--reversed-text-color)!important;
 }
 
 .featured-post__title {

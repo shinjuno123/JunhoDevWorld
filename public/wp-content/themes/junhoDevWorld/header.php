@@ -13,7 +13,7 @@
         <div class="header__inner container">
             <!-- Profile image with a name -->
             <a class="header__brand" href="/">
-                <img class="header__avatar" src="" alt="">
+                <img class="header__avatar" src="<?php echo get_template_directory_uri() ?>/images/myface.jpg" alt="">
                 <span class="header__info">
                     <span>Junho Shin</span>
                     <span class="header__verification"><i class="fa-solid fa-check"></i></span>

@@ -10,9 +10,9 @@
 
 .blog-page {
     display: block;
-    border: 1px var(--color-border) solid;
+    border: 1px var(--secondary-color) solid;
     border-radius: 20px;
-    box-shadow: 0px 0px 70px var(--color-bg-darker);
+    box-shadow: 0px 0px 70px var(--primary-color);
     margin: 3.5em 0;
     padding-top: 5.5rem;
     width: 45em;
@@ -44,7 +44,7 @@
 .post {
     display: block;
     margin-block-end: 5.5rem;
-    border-bottom: 1px var(--color-border) solid;
+    border-bottom: 1px var(--supplementary-color2) solid;
     padding-bottom: 1.5rem;
 }
 
@@ -54,19 +54,19 @@
     font-size: 2rem;
     font-weight: bold;
     margin-block-end: .2em;
-    color: var(--color-primary);
+    color: var(--primary-color);
     cursor: pointer;
 }
 
 .post__link:hover {
-    color: var(--color-primary-offset);
+    color: var(--secondary-color);
 }
 
 .post__date-category {
     display: block;
     font-size: 1rem;
     margin-block-end: 2em;
-    color: var(--color-text-offset);
+    color: var(--primary-color);
     letter-spacing: 1.3px;
 }
 
@@ -133,7 +133,7 @@
         margin-block-end: 15rem;
 
         hr {
-            border-color: var(--color-border);
+            border: 1px var(--supplementary-color2) solid!important;
             margin-block-end: 2rem;
             animation-name: fade-in;
             animation-duration: .9s;
@@ -148,7 +148,7 @@
     }
 
     .selected-post__info {
-        color: var(--color-text-offset);
+        color: var(--primary-color);
         animation-name: fade-in;
         animation-duration: .7s;
 
@@ -169,13 +169,13 @@
             position: relative;
             display: inline;
             background-color: transparent;
-            color: var(--color-primary);
+            color: var(--primary-color);
             border: none;
             padding: 0;
         }
 
         .btn__back-to-post-list:hover {
-            color: var(--color-primary-offset);
+            color: var(--secondary-color);
 
             i {
                 transform: translateX(5px);

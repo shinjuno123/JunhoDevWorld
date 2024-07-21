@@ -6,7 +6,7 @@
         <div class="intro__inner">
             <h1 class="intro__title">I do Software Development</h1>
             <p class="intro__pretitle">
-                <a href="/">Hello, my name is Junho</a>
+                <a href="<?php echo get_post_type_archive_link('about'); ?>">Hello, my name is Junho</a>
             </p>
             <div class="intro__content">
                 <p>I’m a Software Engineer, Quality Assuarance, Quality Control and Full stack development, specialized in Web. I
@@ -223,7 +223,7 @@
 
             </ul>
             <p class="featured-posts__footer">
-                <a href="/" class="featured-posts__see-all">
+                <a href="<?php echo get_post_type_archive_link('post'); ?>" class="featured-posts__see-all">
                     See All Posts&nbsp;
                     <i class="fa-solid fa-arrow-right icon"></i>
                 </a>

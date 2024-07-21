@@ -3,7 +3,7 @@
     width: 45rem;
 
     hr {
-        border-color: var(--color-border);
+        border: 1px var(--supplementary-color2) solid!important;
         margin-block-end: 2rem;
         animation-name: fade-in;
         animation-duration: 1.1s;
@@ -38,12 +38,12 @@
             margin: 1rem .5rem;
             border-radius: 5px;
             outline: none;
-            border: 1px var(--color-text) solid;
+            border: 1px var(--supplementary-color1) solid!important;
             padding: .5rem; 
             font-size: .9rem;
             min-height: 3rem;
-            background-color: var(--color-bg);
-            color: var(--color-text);
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
 
         .leave-comment__submit {
@@ -52,9 +52,9 @@
             flex: auto;
             max-width: 4rem;
             border-radius: 5px;
-            border: 1px var(--color-text) solid;
-            background-color: var(--color-bg);
-            color: var(--color-text);
+            border: none;
+            background-color: var(--primary-color);
+            color: var(--reversed-text-color);
             height: 4rem;
             font-size: .9rem;
             letter-spacing: 1.5px;
@@ -62,7 +62,7 @@
         }
 
         .leave-comment__submit:hover {
-            background-color: var(--color-bg-offset);
+            background-color: var(--secondary-color);
         }
     }
 
@@ -92,7 +92,7 @@
                 letter-spacing: 1px;
                 border-radius: 5px;
                 padding: .5rem;
-                border: 1px solid var(--color-text);
+                border: 1px solid var(--supplementary-color1);
             }
         }
     }

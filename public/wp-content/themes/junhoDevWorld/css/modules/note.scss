@@ -18,10 +18,10 @@
 
         .note {
             position: relative;
-            border: 2px var(--color-bg-offset) solid;
+            border: 2px var(--primary-color) solid;
             border-radius: 20px;
             padding: 2rem 3rem;
-            box-shadow: 0px 0px 70px var(--color-bg-darker);
+            box-shadow: 0px 0px 70px var(--secondary-color);
 
             .note__header {
                 display: flex;
@@ -85,7 +85,7 @@
                         align-items: center;
                         gap: .5rem;
                         background-color: transparent;
-                        color: var(--color-text);
+                        color: var(--text-color);
                         border: none;
 
                         i.fa-solid {
@@ -119,7 +119,7 @@
                 }
 
                 .comment__header-hr {
-                    border: 1.5px var(--color-bg-offset) solid;
+                    border: 1px var(--supplementary-color2) solid;
                     margin-bottom: 1rem;
                 }
 
@@ -136,7 +136,7 @@
                     }
 
                     .your-comment__textarea {
-                        background-color: var(--color-bg);
+                        background-color: var(--background-color);
                         color: var(--color-text);
                         font-size: .8rem;
                         width: 80%;
@@ -150,14 +150,15 @@
                         font-size: .6rem;
                         width: 10%;
                         height: 2.5rem;
-                        background-color: var(--color-bg);
-                        color: var(--color-text);
-                        border: 1px var(--color-text-offset) solid;
+                        background-color: var(--primary-color);
+                        color: var(--reversed-text-color);
+                        border: none;
                         border-radius: 5px;
+
                     }
 
                     .your-comment__submit:hover {
-                        border: 1px var(--color-text) solid;
+                        background-color: var(--secondary-color);
                     }
                 }
 
@@ -183,7 +184,7 @@
 
                     hr {
                         width: 100%;
-                        border: 1px var(--color-bg-offset) solid;
+                        border: 1px var(--supplementary-color2) solid;
                     }
                 }
             }
@@ -192,7 +193,7 @@
             ::after {
                 content: "";
                 position: absolute;
-                background-color: var(--color-bg-offset);
+                background-color: var(--supplementary-color2);
                 left: 50%;
                 transform: translateX(-50%);
                 bottom: calc(0% - 10rem - 1px);
@@ -256,20 +257,9 @@
                     .note-comments {
                         font-size: .65rem;
 
-                        .note-comment {
-
-
-                            img {}
-
-
-                            span {}
-                        }
-
-                        hr {}
                     }
 
 
-                    ::after {}
 
 
                 }

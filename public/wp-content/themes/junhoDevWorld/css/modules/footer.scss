@@ -5,7 +5,7 @@
     padding: 2rem 0;
     border-top: 1px solid var(--secondary-color);
     background-color: var(--primary-color);
-    color: var(--reversed-text-color);
+    color: var(--reversed-text-color)!important;
 }
 
 .footer__inner {
@@ -26,6 +26,7 @@
 
 .footer a {
     text-decoration: underline;
+    color: var(--reversed-text-color);
 }
 
 .footer a:hover {
