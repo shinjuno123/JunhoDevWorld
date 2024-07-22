@@ -8,6 +8,7 @@ import Post from "./modules/post";
 import About from "./modules/about";
 import glide from "./modules/glide";
 
+// if (currentPage.includes(''))
 
 const currentPage = devworldData['permalink'];
 new Navigation();

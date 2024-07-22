@@ -1,0 +1,269 @@
+.about__section > .about__history {
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        padding: 3rem;
+        line-height: 3;
+        font-size: 2rem;
+    }
+
+
+    .records {
+        background-color: var(--profile-background);
+        box-shadow: 14px 14px 60px -10px rgba(0, 0, 0, 0.3019607843);
+        border-radius: 5px;
+        display: flex;
+        position: relative;
+
+
+
+        .records__list {
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
+            align-items: center;
+            padding: 1rem 0;
+            
+            .record:nth-child(odd) {
+                position: relative;
+
+                .record__month-year {
+                    position: relative;
+                    left: 120%;
+                }
+
+                .description {
+                    right: 110%;
+                    border-bottom-right-radius: 30%;
+                    border-top-left-radius: 20%;
+                }
+
+                .description::after {
+                    content: '';
+                    position: absolute;
+                    background: rgb(70,133,133);
+                    width: 6%;
+                    height: 3rem;
+                    left: 98%;
+                    top:0;   
+                    clip-path: polygon(100% 0, 0 0, 0 25%);
+                }
+            }
+
+            .record:nth-child(even) {
+                position: relative;
+
+                .record__month-year {
+                    position: relative;
+                    right: 120%;
+                }
+
+                .description {
+                    left: 110%;
+                    border-bottom-left-radius: 30%;
+                    border-top-right-radius: 20%;
+                }
+                
+                .description::after {
+                    content: '';
+                    position: absolute;
+                    background: rgb(70,133,133);
+                    width: 6%;
+                    height: 3rem;
+                    right:98%;
+                    top:0;
+                    clip-path: polygon(100% 0, 0 0, 100% 25%);
+    
+                }
+            }
+
+            .record {
+                position: relative;
+                padding: 0 1rem;
+
+                .record__month-year {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: fit-content;
+                    gap: 5px;
+
+                    i {
+                        display: block;
+                    }
+
+                    span {
+                        display: block;
+                    }
+                }
+
+                .description {
+                    position: absolute;
+                    width: 20rem;
+                    top: 0;
+                    background-color: #468585;
+                    text-align: center;
+                    padding: 1rem;
+
+
+                    span {
+                        font-size: 1rem;
+                        line-height: 2;
+                    }
+
+                    p {
+                        font-size: .8rem;
+                        line-height: 1.5;
+                    }
+                }
+            }
+
+            .record::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 1rem;
+                height: 1rem;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(0,0,0,1) 1%, rgba(254,255,0,1) 30%, rgba(0,0,0,1) 100%);
+                border: 1px solid black;
+                z-index: 150;
+            }
+        }
+
+        .records__list::after {
+            content: '';
+            position: absolute;
+            width: .5rem;
+            height: calc(100% - 3rem);
+            top: 1.5rem;
+            background-color: #FCDC94;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+            animation: grow-up;
+            animation-duration: 5s;
+        }
+
+    }
+
+}
+
+
+.about__history > .work-experience {
+    max-width: 55rem;
+
+    .experiences {
+
+        .experience {
+            padding: 2rem;
+            background-color: #222831;
+            margin-block-end: 3rem;
+
+            .company-logo {
+                padding: .5rem;
+                border-radius: 5px;
+                text-align: center;
+                background-color: white;
+                margin-block-end: 2rem;
+            }
+
+            .experience-description {
+                h4 {
+                    margin-block-end: 1rem;
+                }
+
+                .experience-description-details > .detail  {
+                    list-style-type: circle;
+                    margin-block-end: 1rem;
+                    list-style-position: inside;
+
+                    p {
+                        display: inline;
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@keyframes grow-up {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: calc(100% - 3rem);
+    }
+}
+
+
+@media (max-width: $medium-screen) { 
+
+    .about__section > .about__history {
+        width: 75%;
+
+        .records { 
+            .records__list {
+
+                .record {
+                    padding: 0 .5rem;
+
+                    .record__month-year {
+                        font-size: .8rem;
+                    }
+    
+                    .description {
+                        padding: .5rem;
+                        width: 15rem;
+
+
+                        span {
+                            font-size: .8rem;
+                            line-height: 2;
+                        }
+    
+                        p {
+                            font-size: .5rem;
+                            line-height: 1.5;
+                        }
+                    }
+    
+        
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: $small-screen) {
+    .about__section > .about__history > .records > .records__list > .record > .description {
+        width: 10rem;
+
+        span {
+            font-size: .6rem;
+            line-height: 2;
+        }
+
+        p {
+            font-size: .4rem;
+            line-height: 1.5;
+        }
+    }   
+
+
+    .about__section > .about__history > .records > .records__list > .record {
+        padding: 0 .2rem;
+
+        .record__month-year {
+            font-size: .7rem;
+        }
+    }
+}

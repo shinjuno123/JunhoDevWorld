@@ -1,0 +1,337 @@
+<?php
+
+/**
+ * Utility functions for the admin. All created in as static methods.
+
+ * @package Reactpress
+ * @subpackage Reactpress/admin
+ * @author Marco Laspe <marco@rockiger.com>
+ */
+
+namespace ReactPress\Admin;
+
+
+class Utils {
+
+  /**
+   * Creates options for a new app. If the repr_apps options are not present, it will
+   * create them.
+   */
+
+  public static function add_app_options(string $appname, int $pageId) {
+    $app_options_list = Utils::get_apps();
+    if ($appname && $pageId) {
+      Utils::write_apps_option(Utils::array_add($app_options_list, [
+        'allowsRouting' => false,
+        'appname' => $appname,
+        'pageIds' => [$pageId],
+      ]));
+    }
+  }
+
+  public static function add_pageId_to_app_options(string $appname, int $pageId) {
+    Utils::write_apps_option(array_map(function ($el) use ($appname, $pageId) {
+      if ($el['appname'] === $appname) {
+        $el['pageIds'] = array_unique(Utils::array_add($el['pageIds'], $pageId));
+      }
+      return $el;
+    }, Utils::get_apps()));
+  }
+
+  /**
+   * Creates the path the app, beginning from root of filesystem
+   * or htdocs.
+   *
+   * @param string $appname
+   * @param boolean $relative_to_home_path
+   * @return string
+   * @since 1.0.0
+   */
+  public static function app_path(string $appname, $relative_to_home_path = false): string {
+    $apppath = escapeshellcmd(REPR_APPS_PATH . "/{$appname}");
+    $document_root = $_SERVER['DOCUMENT_ROOT'] ?? rtrim(ABSPATH,  '/') ?? '';
+
+    if ($relative_to_home_path) {
+      return explode($document_root, $apppath)[1];
+    } else {
+      return $apppath;
+    }
+  }
+
+  /**
+   * Creates the url of the app
+   *
+   * @param string $appname
+   * @return string
+   * @since 1.0.0
+   */
+  public static function app_url(string $appname): string {
+    return escapeshellcmd(REPR_APPS_URL . "/{$appname}");
+  }
+
+  /**
+   * Helper function to add an element to an array
+   * without mutationg the original array.
+   *
+   * @param mixed[] $array
+   * @param mixed $entry
+   * @since 1.0.0
+   */
+  public static function array_add($array, $entry) {
+    return array_merge($array, [$entry]);
+  }
+
+  /**
+   * Get the option for the given app name.
+   */
+  public static function get_app_options(string $appname) {
+    return Utils::__get_app_options($appname, Utils::get_apps());
+  }
+  /**
+   * Helper function for get_app_options
+   * @param string $appname
+   * @param mixed[] $app_options_list
+   */
+  public static function __get_app_options($appname, $app_options_list) {
+    $app_options = null;
+    foreach ($app_options_list as $key => $val) {
+      if ($val['appname'] === $appname) {
+        $app_options = $val;
+      }
+    }
+    return $app_options;
+  }
+
+  /**
+   * Add the PUBLIC_URL to start command of package.json of React app. 
+   * This is neccessary that the dev server is working as exspected if 
+   * client-side routing
+   * is used.
+   * @param string $appname
+   * @param string $permalink
+   */
+  public static function set_public_url_for_dev_server(string $appname, string $permalink) {
+    $apppath = Utils::app_path($appname);
+    // We need the relative path, that we can deploy our
+    // build app to another server later.
+    $relative_apppath = Utils::app_path($appname, true);
+    $relative_apppath = $relative_apppath ? $relative_apppath : "/wp-content/reactpress/apps/{$appname}/";
+    $relative_link = wp_make_link_relative($permalink);
+    $path_package_json = "{$apppath}/package.json";
+    $package_json_contents = file_get_contents($path_package_json);
+    $search = "\"react-scripts start\"";
+    $replace = REPR_IS_WINDOWS ? "\"set PUBLIC_URL={$relative_link}&&react-scripts build\"" : "\"PUBLIC_URL=/{$relative_link} react-scripts start\"";
+    if (!$package_json_contents) {
+      return 0;
+    } elseif (stripos($package_json_contents, $replace)) {
+      return 1;
+    } else {
+      file_put_contents(
+        $path_package_json,
+        str_replace($search, $replace, $package_json_contents)
+      );
+      return 2;
+    }
+  }
+
+
+
+  /**
+   * Remove the PUBLIC_URL to start command of package.json of React app. * This is neccessary that the dev server is working as exspected if 
+   * client-side routing
+   * is used.
+   * @param string $appname
+   * @param string $permalink
+   */
+  public static function unset_public_url_for_dev_server(string $appname, string $permalink) {
+    $apppath = Utils::app_path($appname);
+    // We need the relative path, that we can deploy our
+    // build app to another server later.
+    $relative_apppath = Utils::app_path($appname, true);
+    $relative_apppath = $relative_apppath ? $relative_apppath : "/wp-content/reactpress/apps/{$appname}/";
+    $relative_link = wp_make_link_relative($permalink);
+    $path_package_json = "{$apppath}/package.json";
+    $package_json_contents = file_get_contents($path_package_json);
+    $replace = "\"react-scripts start\"";
+    $search = REPR_IS_WINDOWS ? "\"set PUBLIC_URL={$relative_link}&&react-scripts build\"" : "\"PUBLIC_URL=/{$relative_link} react-scripts start\"";
+    if (!$package_json_contents) {
+      return 0;
+    } else {
+      file_put_contents(
+        $path_package_json,
+        str_replace($search, $replace, $package_json_contents)
+      );
+      return 2;
+    }
+  }
+
+  /**
+   * Delete an app slug from an app. Returns the new options list
+   * @param mixed[] $app_options_list
+   * @param string $appname 
+   * @param int $pageId 
+   * @since 2.0.0
+   */
+  public static function delete_page($app_options_list, $appname, $pageId) {
+    $new_app_options_list = Utils::__delete_page($app_options_list, $appname, $pageId);
+    Utils::write_apps_option($new_app_options_list);
+    return $new_app_options_list;
+  }
+  /**
+   * delete_page helper
+   * @param mixed[] $app_options_list
+   * @param string $appname 
+   * @param int $pageId 
+   */
+  public static function  __delete_page($app_options_list, $appname, $pageId) {
+    $new_app_options_list = array_map(function ($app_options) use ($appname, $pageId) {
+      if ($app_options['appname'] === $appname) {
+        $new_app_options = $app_options;
+        $new_app_options['pageIds'] = array_filter(
+          $app_options['pageIds'],
+          fn ($id) => $id !== $pageId
+        );
+        $new_app_options['pages'] = array_filter(
+          $app_options['pages'],
+          fn ($p) => $p['ID'] !== $pageId
+        );
+        return $new_app_options;
+      }
+      return $app_options;
+    }, $app_options_list);
+    return $new_app_options_list;
+  }
+
+  /**
+   * Get all folders in the apps directory and return them as an array
+   *
+   * @since 1.2.0
+   */
+  public static function get_app_names() {
+    // check im reactpress directory exists if not create it
+    wp_mkdir_p(REPR_APPS_PATH);
+    chdir(REPR_APPS_PATH);
+    $appnames = scandir(REPR_APPS_PATH);
+    $appnames = $appnames ? $appnames : [];
+    return array_values(array_filter($appnames, fn ($el) => $el[0] !== '.' && is_dir($el)));
+  }
+
+  /**
+   * Return all apps as an array, enriched with the meta data for pages.
+   * 
+   * [['allowsRouting' => false,
+   *   'appname' => $appname,
+   *   'pageIds' => [100]
+   *   'pages' => ['ID' => 100, 'title' => 'Title', 'permalink' => 'http://...']
+   * ]]
+   *
+   * @since 1.2.0
+   */
+  public static function get_apps() {
+    $app_options = Utils::get_app_options_list();
+    $appnames_from_dir = Utils::get_app_names();
+    return Utils::__get_apps($app_options, $appnames_from_dir);
+  }
+  /**
+   * Helper for get_apps
+   * @param mixed[] $app_options 
+   * @param string[] $appnames_from_dir 
+   * @return array<array-key, mixed> 
+   */
+  public static function __get_apps($app_options, $appnames_from_dir) {
+    // combine apps from directory and from settings to get a complete list
+    // even when the user deletes an app from the directory
+    $appnames_from_opts = array_map(fn ($el) => $el['appname'], $app_options);
+    $appnames = array_unique(array_merge($appnames_from_opts, $appnames_from_dir));
+
+    $apps = array_map(function ($el) use ($app_options) {
+      //# get app option (in a complicated way?)
+      $app_option = array_reduce(
+        $app_options ? $app_options : [],
+        fn ($carry, $item) =>
+        $item['appname'] === $el ? $item : $carry,
+        []
+      );
+      $type = Utils::get_app_type($el);
+      return [
+        'allowsRouting' => $app_option['allowsRouting'] ?? false,
+        'appname' => $el,
+        'pageIds' => $app_option['pageIds'] ?? [],
+        'type' => $type
+      ];
+    }, $appnames);
+
+    //# Enrich the apps with page data
+    $apps_enriched = array_map(function ($app) {
+      $newApp = $app;
+      $newApp['pages'] = array_map(function ($id) {
+        $p = get_post($id);
+        return [
+          'ID' => $p->ID ?? 0,
+          'permalink' => get_permalink($p ? $p : 0),
+          'title' => $p->post_title ?? '',
+        ];
+      }, $app['pageIds']);
+      return $newApp;
+    }, $apps);
+    return $apps_enriched;
+  }
+
+  /**
+   * @param string $appname 
+   * @return 'development_cra' | 'development_vite' | 'deployment_cra' | 'deployment_vite' | 'empty' | 'orphan'
+   */
+  public static function get_app_type($appname) {
+    if (is_file(REPR_APPS_PATH . '/' . $appname . '/package.json')) {
+      $packageJson = json_decode(
+        file_get_contents(REPR_APPS_PATH . '/' . $appname . '/package.json')
+      );
+      $type = (isset($packageJson->devDependencies->vite)) ? 'development_vite' : 'development_cra';
+    } elseif (is_dir(REPR_APPS_PATH . '/' . $appname . '/build')) {
+      $type = 'deployment_cra';
+    } elseif (is_dir(REPR_APPS_PATH . '/' . $appname . '/dist')) {
+      $type = 'deployment_vite';
+    } elseif (is_dir(REPR_APPS_PATH . '/' . $appname)) {
+      $type = 'empty';
+    } else {
+      $type = 'orphan';
+    }
+    return $type;
+  }
+
+  /**
+   * Retrieves the repr_apps option from WordPress if nothing can retrieved,
+   * produces an empty array. 
+   * Usually you should prefer Utils::get_apps().
+   * 
+   * @return mixed[]
+   */
+  public static function get_app_options_list() {
+    return is_array(get_option('repr_apps')) ?  get_option('repr_apps') : [];
+  }
+
+  /**
+   * Removes a rewrite rule from $wp_rewrite->extra_rules_top
+   *
+   * @param $regex the regex given to add_rewrite_rule
+   * @since 2.0.0
+   */
+  public static function remove_rewrite_rule(string $regex) {
+    global $wp_rewrite;
+    unset($wp_rewrite->extra_rules_top[$regex]);
+  }
+
+  /**
+   * Consumes an app list, filters unneccessary information (pages) and
+   * saves it as options.
+   * @param mixed[] $app_list 
+   */
+  public static function write_apps_option($app_list) {
+    $app_list_option = array_map(fn ($el) => [
+      'allowsRouting' => $el['allowsRouting'],
+      'appname' => $el['appname'],
+      'pageIds' => $el['pageIds']
+    ], $app_list);
+    update_option('repr_apps', $app_list_option);
+  }
+}

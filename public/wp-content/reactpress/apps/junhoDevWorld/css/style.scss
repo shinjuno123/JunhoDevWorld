@@ -1,0 +1,55 @@
+// 3rd party
+@import "../node_modules/normalize.css/normalize.css";
+@import "../node_modules/@glidejs/glide/src/assets/sass/glide.core.scss";
+@import "../node_modules/@glidejs/glide/src/assets/sass/glide.theme.scss";
+
+@import "base/screen.scss";
+@import "base/event.scss";
+@import "base/theme.scss";
+@import "base/animation.scss";
+@import "modules/components.scss";
+@import "modules/pages.scss";
+
+span {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color)
+}
+
+a:hover {
+    color: var(--secondary-color)
+}
+
+strong {
+    box-sizing: inherit;
+}
+
+dl, ol, ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    font-family: var(--font-family-display);
+}
+
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+
+button {
+    cursor: pointer;
+}
