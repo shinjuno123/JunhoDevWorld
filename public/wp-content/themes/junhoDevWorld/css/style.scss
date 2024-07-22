@@ -7,20 +7,8 @@
 @import "base/event.scss";
 @import "base/theme.scss";
 @import "base/animation.scss";
-
-@import "modules/header.scss";
-@import "modules/layout.scss";
-@import "modules/intro.scss";
-@import "modules/featured-posts.scss";
-@import "modules/footer.scss";
-@import "modules/page.scss";
-@import "modules/selected-post.scss";
-@import "modules/comment.scss";
-@import "modules/note.scss";
-@import "modules/about/about.scss";
-@import "modules/pagination.scss";
-@import "modules/project.scss";
-
+@import "modules/components.scss";
+@import "modules/pages.scss";
 
 span {
     padding: 0;
