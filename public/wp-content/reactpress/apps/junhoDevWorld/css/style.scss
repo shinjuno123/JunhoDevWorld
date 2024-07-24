@@ -46,6 +46,13 @@ body {
     font-family: var(--font-family-display);
 }
 
+#root {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;   
+}
+
 *, ::after, ::before {
     box-sizing: inherit;
 }

@@ -26,7 +26,12 @@
 }
 
 .header__brand:hover > .header__info > :not(.header__verification) {
-    color: var(--primary-colorr);
+    color: var(--primary-color);
+}
+
+.header__info {
+    display: flex;
+    gap: .5rem;
 }
 
 .header__avatar {
@@ -43,11 +48,17 @@
 }
 
 .header__verification {
+    display: block;
     background-color: var(--primary-color);
-    padding: .15em .35em;
-    border-radius: .3rem;
-    font-size: .7rem;
+    border-radius: .2rem;
+    height: fit-content;
+    width: fit-content;
+    font-size: .3rem;
     color: var(--reversed-text-color);
+
+    span {
+        font-size: 1rem;
+    }
 }
 
 .nav {
