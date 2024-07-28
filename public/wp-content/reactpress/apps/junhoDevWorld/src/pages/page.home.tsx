@@ -9,7 +9,9 @@ export default function Home() {
                     <div className="intro__inner">
                         <h1 className="intro__title">I do Software Development</h1>
                         <p className="intro__pretitle">
-                            <a href="<?php echo get_post_type_archive_link('about'); ?>">Hello, my name is Junho</a>
+                            <Link to="/about">
+                                Hello, my name is Junho&nbsp;
+                            </Link>
                         </p>
                         <div className="intro__content">
                             <p>I’m a Software Engineer, Quality Assuarance, Quality Control and Full stack development, specialized in Web. I
