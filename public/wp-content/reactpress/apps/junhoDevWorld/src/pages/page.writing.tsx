@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Writing() {
   return (
     <>
@@ -11,9 +13,9 @@ export default function Writing() {
             <div className="blog-page__main">
               <ul className="post__list">
                 <li className="post">
-                  <span className="post__link">
-                    <span>Welcome to this website</span>
-                  </span>
+                  <Link to="/posts/1" className="post__link">
+                    <span>Welcome to this website 1</span>
+                  </Link>
                   <p className="post__date-category">01 Jun 2024 - CODE</p>
                   <p className="post__excerpt">
                     I took some time this week to upgrade my site to the newest
@@ -22,9 +24,9 @@ export default function Writing() {
                 </li>
 
                 <li className="post">
-                  <span className="post__link">
-                    <span>Welcome to this website</span>
-                  </span>
+                  <Link to="/posts/1" className="post__link">
+                    <span>Welcome to this website 1</span>
+                  </Link>
                   <p className="post__date-category">01 Jun 2024 - CODE</p>
                   <p className="post__excerpt">
                     I took some time this week to upgrade my site to the newest
@@ -33,9 +35,9 @@ export default function Writing() {
                 </li>
 
                 <li className="post">
-                  <span className="post__link">
-                    <span>Welcome to this website</span>
-                  </span>
+                  <Link to="/posts/1" className="post__link">
+                    <span>Welcome to this website 1</span>
+                  </Link>
                   <p className="post__date-category">01 Jun 2024 - CODE</p>
                   <p className="post__excerpt">
                     I took some time this week to upgrade my site to the newest
@@ -44,9 +46,9 @@ export default function Writing() {
                 </li>
 
                 <li className="post">
-                  <span className="post__link">
-                    <span>Welcome to this website</span>
-                  </span>
+                  <Link to="/posts/1" className="post__link">
+                    <span>Welcome to this website 1</span>
+                  </Link>
                   <p className="post__date-category">01 Jun 2024 - CODE</p>
                   <p className="post__excerpt">
                     I took some time this week to upgrade my site to the newest
@@ -55,9 +57,9 @@ export default function Writing() {
                 </li>
 
                 <li className="post">
-                  <span className="post__link">
-                    <span>Welcome to this website</span>
-                  </span>
+                  <Link to="/posts/1" className="post__link">
+                    <span>Welcome to this website 1</span>
+                  </Link>
                   <p className="post__date-category">01 Jun 2024 - CODE</p>
                   <p className="post__excerpt">
                     I took some time this week to upgrade my site to the newest
@@ -68,8 +70,6 @@ export default function Writing() {
             </div>
           </div>
         </div>
-
-       
       </main>
     </>
   );

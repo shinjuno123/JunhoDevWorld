@@ -46,11 +46,23 @@
 
         .btn__back-to-post-list {
             position: relative;
-            display: inline;
+            display: flex;
+            gap: 4px;
+            justify-content: end;
+            align-items: center;
             background-color: transparent;
             color: var(--primary-color);
             border: none;
             padding: 0;
+
+            span {
+                display: block;
+            }
+
+            i {
+                 display: block;
+                 font-size: 20px;
+            }
         }
 
         .btn__back-to-post-list:hover {
