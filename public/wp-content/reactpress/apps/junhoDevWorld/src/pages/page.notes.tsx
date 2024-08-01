@@ -1,7 +1,10 @@
+import { useRef } from "react";
 import myFace from "../assets/images/myface.jpg";
-
+import NoteComment from "../components/component.note-comments";
 
 export default function Notes() {
+  const noteCommentRef = useRef();
+
   return (
     <>
       <main className="main container">
@@ -29,17 +32,21 @@ export default function Notes() {
 
               <footer className="note__footer">
                 <div className="left">
-                <i className="material-icons fa-regular">favorite_border</i>
+                  <i className="material-icons fa-regular">favorite_border</i>
                   <span> You and 201 people like this</span>
                 </div>
 
                 <div className="right">
-                  <button type="button">
-                  <i className="material-icons fa-comment">chat_bubble_outline</i>
+                  <button type="button" onClick={()=> noteCommentRef.current?.toggleComments()}>
+                    <i className="material-icons fa-comment">
+                      chat_bubble_outline
+                    </i>
                     <span>20</span>
                   </button>
                 </div>
               </footer>
+
+              <NoteComment ref={noteCommentRef}/>
             </li>
 
             <li className="note">
