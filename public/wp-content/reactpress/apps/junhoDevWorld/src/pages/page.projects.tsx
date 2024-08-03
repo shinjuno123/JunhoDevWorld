@@ -1,18 +1,38 @@
+import projectImage from "../assets/images/example-project.png";
+import Glide from '@glidejs/glide';
+import { useEffect, useRef } from "react";
+import "material-icons/iconfont/material-icons.scss";
+
 export default function Projects() {
+  const glideRef = useRef(null);
+
+  const glide = new Glide('.glide', {
+    type: 'carousel',
+    startAt: 0,
+    perView: 1,
+  });
+  
+  useEffect(() => {
+    if(glideRef.current) {
+      glide.mount();
+    }
+  })
+
+
   return (
     <>
       <section className="project__page">
         <section className="hero_projects local-page">
           <h1>Amazing Projects!</h1>
 
-          <div className="glide">
+          <div className="glide" ref={glideRef}>
             <div className="glide__track" data-glide-el="track">
               <ul className="glide__slides">
                 <li className="glide__slide">
                   <div className="slide__wrapper">
                     <div className="slide__background">
                       <img
-                        src="<?php echo get_template_directory_uri() ?>/images/example-project.png?"
+                        src={projectImage}
                         alt=""
                       />
                     </div>
@@ -125,7 +145,7 @@ export default function Projects() {
                   <div className="slide__wrapper">
                     <div className="slide__background">
                       <img
-                        src="<?php echo get_template_directory_uri() ?>/images/example-project.png?"
+                        src={projectImage}
                         alt=""
                       />
                     </div>
@@ -238,7 +258,7 @@ export default function Projects() {
                   <div className="slide__wrapper">
                     <div className="slide__background">
                       <img
-                        src="<?php echo get_template_directory_uri() ?>/images/example-project.png?"
+                        src={projectImage}
                         alt=""
                       />
                     </div>
@@ -351,7 +371,7 @@ export default function Projects() {
                   <div className="slide__wrapper">
                     <div className="slide__background">
                       <img
-                        src="<?php echo get_template_directory_uri() ?>/images/example-project.png?"
+                        src={projectImage}
                         alt=""
                       />
                     </div>
@@ -466,7 +486,7 @@ export default function Projects() {
                 className="glide__arrow glide__arrow--left"
                 data-glide-dir="<"
               >
-                <span className="material-symbols-outlined">
+                <span className="material-icons">
                   arrow_back_ios
                 </span>
               </button>
@@ -474,7 +494,7 @@ export default function Projects() {
                 className="glide__arrow glide__arrow--right"
                 data-glide-dir=">"
               >
-                <span className="material-symbols-outlined">
+                <span className="material-icons">
                   arrow_forward_ios
                 </span>
               </button>
@@ -496,7 +516,7 @@ export default function Projects() {
                 <div className="project__info">
                   <div className="project__background">
                     <img
-                      src="<?php echo get_template_directory_uri() ?>/images/example-project.png"
+                      src={projectImage}
                       alt=""
                     />
                   </div>
@@ -518,7 +538,7 @@ export default function Projects() {
                 <div className="project__info">
                   <div className="project__background">
                     <img
-                      src="<?php echo get_template_directory_uri() ?>/images/example-project.png"
+                     src={projectImage}
                       alt=""
                     />
                   </div>
@@ -540,7 +560,7 @@ export default function Projects() {
                 <div className="project__info">
                   <div className="project__background">
                     <img
-                      src="<?php echo get_template_directory_uri() ?>/images/example-project.png"
+                      src={projectImage}
                       alt=""
                     />
                   </div>
@@ -562,7 +582,7 @@ export default function Projects() {
                 <div className="project__info">
                   <div className="project__background">
                     <img
-                      src="<?php echo get_template_directory_uri() ?>/images/example-project.png"
+                      src={projectImage}
                       alt=""
                     />
                   </div>
@@ -584,7 +604,7 @@ export default function Projects() {
                 <div className="project__info">
                   <div className="project__background">
                     <img
-                      src="<?php echo get_template_directory_uri() ?>/images/example-project.png"
+                      src={projectImage}
                       alt=""
                     />
                   </div>
@@ -606,7 +626,7 @@ export default function Projects() {
                 <div className="project__info">
                   <div className="project__background">
                     <img
-                      src="<?php echo get_template_directory_uri() ?>/images/example-project.png"
+                      src={projectImage}
                       alt=""
                     />
                   </div>
@@ -628,7 +648,7 @@ export default function Projects() {
                 <div className="project__info">
                   <div className="project__background">
                     <img
-                      src="<?php echo get_template_directory_uri() ?>/images/example-project.png"
+                      src={projectImage}
                       alt=""
                     />
                   </div>
@@ -650,7 +670,7 @@ export default function Projects() {
                 <div className="project__info">
                   <div className="project__background">
                     <img
-                      src="<?php echo get_template_directory_uri() ?>/images/example-project.png"
+                      src={projectImage}
                       alt=""
                     />
                   </div>
@@ -673,7 +693,7 @@ export default function Projects() {
             <div className="pagination">
               <ol className="page-numbers">
                 <li className="go-left page-number">
-                  <span className="material-symbols-outlined">
+                  <span className="material-icons">
                     chevron_left
                   </span>
                 </li>
@@ -710,7 +730,7 @@ export default function Projects() {
                 </li>
 
                 <li className="go-right page-number">
-                  <span className="material-symbols-outlined">
+                  <span className="material-icons">
                     chevron_right
                   </span>
                 </li>
