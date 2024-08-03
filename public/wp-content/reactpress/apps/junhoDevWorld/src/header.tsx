@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import face from "./assets/images/myface.jpg";
 import "material-icons/iconfont/material-icons.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Header() {
   const [headerState, setHeaderState] = useState('closed');
@@ -10,6 +10,16 @@ export default function Header() {
   function toggleNavigation() {
     setHeaderState((headerState === 'closed'? 'opened':'closed'));
   }
+
+  useEffect(()=> {
+    if(headerState === 'opened') {
+      document.body.classList.add("overflow-y-hidden");
+    } else {
+      document.body.classList.remove("overflow-y-hidden");
+    }
+  })
+
+
 
   return (
     <>

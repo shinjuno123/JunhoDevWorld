@@ -266,6 +266,7 @@
         justify-content: center;
         position: fixed;
         z-index: 100;
+        overflow-y: auto;
         top: 0;
         left: 0;
         background-color: var(--primary-color);

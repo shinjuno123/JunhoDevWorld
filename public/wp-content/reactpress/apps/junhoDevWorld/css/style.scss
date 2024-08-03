@@ -10,6 +10,10 @@
 @import "modules/components.scss";
 @import "modules/pages.scss";
 
+.overflow-y-hidden {
+    overflow-y: hidden;
+}
+
 span {
     padding: 0;
     margin: 0;
