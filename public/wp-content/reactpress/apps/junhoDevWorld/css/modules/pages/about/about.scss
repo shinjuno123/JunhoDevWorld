@@ -165,7 +165,12 @@ canvas.loading__off {
     }
 
     .prev-button {
-        button {
+        a {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             border: none;
             background: none;
             transition: background-color .5s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -174,22 +179,24 @@ canvas.loading__off {
             border-radius: 5px;
         }
 
-        button>i {
+        a>i {
+            position: relative;
             display: block;
             transform: rotate(90deg);
+            width: fit-content;
             transition: transform .2s ease;
             color: #FFF455;
         }
 
-        button:hover {
+        a:hover {
             background-color: #151515;
         }
 
-        button:hover>i {
+        a:hover>i {
             transform: rotate(90deg) translateX(-10px);
         }
 
-        button>span {
+        a>span {
             display: block;
             color: white;
         }
@@ -198,7 +205,11 @@ canvas.loading__off {
 
     .next-button {
 
-        button {
+        a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             border: none;
             background: none;
             transition: background-color .5s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -207,22 +218,23 @@ canvas.loading__off {
             border-radius: 5px;
         }
 
-        button>i {
+        a>i {
             display: block;
             transform: rotate(90deg);
+            width: fit-content;
             transition: transform .2s ease;
             color: #FFF455;
         }
 
-        button:hover {
+        a:hover {
             background-color: #151515;
         }
 
-        button:hover>i {
+        a:hover>i {
             transform: rotate(90deg) translateX(10px);
         }
 
-        button>span {
+        a>span {
             display: block;
             color: white;
             line-height: 2;

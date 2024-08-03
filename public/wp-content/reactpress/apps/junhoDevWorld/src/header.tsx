@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import face from "./assets/images/myface.jpg";
 import "material-icons/iconfont/material-icons.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Header() {
   const [headerState, setHeaderState] = useState('closed');
@@ -9,15 +9,19 @@ export default function Header() {
 
   function toggleNavigation() {
     setHeaderState((headerState === 'closed'? 'opened':'closed'));
+
+    if (headerState === 'closed') {
+      document.body.classList.add('overflow-y-hidden');
+    } else {
+      document.body.classList.remove('overflow-y-hidden');
+    }
   }
 
-  useEffect(()=> {
-    if(headerState === 'opened') {
-      document.body.classList.add("overflow-y-hidden");
-    } else {
-      document.body.classList.remove("overflow-y-hidden");
-    }
-  })
+
+  function closeNavigation() {
+    setHeaderState('closed');
+    document.body.classList.remove('overflow-y-hidden');
+  }
 
 
 
@@ -53,7 +57,7 @@ export default function Header() {
                       pathName == "/" ? "nav__item--active" : ""
                     }`}
                   >
-                    <Link className="nav__link" to="/" onClick={toggleNavigation}>
+                    <Link className="nav__link" to="/" onClick={closeNavigation}>
                       <span className="nav__num">01</span> home
                     </Link>
                   </li>
@@ -62,7 +66,7 @@ export default function Header() {
                       pathName == "/posts" ? "nav__item--active" : ""
                     }`}
                   >
-                    <Link className="nav__link" to="/posts" onClick={toggleNavigation}>
+                    <Link className="nav__link" to="/posts" onClick={closeNavigation}>
                       <span className="nav__num">02</span> writing
                     </Link>
                   </li>
@@ -71,7 +75,7 @@ export default function Header() {
                       pathName == "/notes" ? "nav__item--active" : ""
                     }`}
                   >
-                    <Link className="nav__link" to="/notes" onClick={toggleNavigation}>
+                    <Link className="nav__link" to="/notes" onClick={closeNavigation}>
                       <span className="nav__num">03</span> notes
                     </Link>
                   </li>
@@ -80,7 +84,7 @@ export default function Header() {
                       pathName == "/projects" ? "nav__item--active" : ""
                     }`}
                   >
-                    <Link className="nav__link" to="/projects" onClick={toggleNavigation}>
+                    <Link className="nav__link" to="/projects"  onClick={closeNavigation}>
                       <span className="nav__num">04</span> projects
                     </Link>
                   </li>
@@ -89,7 +93,7 @@ export default function Header() {
                       pathName == "/about" ? "nav__item--active" : ""
                     }`}
                   >
-                    <Link className="nav__link" to="/about" onClick={toggleNavigation}>
+                    <Link className="nav__link" to="/about" onClick={closeNavigation}>
                       <span className="nav__num">05</span> about
                     </Link>
                   </li>

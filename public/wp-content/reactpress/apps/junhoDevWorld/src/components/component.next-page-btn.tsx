@@ -1,27 +1,16 @@
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { toNextPage } from "../features/about/about.routing.slice";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "../app/hooks";
 
 export default function NextPage() {
-  const {currentPageNumber, params} = useAppSelector((state) => state.counter);
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-
-  function handleClick() {
-    dispatch(toNextPage());
-    const nextPageParam = params[currentPageNumber];
-    navigate(`${nextPageParam}`);
-  }
+  const nextPageParam = useAppSelector((state) => state.counter.nextPageParam);
 
   return (
-
-    
     <>
       <div className="button-padding next-button">
-        <button onClick={handleClick}>
+        <Link to={nextPageParam}>
           <span>Next page</span>
           <i className="material-icons">arrow_forward_ios</i>
-        </button>
+        </Link>
       </div>
     </>
   );

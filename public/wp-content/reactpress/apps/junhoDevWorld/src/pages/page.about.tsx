@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {Outlet} from 'react-router-dom';
-
+import { useAppDispatch } from "../app/hooks";
+import { setNextPage, setPreviousPage } from "../features/about/about.routing.slice";
+import { useLocation } from 'react-router-dom';
 
 export default function About() {
     const [isFullscreen, setFullscreen] = useState(false);
+    const dispatch = useAppDispatch();
+    const location = useLocation();
+
+    useEffect(()=> {
+        const currentParam = location.pathname.replace('/about','').slice(1);
+        dispatch(setNextPage(currentParam));
+        dispatch(setPreviousPage(currentParam));
+    });
 
     function toggleFullscreen() {
         if (isFullscreen) {

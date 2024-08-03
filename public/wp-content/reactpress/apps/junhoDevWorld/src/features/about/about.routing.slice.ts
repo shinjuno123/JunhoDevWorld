@@ -1,27 +1,45 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 interface AboutRouterState {
     params: string[]
-    currentPageNumber: number
+    previuosPageParam: string,
+    nextPageParam: string
 }
 
 const initialState: AboutRouterState = {
     params: ['','history','skills','projects'],
-    currentPageNumber: 0
+    previuosPageParam: '',
+    nextPageParam: ''
 }
 
 const AboutRouterSlice = createSlice({
     name: 'aboutRouter',
     initialState,
     reducers: {
-        toPreviousPage(state) {
-            state.currentPageNumber = (state.currentPageNumber - 1 + state.params.length) % state.params.length;
+        setPreviousPage(state, location) {
+            for(let i=0; i<state.params.length; i++) {
+                const param = state.params[i];
+
+                if (param === location.payload) {
+                    const prevPageNumber = (i - 1 + state.params.length) % state.params.length;
+                    state.previuosPageParam = state.params[prevPageNumber];
+                }
+            }
+
         },
-        toNextPage(state) {
-            state.currentPageNumber = (state.currentPageNumber + 1) % state.params.length;
+        setNextPage(state, location) {
+            for(let i=0; i<state.params.length; i++) {
+                const param = state.params[i];
+
+                if (param === location.payload) {
+                    const nextPageNumber = (i + 1) % state.params.length;
+                    state.nextPageParam = state.params[nextPageNumber];
+                }
+            }
         }
     }
 });
 
-export const {toPreviousPage, toNextPage} = AboutRouterSlice.actions;
+export const {setPreviousPage, setNextPage} = AboutRouterSlice.actions;
 export default AboutRouterSlice.reducer;

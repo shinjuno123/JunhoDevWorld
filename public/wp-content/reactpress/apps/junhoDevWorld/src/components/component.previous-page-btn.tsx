@@ -1,26 +1,18 @@
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { toPreviousPage } from "../features/about/about.routing.slice";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "../app/hooks";
 
 export default function PreviousPage() {
-  const {currentPageNumber, params} = useAppSelector((state) => state.counter);
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-
-  function handleClick() {
-    dispatch(toPreviousPage());
-    const previousPageParam = params[currentPageNumber];
-    navigate(`${previousPageParam}`);
-  }
+  const previuosPageParam = useAppSelector(
+    (state) => state.counter.previuosPageParam
+  );
 
   return (
-
     <>
       <div className="button-padding prev-button">
-        <button onClick={handleClick}>
+        <Link to={previuosPageParam}>
           <i className="material-icons">arrow_back_ios</i>
           <span>Previous page</span>
-        </button>
+        </Link>
       </div>
     </>
   );
