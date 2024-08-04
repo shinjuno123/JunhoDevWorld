@@ -4,7 +4,7 @@ import PreviousPage from "../../components/component.previous-page-btn";
 export default function Intro() {
   return (
     <>
-      <section className="about__intro local-page current-page">
+      <section className="about__intro local-page">
         <PreviousPage />
 
         <h1>Who am I</h1>

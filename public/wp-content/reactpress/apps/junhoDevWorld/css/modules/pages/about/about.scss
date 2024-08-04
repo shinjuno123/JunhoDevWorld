@@ -77,13 +77,10 @@ canvas.loading__off {
     padding: 1.5rem 0 5rem 0;
     transition: all 1s ease;
 
-    section.local-page.current-page {
+    section.local-page {
         display: flex;
     }
     
-    section.local-page {
-        display: none;
-    }
 
     .button-padding {
         padding: 7rem;

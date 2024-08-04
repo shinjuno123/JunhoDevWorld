@@ -9,7 +9,7 @@ export default function PreviousPage() {
   return (
     <>
       <div className="button-padding prev-button">
-        <Link to={previuosPageParam}>
+        <Link to={`/about/${previuosPageParam}`}>
           <i className="material-icons">arrow_back_ios</i>
           <span>Previous page</span>
         </Link>

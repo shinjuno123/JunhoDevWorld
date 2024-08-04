@@ -7,7 +7,7 @@ export default function NextPage() {
   return (
     <>
       <div className="button-padding next-button">
-        <Link to={nextPageParam}>
+        <Link to={`/about/${nextPageParam}`}>
           <span>Next page</span>
           <i className="material-icons">arrow_forward_ios</i>
         </Link>
