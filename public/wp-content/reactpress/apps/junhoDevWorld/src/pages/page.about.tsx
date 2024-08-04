@@ -13,6 +13,10 @@ export default function About() {
         const currentParam = location.pathname.replace('/about','').slice(1);
         dispatch(setNextPage(currentParam));
         dispatch(setPreviousPage(currentParam));
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     });
 
     function toggleFullscreen() {

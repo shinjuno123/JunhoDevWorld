@@ -11,6 +11,7 @@ import SelectedPost from "./pages/page.selected-post";
 import Intro from "./pages/about/page.about.intro";
 import History from "./pages/about/page.about.history";
 import Skills from "./pages/about/page.about.skills";
+import AboutProjects from "./pages/about/page.about.projects";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         <Route path="about" element={<About />}>
           <Route path="" element={<Intro />}></Route>
           <Route path="history" element={<History />}></Route>
-          <Route path="projects" element={<Projects />}></Route>
+          <Route path="projects" element={<AboutProjects/>}></Route>
           <Route path="skills" element={<Skills />}></Route>
         </Route>
       </Routes>
