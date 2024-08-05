@@ -127,7 +127,7 @@ canvas.loading__off {
 
         .card {
             width: 60%;
-            background-color: var(--profile-background);
+            background-color: $background-color;
             padding: 3rem;
             border-radius: 5px;
             box-shadow: 14px 14px 60px -10px rgba(0, 0, 0, 0.3019607843);
@@ -174,7 +174,7 @@ canvas.loading__off {
             height: 5rem;
             padding: 1rem;
             border-radius: 5px;
-            color: var(--text-color);
+            color: $text-color;
         }
 
         a>i {
@@ -183,18 +183,18 @@ canvas.loading__off {
             transform: rotate(90deg);
             width: fit-content;
             transition: transform .2s ease;
-            color: var(--secondary-color);
+            color: $secondary-color;
             font-weight: bold;
         }
 
         a:hover {
-            background-color: var(--text-disabled-color);
-            color: var(--reversed-text-color);
+            background-color: $text-disabled-color;
+            color: $reversed-text-color;
         }
 
         a:hover>i {
             transform: rotate(90deg) translateX(-10px);
-            color: var( --reversed-text-color);
+            color: $reversed-text-color;
         }
 
         a>span {
@@ -217,7 +217,7 @@ canvas.loading__off {
             height: 5rem;
             padding: 1rem;
             border-radius: 5px;
-            color: var(--text-color);
+            color: $text-color;
         }
 
         a>i {
@@ -225,12 +225,12 @@ canvas.loading__off {
             transform: rotate(90deg);
             width: fit-content;
             transition: transform .2s ease;
-            color: var(--secondary-color);
+            color: $secondary-color;
         }
 
         a:hover {
-            background-color: var(--text-disabled-color);
-            color: var(--reversed-text-color);
+            background-color: $text-disabled-color;
+            color: $reversed-text-color;
         }
 
         a:hover>i {
