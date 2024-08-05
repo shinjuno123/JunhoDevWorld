@@ -174,6 +174,7 @@ canvas.loading__off {
             height: 5rem;
             padding: 1rem;
             border-radius: 5px;
+            color: var(--text-color);
         }
 
         a>i {
@@ -182,20 +183,23 @@ canvas.loading__off {
             transform: rotate(90deg);
             width: fit-content;
             transition: transform .2s ease;
-            color: #FFF455;
+            color: var(--secondary-color);
+            font-weight: bold;
         }
 
         a:hover {
-            background-color: #151515;
+            background-color: var(--text-disabled-color);
+            color: var(--reversed-text-color);
         }
 
         a:hover>i {
             transform: rotate(90deg) translateX(-10px);
+            color: var( --reversed-text-color);
         }
 
         a>span {
             display: block;
-            color: white;
+            font-weight: bold;
         }
     }
 
@@ -213,6 +217,7 @@ canvas.loading__off {
             height: 5rem;
             padding: 1rem;
             border-radius: 5px;
+            color: var(--text-color);
         }
 
         a>i {
@@ -220,21 +225,23 @@ canvas.loading__off {
             transform: rotate(90deg);
             width: fit-content;
             transition: transform .2s ease;
-            color: #FFF455;
+            color: var(--secondary-color);
         }
 
         a:hover {
-            background-color: #151515;
+            background-color: var(--text-disabled-color);
+            color: var(--reversed-text-color);
         }
 
         a:hover>i {
             transform: rotate(90deg) translateX(10px);
+            color: var( --reversed-text-color);
         }
 
         a>span {
             display: block;
-            color: white;
             line-height: 2;
+            font-weight: bold;
         }
     }
 }

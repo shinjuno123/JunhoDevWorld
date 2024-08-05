@@ -27,11 +27,11 @@
 }
 
 .intro__pretitle a {
-    color: var(--primary-color);
+    color: $primary-color;
 }
 
 .intro__pretitle a:hover {
-    color: var(--secondary-color);
+    color: $secondary-color;
 }
 
 
@@ -46,7 +46,7 @@
     margin-inline-end: 0px;
     font-weight: bold;
     unicode-bidi: isolate;
-    color: var(--primary-color);
+    color: $primary-color;
 }
 
 .intro__content {

@@ -17,11 +17,11 @@
             padding: .2rem;
             height: 40px;
             width: 100%;
-            background-color: #4A249D;
+            background-color: $background-color;
             border-radius: 2px;
             display: flex;
             align-items: center;
-            color: #888888;
+            color: $text-disabled-color;
 
             span {
                 display: block;
@@ -35,21 +35,21 @@
         }
 
         .page-number:hover {
-            color: var(--color-text);
+            color: $text-color;
             text-decoration: underline;
         }
 
         .go-left, .go-right {
-            color:#dddada;
+            color:$text-disabled-color;
         }
 
         .go-left:hover, .go-right:hover{
-            color: var(--color-text);
+            color: $text-color;
             text-decoration: none!important;
         }
 
         .current-page {
-            color: var(--color-text);
+            color: $text-color;
             text-decoration: underline;
         }
     }

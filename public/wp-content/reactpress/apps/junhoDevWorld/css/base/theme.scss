@@ -1,15 +1,14 @@
-[data-theme='metallic-chic'] {
-    --primary-color: #3d52a0;
-    --secondary-color: #7091e6;
-    --supplementary-color1: #8697c4;
-    --supplementary-color2: #adbbda;
-    --supplementary-color3:#ff4c4c;
-    --background-coolor: #ede8f5;
-    --text-color: #0C0C0C;
-    --reversed-text-color: #ede8f5;
-}
+$primary-color: #3d52a0;
+$secondary-color: #7091e6;
+$supplementary-color1: #8697c4;
+$supplementary-color2: #adbbda;
+$supplementary-color3:#ff4c4c;
+$background-color: #ffffff;
+$text-color: #0C0C0C;
+$text-disabled-color: #888888;
+$reversed-text-color: #ede8f5;
+$progress-bar-basic-color: #40534C;
+$font-family-display:  "Merriweather", serif;
 
 
-[data-font='normal'] {
-    --font-family-display:  "Merriweather", serif;
-}
+

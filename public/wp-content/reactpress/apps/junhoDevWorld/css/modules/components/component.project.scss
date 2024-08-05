@@ -28,7 +28,7 @@
     }
 
     .glide__arrow--left:hover {
-        background-color: var(--secondary-color);
+        background-color: $secondary-color;
     }
 
     .glide__arrow--right {
@@ -50,13 +50,13 @@
     }
 
     .glide__arrow--right:hover {
-        background-color: var(--secondary-color);
+        background-color: $secondary-color;
     }
 }
 
 .glide__track {
     z-index: 200;
-    background-color: var(--primary-color);
+    background-color: $primary-color;
 
     .glide__slides {
         position: relative;
@@ -73,7 +73,7 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            background-color: var(--primary-color);
+            background-color: $primary-color;
             padding: 1.5rem;
             width: 90%;
             max-width: 55rem;
@@ -114,21 +114,21 @@
                     position: absolute;
                     text-align: center;
                     line-height: 3;
-                    color: var(--reversed-text-color);
+                    color: $reversed-text-color;
                     
                 }
 
                 h4 {
                     text-indent: 5px;
                     padding: 1.5rem 0;
-                    color: var(--reversed-text-color);
+                    color: $reversed-text-color;
                 }
 
                 p {
-                    background-color: var(--primary-color);
+                    background-color: $primary-color;
                     padding: 1rem;
                     border-radius: 5px;
-                    color: var(--reversed-text-color);
+                    color: $reversed-text-color;
                 }
 
 
@@ -147,8 +147,8 @@
                         padding: 5px;
                         min-width: 50px;
                         border-radius: 5px;
-                        background-color: var(--supplementary-color3);
-                        color: var(--reversed-text-color);
+                        background-color: $supplementary-color3;
+                        color: $reversed-text-color;
 
                         span {
                             position: relative;
@@ -162,12 +162,12 @@
 
                 a {
                     padding: 5px;
-                    color: var(--reversed-text-color);
+                    color: $reversed-text-color;
                     text-decoration: underline;
                 }
 
                 a:hover {
-                    color: var(--secondary-color);
+                    color: $secondary-color;
                 }
             }
         }
@@ -177,7 +177,7 @@
 
 .project-list {
     width: 100%;
-    background-color: #222831;
+    background-color: $primary-color;
     display: grid;
 
     .projects {
@@ -189,10 +189,11 @@
 
         .project {
             position: relative;
-            background-color: #31363F;
+            background-color: $secondary-color;
             min-height: 20rem;
             cursor: pointer;
             border-radius: 5px;
+            color: $reversed-text-color;
 
             .project__info {
                 display: flex;
@@ -200,6 +201,7 @@
                 height: 100%;
                 width: 100%;
                 position: relative;
+                
 
                 .project__background {
                     position: absolute;
@@ -208,14 +210,15 @@
                     flex: .3;
                     height: 100%;
                     width: 100%;
+                    
 
 
                     img {
-                        
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
                         border-radius: 5px;
+                    
                     }
                 }
 
@@ -242,6 +245,7 @@
                     height: 100%;
                     left: 0;
                     top: 0;
+                    padding: 0 1rem;
 
                     .project__title {
                         line-height: 2;
@@ -265,7 +269,7 @@
                 height: 100%;
                 border-radius: 5px;
                 z-index: 1;
-                background-color: rgba($color: #000000, $alpha: .8);
+                background-color: rgba($color: #000000, $alpha: .6);
 
                 .project__link {
                     display: flex;

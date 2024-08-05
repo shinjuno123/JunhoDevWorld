@@ -12,7 +12,7 @@
         margin-block-end: 15rem;
 
         hr {
-            border: 1px var(--supplementary-color2) solid!important;
+            border: 1px $supplementary-color2 solid!important;
             margin-block-end: 2rem;
             animation-name: fade-in;
             animation-duration: .9s;
@@ -27,7 +27,7 @@
     }
 
     .selected-post__info {
-        color: var(--primary-color);
+        color: $primary-color;
         animation-name: fade-in;
         animation-duration: .7s;
 
@@ -51,7 +51,7 @@
             justify-content: end;
             align-items: center;
             background-color: transparent;
-            color: var(--primary-color);
+            color: $primary-color;
             border: none;
             padding: 0;
 
@@ -66,7 +66,7 @@
         }
 
         .btn__back-to-post-list:hover {
-            color: var(--secondary-color);
+            color: $secondary-color;
 
             i {
                 transform: translateX(5px);
@@ -102,7 +102,7 @@
         }
     
         .selected-post__info {
-            color: var(--color-text-offset);
+            color: $progress-bar-basic-color;
     
         }
     

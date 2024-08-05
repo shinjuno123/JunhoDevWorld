@@ -3,9 +3,9 @@
     flex-wrap: nowrap;
     font-size: .875rem;
     padding: 2rem 0;
-    border-top: 1px solid var(--secondary-color);
-    background-color: var(--primary-color);
-    color: var(--reversed-text-color)!important;
+    border-top: 1px solid $secondary-color;
+    background-color: $primary-color;
+    color: $reversed-text-color!important;
 }
 
 .footer__inner {
@@ -26,12 +26,12 @@
 
 .footer a {
     text-decoration: underline;
-    color: var(--reversed-text-color);
+    color: $reversed-text-color;
 }
 
 .footer a:hover {
-    color: var(--supplementary-color1);
-    text-decoration-color: var(--supplementary-color1);
+    color: $supplementary-color1;
+    text-decoration-color: $supplementary-color1;
 }
 
 @media (min-width: 940px) {

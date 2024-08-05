@@ -70,7 +70,7 @@
     right: 0;
     overflow: hidden;
     border-radius: .5rem;
-    color: var(--reversed-text-color);
+    color: $reversed-text-color;
     padding: 1rem;
     background-image: var(--gradient-full);
 }
@@ -81,7 +81,7 @@
     -webkit-hyphens: auto;
     hyphens: auto;
     display: block;
-    color: var(--reversed-text-color)!important;
+    color: $reversed-text-color!important;
 }
 
 .featured-post__title {

@@ -13,20 +13,20 @@
 .header__brand {
     display: flex;
     align-items: center;
-    color: var(--text-color);
+    color: $text-color;
     font-weight: 700;
 }
 
 .header__brand:hover {
-    color: var(--primary-color);
+    color: $primary-color;
 
     .header__verification {
-        color: var(--supplementary-color2);
+        color: $supplementary-color2;
     }
 }
 
 .header__brand:hover > .header__info > :not(.header__verification) {
-    color: var(--primary-color);
+    color: $primary-color;
 }
 
 .header__info {
@@ -49,12 +49,12 @@
 
 .header__verification {
     display: block;
-    background-color: var(--primary-color);
+    background-color: $primary-color;
     border-radius: .2rem;
     height: fit-content;
     width: fit-content;
     font-size: .3rem;
-    color: var(--reversed-text-color);
+    color: $reversed-text-color;
 
     span {
         font-size: 1rem;
@@ -82,7 +82,7 @@
     content: "";
     display: block;
     height: 5px;
-    background-color: var(--supplementary-color1);
+    background-color: $supplementary-color1;
     position: absolute;
     left: 1.25rem;
     right: 1.25rem;
@@ -97,7 +97,7 @@
 }
 
 .nav__item--active::after {
-    background-color: var(--secondary-color);
+    background-color: $secondary-color;
     transform: scaleX(1);
 }
 
@@ -112,7 +112,7 @@
     white-space: nowrap;
     text-transform: lowercase;
     transition: color .2s linear;
-    color: var(--text-color);
+    color: $text-color;
 }
 
 .nav__num {
@@ -132,8 +132,8 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    color: var(--reversed-text-color);
-    background-color: var(--primary-color);
+    color: $reversed-text-color;
+    background-color: $primary-color;
 }
 
 .menuicon {
@@ -221,7 +221,7 @@
     top: calc(100vw * -2);
     left:calc(100vw * -2);
     transform: scale(0);
-    background-color: var(--supplementary-color2);
+    background-color: $supplementary-color2;
     border-radius: 50%;
     transform-origin: 50% 50%;
     transition: transform .4s cubic-bezier(.755, .05, .855, .06);
@@ -269,7 +269,7 @@
         overflow-y: auto;
         top: 0;
         left: 0;
-        background-color: var(--primary-color);
+        background-color: $primary-color;
     }
 
     .nav__togglebtn {
@@ -282,10 +282,10 @@
 
     .nav__item {
         padding: 0 15%;
-        font-family: var(--font-family-display);
+        font-family: $font-family-display;
         font-size: 2.5rem;
         letter-spacing: 1px;
-        color: var(--text-color);
+        color: $text-color;
     }
 
     .nav--open .nav__item::after {
@@ -295,7 +295,7 @@
     .nav__link {
         padding: 1.5rem;
         text-transform: none;
-        color: var(--reversed-text-color) !important;
+        color: $reversed-text-color!important;
     }
 
     .nav--open .nav__content {

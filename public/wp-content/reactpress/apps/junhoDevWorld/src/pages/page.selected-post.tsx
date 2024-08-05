@@ -1,9 +1,9 @@
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import myFace from '../assets/images/myface.jpg'
 
 export default function SelectedPost() {
-  const postId = Number(useParams()["postId"]);
+  // const postId = Number(useParams()["postId"]);
 
   return (
     <>

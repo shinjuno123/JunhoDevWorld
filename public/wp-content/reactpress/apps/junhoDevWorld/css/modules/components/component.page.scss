@@ -10,9 +10,8 @@
 
 .blog-page {
     display: block;
-    border: 1px var(--secondary-color) solid;
     border-radius: 20px;
-    box-shadow: 0px 0px 70px var(--primary-color);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     margin: 3.5em 0;
     padding-top: 5.5rem;
     width: 45em;
@@ -44,7 +43,7 @@
 .post {
     display: block;
     margin-block-end: 5.5rem;
-    border-bottom: 1px var(--supplementary-color2) solid;
+    border-bottom: 1px $supplementary-color2 solid;
     padding-bottom: 1.5rem;
 }
 
@@ -54,19 +53,19 @@
     font-size: 2rem;
     font-weight: bold;
     margin-block-end: .2em;
-    color: var(--primary-color);
+    color: $primary-color;
     cursor: pointer;
 }
 
 .post__link:hover {
-    color: var(--secondary-color);
+    color: $secondary-color;
 }
 
 .post__date-category {
     display: block;
     font-size: 1rem;
     margin-block-end: 2em;
-    color: var(--primary-color);
+    color: $primary-color;
     letter-spacing: 1.3px;
 }
 

@@ -18,10 +18,9 @@
 
         .note {
             position: relative;
-            border: 2px var(--primary-color) solid;
             border-radius: 20px;
             padding: 2rem 3rem;
-            box-shadow: 0px 0px 70px var(--secondary-color);
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
             .note__header {
                 display: flex;
@@ -85,7 +84,7 @@
                         align-items: center;
                         gap: .5rem;
                         background-color: transparent;
-                        color: var(--text-color);
+                        color: $text-color;
                         border: none;
 
                         i.fa-solid {
@@ -119,7 +118,7 @@
                 }
 
                 .comment__header-hr {
-                    border: 1px var(--supplementary-color2) solid;
+                    border: 1px $supplementary-color2 solid;
                     margin-bottom: 1rem;
                 }
 
@@ -136,8 +135,8 @@
                     }
 
                     .your-comment__textarea {
-                        background-color: var(--background-color);
-                        color: var(--color-text);
+                        background-color: $background-color;
+                        color: $text-color;
                         font-size: .8rem;
                         width: 80%;
                         max-width: 80%;
@@ -150,15 +149,15 @@
                         font-size: .6rem;
                         width: 10%;
                         height: 2.5rem;
-                        background-color: var(--primary-color);
-                        color: var(--reversed-text-color);
+                        background-color: $primary-color;
+                        color: $reversed-text-color;
                         border: none;
                         border-radius: 5px;
 
                     }
 
                     .your-comment__submit:hover {
-                        background-color: var(--secondary-color);
+                        background-color: $secondary-color;
                     }
                 }
 
@@ -183,7 +182,7 @@
 
                     hr {
                         width: 100%;
-                        border: 1px var(--supplementary-color2) solid;
+                        border: 1px $supplementary-color2 solid;
                     }
                 }
             }
@@ -192,7 +191,7 @@
             ::after {
                 content: "";
                 position: absolute;
-                background-color: var(--supplementary-color2);
+                background-color: $supplementary-color2;
                 left: 50%;
                 transform: translateX(-50%);
                 bottom: calc(0% - 10rem - 1px);

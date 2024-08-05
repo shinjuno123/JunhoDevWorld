@@ -3,7 +3,7 @@
     width: 45rem;
 
     hr {
-        border: 1px var(--supplementary-color2) solid!important;
+        border: 1px $supplementary-color2 solid!important;
         margin-block-end: 2rem;
         animation-name: fade-in;
         animation-duration: 1.1s;
@@ -38,12 +38,12 @@
             margin: 1rem .5rem;
             border-radius: 5px;
             outline: none;
-            border: 1px var(--supplementary-color1) solid!important;
+            border: 1px $supplementary-color1 solid!important;
             padding: .5rem; 
             font-size: .9rem;
             min-height: 3rem;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            background-color: $background-color;
+            color: $text-color;
         }
 
         .leave-comment__submit {
@@ -53,8 +53,8 @@
             max-width: 4rem;
             border-radius: 5px;
             border: none;
-            background-color: var(--primary-color);
-            color: var(--reversed-text-color);
+            background-color: $primary-color;
+            color: $reversed-text-color;
             height: 4rem;
             font-size: .9rem;
             letter-spacing: 1.5px;
@@ -62,7 +62,7 @@
         }
 
         .leave-comment__submit:hover {
-            background-color: var(--secondary-color);
+            background-color: $secondary-color;
         }
     }
 
@@ -92,7 +92,7 @@
                 letter-spacing: 1px;
                 border-radius: 5px;
                 padding: .5rem;
-                border: 1px solid var(--supplementary-color1);
+                border: 1px solid $supplementary-color1;
             }
         }
     }

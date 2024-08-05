@@ -1,9 +1,14 @@
 import { useRef } from "react";
 import myFace from "../assets/images/myface.jpg";
-import NoteComment from "../components/component.note-comments";
+import NoteComment, { toggleHandle } from "../components/component.note-comments";
 
 export default function Notes() {
-  const noteCommentRef = useRef();
+  const noteCommentRef = useRef<toggleHandle>(null);
+
+
+  function openPost() {
+    noteCommentRef.current?.toggleComments();
+  }
 
   return (
     <>
@@ -37,7 +42,7 @@ export default function Notes() {
                 </div>
 
                 <div className="right">
-                  <button type="button" onClick={()=> noteCommentRef.current?.toggleComments()}>
+                  <button type="button" onClick={openPost}>
                     <i className="material-icons fa-comment">
                       chat_bubble_outline
                     </i>

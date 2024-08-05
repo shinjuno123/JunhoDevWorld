@@ -10,7 +10,7 @@
 
 
     .records {
-        background-color: var(--profile-background);
+        background-color: var(--primary-color);
         box-shadow: 14px 14px 60px -10px rgba(0, 0, 0, 0.3019607843);
         border-radius: 5px;
         display: flex;
@@ -42,7 +42,7 @@
                 .description::after {
                     content: '';
                     position: absolute;
-                    background: rgb(70,133,133);
+                    background: var(--supplementary-color3);
                     width: 6%;
                     height: 3rem;
                     left: 98%;
@@ -68,7 +68,7 @@
                 .description::after {
                     content: '';
                     position: absolute;
-                    background: rgb(70,133,133);
+                    background: var(--supplementary-color3);
                     width: 6%;
                     height: 3rem;
                     right:98%;
@@ -88,6 +88,7 @@
                     justify-content: center;
                     height: fit-content;
                     gap: 5px;
+                    font-weight: bolder;
 
                     i {
                         display: block;
@@ -102,19 +103,23 @@
                     position: absolute;
                     width: 20rem;
                     top: 0;
-                    background-color: #468585;
+                    background-color: var(--supplementary-color3);
                     text-align: center;
                     padding: 1rem;
+                    color: var(--reversed-text-color);
+    
 
 
                     span {
                         font-size: 1rem;
                         line-height: 2;
+                        font-weight: bold;
                     }
 
                     p {
                         font-size: .8rem;
                         line-height: 1.5;
+                        font-weight: bold;
                     }
                 }
             }
@@ -128,8 +133,7 @@
                 width: 1rem;
                 height: 1rem;
                 border-radius: 50%;
-                background: radial-gradient(circle, rgba(0,0,0,1) 1%, rgba(254,255,0,1) 30%, rgba(0,0,0,1) 100%);
-                border: 1px solid black;
+                background: radial-gradient(circle, rgba(0,0,0,1) 1%, var(--background-color) 30%, rgba(0,0,0,1) 100%);
                 z-index: 150;
             }
         }
@@ -140,7 +144,7 @@
             width: .5rem;
             height: calc(100% - 3rem);
             top: 1.5rem;
-            background-color: #FCDC94;
+            background-color: var(--background-color);
             left: 50%;
             transform: translateX(-50%);
             border-radius: 5px;
@@ -160,14 +164,16 @@
 
         .experience {
             padding: 2rem;
-            background-color: #222831;
+            background-color: var(--background-color);
+            box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
             margin-block-end: 3rem;
 
             .company-logo {
                 padding: .5rem;
                 border-radius: 5px;
                 text-align: center;
-                background-color: white;
+                background-color: var(--background-color);
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
                 margin-block-end: 2rem;
             }
 
@@ -177,7 +183,7 @@
                 }
 
                 .experience-description-details > .detail  {
-                    list-style-type: circle;
+                    list-style-type:square;
                     margin-block-end: 1rem;
                     list-style-position: inside;
 

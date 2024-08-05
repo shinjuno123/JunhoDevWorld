@@ -1,7 +1,12 @@
 import { useState, useImperativeHandle, forwardRef } from "react";
 import myFace from "../assets/images/myface.jpg";
 
-const NoteComment = forwardRef((props, ref) => {
+export type toggleHandle = {
+  toggleComments: () => void;
+}
+
+
+const NoteComment = forwardRef<toggleHandle, object>((_props, ref) => {
   const [isOpen, setIsOpen] = useState("");
 
   useImperativeHandle(ref, ()=>({
@@ -9,7 +14,7 @@ const NoteComment = forwardRef((props, ref) => {
         if (isOpen === "open") {
             setIsOpen("");
         } else {
-            setIsOpen("open")
+            setIsOpen("open");
         }
     
       }
