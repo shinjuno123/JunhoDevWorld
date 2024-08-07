@@ -1,7 +1,7 @@
 import "./App.css";
 import Footer from "./footer";
 import Header from "./header";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useSearchParams, useNavigate } from "react-router-dom";
 import Home from "./pages/page.home";
 import Writing from "./pages/page.writing";
 import Notes from "./pages/page.notes";
@@ -12,8 +12,21 @@ import Intro from "./pages/about/page.about.intro";
 import History from "./pages/about/page.about.history";
 import Skills from "./pages/about/page.about.skills";
 import AboutProjects from "./pages/about/page.about.projects";
+import { useEffect } from "react";
 
 function App() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [searchParams, _setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  useEffect(()=> {
+      const redirect_path = searchParams.get('redirect');
+
+      if(redirect_path) {
+          navigate(redirect_path);
+      }
+  })
+
   return (
     <>
       <Header></Header>

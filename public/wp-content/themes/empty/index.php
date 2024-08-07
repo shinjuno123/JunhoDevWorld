@@ -2,7 +2,7 @@
 
 get_header(); ?>
 
-<div id="root" data-theme='metallic-chic' data-font='normal'></div>
+<div id="root"></div>
 
 
 

@@ -18,7 +18,6 @@ const AboutRouterSlice = createSlice({
     initialState,
     reducers: {
         setPreviousPage(state, location) {
-            console.log(location.payload)
             for(let i=0; i<state.params.length; i++) {
                 const param = state.params[i];
 

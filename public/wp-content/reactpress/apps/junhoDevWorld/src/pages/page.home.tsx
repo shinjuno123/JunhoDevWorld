@@ -1,7 +1,10 @@
 import "material-icons/iconfont/material-icons.scss";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 export default function Home() {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+
     return (
         <>
             <main className="main container">
