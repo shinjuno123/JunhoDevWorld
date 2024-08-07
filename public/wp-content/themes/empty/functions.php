@@ -13,8 +13,8 @@ function devworld_files()
             'nouce' => wp_create_nonce('wp-rest'),
         )
     );
-    wp_enqueue_script('react-app-js', content_url() . '/reactpress/apps/junhoDevWorld/dist/assets/index-CFc_M4g3.js', array(), null, true);
-    wp_enqueue_style('react-app-css', content_url() . '/reactpress/apps/junhoDevWorld/dist/assets/index-C6feoxj3.css', array(), null);
+    wp_enqueue_script('react-app-js', content_url() . '/reactpress/apps/junhoDevWorld/dist/assets/index-C8H_DSHt.js', array(), null, true);
+    wp_enqueue_style('react-app-css', content_url() . '/reactpress/apps/junhoDevWorld/dist/assets/index-Dlm-TTvw.css', array(), null);
 }
 
 add_action('wp_enqueue_scripts', 'devworld_files');
