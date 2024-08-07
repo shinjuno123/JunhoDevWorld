@@ -13,6 +13,7 @@ import History from "./pages/about/page.about.history";
 import Skills from "./pages/about/page.about.skills";
 import AboutProjects from "./pages/about/page.about.projects";
 import { useEffect } from "react";
+import Page404 from "./pages/page.404";
 
 function App() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -42,6 +43,7 @@ function App() {
           <Route path="projects" element={<AboutProjects/>}></Route>
           <Route path="skills" element={<Skills />}></Route>
         </Route>
+        <Route path="*" element={<Page404/>}></Route>
       </Routes>
       <Footer></Footer>
     </>
