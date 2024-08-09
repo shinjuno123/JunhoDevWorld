@@ -40,7 +40,7 @@
             outline: none;
             border: 1px $supplementary-color1 solid!important;
             padding: .5rem; 
-            font-size: .9rem;
+            font-size: $font-size-2;
             min-height: 3rem;
             background-color: $background-color;
             color: $text-color;
@@ -56,7 +56,7 @@
             background-color: $primary-color;
             color: $reversed-text-color;
             height: 4rem;
-            font-size: .9rem;
+            font-size: $font-size-2;
             letter-spacing: 1.5px;
             
         }
@@ -86,7 +86,7 @@
 
             .comment__message {
                 margin: 1rem .5rem;
-                font-size: .8rem;
+                font-size: $font-size-2;
                 width: 100%;
                 min-height: 4rem;
                 letter-spacing: 1px;
@@ -121,12 +121,12 @@
             }
 
             .leave-comment__textarea {
-                font-size: .6rem;
+                font-size: $font-size-1;
             }
 
             .leave-comment__submit {
                 max-width: 3rem;
-                font-size: .6rem;
+                font-size: $font-size-1;
             }
             
         }
@@ -145,7 +145,7 @@
     
                 .comment__message {
                     margin: 1rem .5rem;
-                    font-size: .6rem;
+                    font-size: $font-size-1;
                     letter-spacing: 1px;
                 }
             }

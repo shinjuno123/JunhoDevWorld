@@ -23,7 +23,7 @@
             display: block;
             left: 50%;
             transform: translateX(-50%);
-            font-size:medium;
+            font-size:$font-size-3;
         }
     }
 
@@ -45,7 +45,7 @@
             display: block;
             left: 50%;
             transform: translateX(-50%);
-            font-size: medium;
+            font-size: $font-size-3;
         }
     }
 
@@ -249,12 +249,12 @@
 
                     .project__title {
                         line-height: 2;
-                        font-size: 1rem;
+                        font-size: $font-size-3;
                     }
 
                     .project__excerpt {
                         line-height: 2;
-                        font-size: .8rem;
+                        font-size: $font-size-2;
                     }
 
                 }
@@ -280,7 +280,7 @@
                     height: 100%;
 
                     .project__title {
-                        font-size: 1.3rem;
+                        font-size: $font-size-4;
                     }
                 }
             }
@@ -337,7 +337,7 @@
     }
 
     .glide__arrows span {
-        font-size: small!important;
+        font-size: $font-size-1;
     }
 }
 

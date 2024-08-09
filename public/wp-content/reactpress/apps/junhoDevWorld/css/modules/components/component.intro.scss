@@ -19,7 +19,7 @@
 
 .intro__pretitle {
     order: -1;
-    font-size: 1.1875rem;
+    font-size: $font-size-3;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 1px;
@@ -37,7 +37,7 @@
 
 .intro__title {
     display: block;
-    font-size: 2.2rem;
+    font-size: $font-size-7;
     line-height: 1;
     margin-bottom: .33em;
     margin-block-start: 0px;
@@ -50,7 +50,7 @@
 }
 
 .intro__content {
-    font-size: 1.5rem;
+    font-size: $font-size-4;
     font-weight: 100;
     line-height: 1.4;
 }
@@ -72,10 +72,14 @@
 
 @media (min-width: $small-screen) {
     .intro__title {
-        font-size: 4rem;
+        font-size: $font-size-10;
     }
 
     .intro__content {
-        font-size: 2rem;
+        font-size: $font-size-5;
+    }
+
+    .intro__pretitle {
+        font-size: $font-size-4;
     }
 }

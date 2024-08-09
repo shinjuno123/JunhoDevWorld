@@ -9,7 +9,7 @@
     h1 {
         padding: 0 0 5rem;
         color: $primary-color;
-        font-size: 3.5rem;
+        font-size: $font-size-9;
     
     }
 
@@ -17,7 +17,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 1rem;
+        font-size: $font-size-3;
 
         h3 {
             margin-right: 1rem;

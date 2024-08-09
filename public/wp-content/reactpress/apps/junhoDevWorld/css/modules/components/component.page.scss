@@ -21,7 +21,7 @@
     display: block;
     text-align: center;
     margin-block-end: 5rem;
-    font-size: 6.5rem;
+    font-size: $font-size-10;
     font-weight: bolder;
     animation-name: fade-in;
     animation-duration: .7s;
@@ -50,7 +50,7 @@
 
 .post__link {
     display: block;
-    font-size: 2rem;
+    font-size: $font-size-6;
     font-weight: bold;
     margin-block-end: .2em;
     color: $primary-color;
@@ -63,7 +63,7 @@
 
 .post__date-category {
     display: block;
-    font-size: 1rem;
+    font-size: $font-size-3;
     margin-block-end: 2em;
     color: $primary-color;
     letter-spacing: 1.3px;
@@ -72,7 +72,7 @@
 .post__excerpt {
     display: block;
     line-height: 2;
-    font-size: 1.15rem;
+    font-size:  $font-size-3;
 }
 
 
@@ -86,7 +86,7 @@
         display: block;
         text-align: center;
         margin-block-end: 5rem;
-        font-size: 2rem;
+        font-size: $font-size-6;
         font-weight: bolder;
     }
 
@@ -104,7 +104,7 @@
     }
 
     .post__link {
-        font-size: 1rem;
+        font-size: $font-size-3;
     }
 
     .post__date-category {
@@ -140,18 +140,18 @@
 
 
     .blog-page__header {
-        font-size: 3.5rem;
+        font-size: $font-size-8;
     }
 
     .post__link {
-        font-size: 1.5rem;
+        font-size: $font-size-4;
     }
 
     .post__date-category {
-        font-size: .9em;
+        font-size: $font-size-2;
     }
 
     .post__excerpt {
-        font-size: .85rem;
+        font-size: $font-size-2;
     }
 }

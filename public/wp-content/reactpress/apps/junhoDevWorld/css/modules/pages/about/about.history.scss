@@ -3,9 +3,9 @@
     align-items: center;
 
     h2 {
-        padding: 3rem;
+        padding: 4rem 0 4rem;
         line-height: 3;
-        font-size: 2rem;
+        font-size: $font-size-6;
     }
 
 
@@ -111,13 +111,13 @@
 
 
                     span {
-                        font-size: 1rem;
+                        font-size: $font-size-3;
                         line-height: 2;
                         font-weight: bold;
                     }
 
                     p {
-                        font-size: .8rem;
+                        font-size: $font-size-2;
                         line-height: 1.5;
                         font-weight: bold;
                     }
@@ -212,8 +212,14 @@
 
 @media (max-width: $medium-screen) { 
 
+    .about__history > .work-experience {
+        font-size: $font-size-3;
+    }
+
     .about__section > .about__history {
         width: 75%;
+
+    
 
         .records { 
             .records__list {
@@ -222,7 +228,7 @@
                     padding: 0 .5rem;
 
                     .record__month-year {
-                        font-size: .8rem;
+                        font-size: $font-size-3;
                     }
     
                     .description {
@@ -231,12 +237,12 @@
 
 
                         span {
-                            font-size: .8rem;
+                            font-size: $font-size-2;
                             line-height: 2;
                         }
     
                         p {
-                            font-size: .5rem;
+                            font-size: $font-size-1;
                             line-height: 1.5;
                         }
                     }
@@ -250,16 +256,24 @@
 }
 
 @media (max-width: $small-screen) {
+    .about__section > .about__history > h2 {
+        font-size: $font-size-6;
+    }
+
+    .about__history > .work-experience {
+        font-size: $font-size-2;
+    }
+
     .about__section > .about__history > .records > .records__list > .record > .description {
         width: 10rem;
 
         span {
-            font-size: .6rem;
+            font-size: $font-size-1;
             line-height: 2;
         }
 
         p {
-            font-size: .4rem;
+            font-size: $font-size-1;
             line-height: 1.5;
         }
     }   
@@ -269,7 +283,7 @@
         padding: 0 .2rem;
 
         .record__month-year {
-            font-size: .7rem;
+            font-size: $font-size-1;
         }
     }
 }

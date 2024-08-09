@@ -53,11 +53,11 @@
     border-radius: .2rem;
     height: fit-content;
     width: fit-content;
-    font-size: .3rem;
+    font-size: $font-size-1;
     color: $reversed-text-color;
 
     span {
-        font-size: 1rem;
+        font-size: $font-size-3;
     }
 }
 
@@ -283,7 +283,7 @@
     .nav__item {
         padding: 0 15%;
         font-family: $font-family-display;
-        font-size: 2.5rem;
+        font-size: $font-size-6;
         letter-spacing: 1px;
         color: $text-color;
     }

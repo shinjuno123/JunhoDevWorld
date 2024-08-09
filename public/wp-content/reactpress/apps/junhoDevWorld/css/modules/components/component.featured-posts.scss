@@ -11,7 +11,7 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;
-    font-size: 2.25rem;
+    font-size: $font-size-5;
 }
 
 .featured-posts {
@@ -87,13 +87,13 @@
 .featured-post__title {
     display: block;
     font-weight: 500;
-    font-size: 1.75rem;
+    font-size: $font-size-4;
     line-height: 1.4;
     margin-bottom: .5rem;
 }
 
 .featured-post__description {
-    font-size: small;
+    font-size: $font-size-2;
     letter-spacing: .2ch;
 }
 
@@ -106,7 +106,7 @@
 }
 
 .featured-post__likecount > span {
-    font-size: small;
+    font-size: $font-size-3;
 }
 
 .featured-posts__footer {
@@ -114,7 +114,7 @@
 }
 
 .featured-posts__see-all {
-    font-size: 1.25rem;
+    font-size: $font-size-4;
     font-weight: 700;
     display: inline-flex;
     align-items: center;

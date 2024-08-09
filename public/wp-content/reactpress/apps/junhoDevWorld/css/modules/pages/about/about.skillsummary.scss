@@ -5,15 +5,18 @@
     width: 100%;
 
     h1 {
-        padding: 3rem;
+        padding: 0 0 4rem;
         width: fit-content;
         text-align: center;
+        font-size: $font-size-5;
     }
 
     .skills {
         display: flex;
         flex-direction: column;
         gap: 3rem;
+        font-size: $font-size-3;
+        font-weight: bold;
         background-color: $background-color;
         box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
         color: $text-color;
@@ -71,5 +74,12 @@
 @keyframes grow-skill-gauge-up {
     0% {
         width: 0;
+    }
+}
+
+
+@media (max-width:$small-screen) {
+    .about__skill-summary .skills {
+        font-size: $font-size-1;
     }
 }
