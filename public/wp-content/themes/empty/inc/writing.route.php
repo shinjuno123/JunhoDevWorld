@@ -121,7 +121,8 @@ function fetchPost(WP_REST_Request $request)
 
     $result = array('status' => array(
             'is_success' => false,
-            'message' => 'Failed to load id=' . $request->get_param('id') . ' or too many same ids found. Please try other ids.'
+            'message' => 'Failed to load id=' . $request->get_param('id') . ' or too many same ids found. Please try other ids.',
+            'category' => ''
         )
     );
 
@@ -135,9 +136,10 @@ function fetchPost(WP_REST_Request $request)
     );
 
     if (count($mainQuery->posts) == 1) {
-        $result['post'] = $mainQuery;
+        $result['post'] = $mainQuery->posts[0];
         $result['status']['is_success'] = true;
         $result['status']['message'] = 'Succeeded to load the post ' . $request->get_param('id');
+        $result['status']['category'] =  get_the_category_by_ID($mainQuery->posts[0]->post_category[0]);
 
         return new WP_REST_Response($result, 200, ['Content-Type' => 'application/json']);
     }
