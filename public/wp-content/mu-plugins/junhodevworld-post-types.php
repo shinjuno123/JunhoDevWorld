@@ -14,8 +14,10 @@ function junhodevworld_post_types() {
                 'all_items' => 'All Notes',
                 'singular_name'=>'Note'
             ),
-            'menu_icon' => 'dashicons-welcome-write-blog'
-        )
+            'menu_icon' => 'dashicons-welcome-write-blog',
+            'show_in_rest' => true,
+        ),
+
     );
 
 
