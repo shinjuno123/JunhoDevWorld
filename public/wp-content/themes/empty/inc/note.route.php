@@ -21,7 +21,9 @@ function noteRoutes() {
 function fetchNotes(WP_REST_Request $request){
     $limit = (int) $request->get_param('limit');
     $page = (int) $request->get_param('page');
-    $results = array();
+    $results = array(
+        'notes' => array()
+    );
     $mainQuery = new WP_Query(
         array(
             'post_type' => array('note'),
@@ -30,8 +32,52 @@ function fetchNotes(WP_REST_Request $request){
         )
     );
 
-    $results['notes'] = $mainQuery->posts;
-    $results['currentPage'] = is_null($page)? 1: $page;
+    while($mainQuery->have_posts()) {
+        $mainQuery->the_post();
+
+        $now = new DateTime("now");
+        $created = DateTime::createFromImmutable(get_post_datetime());
+        $timeDiff = $now->diff($created);
+        $timeDiffTxt = '';
+
+        switch(true) {
+            case $timeDiff->y > 0:
+                $timeDiffTxt .= $timeDiff->format('%y years') . ' ago';
+                break;
+            case $timeDiff->m:
+                $timeDiffTxt .= $timeDiff->format('%M months') . ' ago';
+                break;
+            case $timeDiff->d:
+                $timeDiffTxt .= $timeDiff->format('%d days') . ' ago';
+                break;
+            case $timeDiff->h:
+                $timeDiffTxt .= $timeDiff->format('%h hrs') . ' ago';
+                break;
+            case $timeDiff->i:
+                $timeDiffTxt .= $timeDiff->format('%i min') . ' ago';
+                break;
+            case $timeDiff->s:
+                $timeDiffTxt .= $timeDiff->format('%s sec') . ' ago';
+                break;
+            default:
+                $timeDiffTxt = 'now';
+                break;
+        }
+
+        array_push($results['notes'], array(
+            'title' => get_the_title(),
+            'content' => get_the_content(),
+            'created' => $timeDiffTxt,
+            'author' => array(
+                'nickname' => get_the_author_meta('display_name'),
+                'name' => get_the_author_meta('first_name') . ' ' . get_the_author_meta('last_name'),
+                'profileImage' =>get_avatar_url(get_the_author_meta('ID'))
+
+            )
+        ));
+    }
+
+    $results['currentPage'] = (is_null($page) OR $page < 1)? 1: $page;
     $results['maxPage'] =  $mainQuery->max_num_pages;
     $results['status'] = array(
             'is_success' => true,
