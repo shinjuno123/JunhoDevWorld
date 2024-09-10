@@ -55,6 +55,23 @@ function junhodevworld_post_types() {
             'menu_icon' => 'dashicons-id-alt'
         )
     );
+
+    register_post_type(
+        'skills',
+        array(
+            'has_archive' => true,
+            'show_in_test' => true,
+            'public' => true,
+            'labels' => array(
+                'name' => 'Skills',
+                'add_new_item' => 'Add New Skills',
+                'edit_item' => 'Edit Skills',
+                'all_items' => 'All Skills',
+                'singular_name'=>'Skills'
+            ),
+            'menu_icon' => 'dashicons-book'
+        )
+    );
 }
 
 add_action('init','junhodevworld_post_types');

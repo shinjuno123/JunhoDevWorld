@@ -65,6 +65,7 @@ function fetchNotes(WP_REST_Request $request){
         }
 
         array_push($results['notes'], array(
+            'id' => get_the_ID(),
             'title' => get_the_title(),
             'content' => get_the_content(),
             'created' => $timeDiffTxt,

@@ -1,0 +1,81 @@
+<?php
+
+add_action('rest_api_init', 'projectRoutes');
+
+function projectRoutes()
+{
+    $base_route = 'project/v1';
+    $slug = '/projects';
+
+    register_rest_route(
+        $base_route,
+        $slug,
+        array(
+            'method' => WP_REST_SERVER::READABLE,
+            'callback' => 'fetchOutstadingProjects'
+        )
+    );
+
+    // register_rest_route(
+    //     $base_route,
+    //     $slug . '/(?P<id>\d+)',
+    //     array(
+    //         'method' => WP_REST_Server::READABLE,
+    //         'callback' => 'fetchPost',
+    //         'show_in_rest' => true
+    //     )
+
+    // );
+
+}
+
+
+function fetchOutstadingProjects(WP_REST_Request $request) {
+    
+    $results = array(
+        'data' => array(),
+        'status' => array(
+            'is_success' => false,
+            'message' => 'Failed to load id=' . $request->get_param('id') . ' or too many same ids found. Please try other ids.',
+            'category' => ''
+        )
+    );
+
+    $mainQuery = new WP_Query(
+        array(
+            'post_type' => 'project',
+        ),
+    );
+
+    while($mainQuery->have_posts()) {
+        $mainQuery->the_post();
+        $is_outstanding_project = get_field('is_outstanding_project');
+
+        if(!$is_outstanding_project) {
+            continue;
+        }
+
+        
+        $skills = array_map(function($skillPost){
+            return $skillPost->post_title;
+        },get_field('skills', get_the_ID()));
+
+        $background_url = get_field('background')['url'];
+
+
+        array_push($results['data'], array(
+            'id'=> get_the_ID(),
+            'description' => get_the_content(),
+            'skills' => $skills,
+            'background' => $background_url,
+            'github_link' => get_field('github_link'),
+            'is_outstanding_project' => $is_outstanding_project,
+        ));
+
+
+    }
+
+
+    return new WP_REST_Response($results, 200, ['Content-Type' => 'application/json']);
+    
+}

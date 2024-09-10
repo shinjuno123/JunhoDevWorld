@@ -2,6 +2,7 @@
 
 require get_theme_file_path('/inc/writing.route.php');
 require get_theme_file_path('/inc/note.route.php');
+require get_theme_file_path('/inc/project.route.php');
 
 
 // Hook.
