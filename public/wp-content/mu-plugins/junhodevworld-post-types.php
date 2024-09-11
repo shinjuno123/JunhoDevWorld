@@ -34,7 +34,8 @@ function junhodevworld_post_types() {
                 'all_items' => 'All Projects',
                 'singular_name'=>'Project'
             ),
-            'menu_icon' => 'dashicons-clipboard'
+            'menu_icon' => 'dashicons-clipboard',
+            'supports' => array('title','is_outstanding_project')
         )
     );
 

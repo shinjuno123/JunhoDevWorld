@@ -9,7 +9,7 @@ function projectRoutes()
 
     register_rest_route(
         $base_route,
-        $slug,
+        '/outstanding-projects',
         array(
             'method' => WP_REST_SERVER::READABLE,
             'callback' => 'fetchOutstadingProjects'
@@ -33,7 +33,7 @@ function projectRoutes()
 function fetchOutstadingProjects(WP_REST_Request $request) {
     
     $results = array(
-        'data' => array(),
+        'projects' => array(),
         'status' => array(
             'is_success' => false,
             'message' => 'Failed to load id=' . $request->get_param('id') . ' or too many same ids found. Please try other ids.',
@@ -63,13 +63,13 @@ function fetchOutstadingProjects(WP_REST_Request $request) {
         $background_url = get_field('background')['url'];
 
 
-        array_push($results['data'], array(
+        array_push($results['projects'], array(
             'id'=> get_the_ID(),
             'description' => get_the_content(),
             'skills' => $skills,
             'background' => $background_url,
             'github_link' => get_field('github_link'),
-            'is_outstanding_project' => $is_outstanding_project,
+            'isOutstandingProject' => $is_outstanding_project,
         ));
 
 
