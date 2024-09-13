@@ -65,6 +65,7 @@ function fetchOutstadingProjects(WP_REST_Request $request) {
 
         array_push($results['projects'], array(
             'id'=> get_the_ID(),
+            'title' => get_the_title(),
             'description' => get_the_content(),
             'skills' => $skills,
             'background' => $background_url,
