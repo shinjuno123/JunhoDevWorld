@@ -52,6 +52,7 @@ function fetchPosts(WP_REST_Request $request)
             'post_type' => array('post'),
             'posts_per_page' => $limit,
             'paged' => 1,
+            'posts_per_page' => -1,
             'category_name' => $category
         )
     );

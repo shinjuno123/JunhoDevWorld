@@ -31,25 +31,30 @@ function projectRoutes()
 
 
 function fetchOutstadingProjects(WP_REST_Request $request) {
+
+    wp_reset_query();
     
     $results = array(
         'projects' => array(),
         'status' => array(
             'is_success' => false,
-            'message' => 'Failed to load id=' . $request->get_param('id') . ' or too many same ids found. Please try other ids.',
-            'category' => ''
-        )
+            'message' => '',
+        ),
     );
+
 
     $mainQuery = new WP_Query(
         array(
             'post_type' => 'project',
+            'orderby' => 'DSC',
+            'posts_per_page' => -1
         ),
     );
 
+
     while($mainQuery->have_posts()) {
         $mainQuery->the_post();
-        $is_outstanding_project = get_field('is_outstanding_project');
+        $is_outstanding_project = get_field('is_outstanding_project', get_the_ID());
 
         if(!$is_outstanding_project) {
             continue;
