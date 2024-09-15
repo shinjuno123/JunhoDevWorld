@@ -165,6 +165,7 @@ function fetchOtherPost(WP_REST_Request $request) {
             'id' => get_the_ID(),
             'title' => get_the_title(),
             'excerpt' => get_the_excerpt(),
+            'background' => get_field('background')['url'],
             'created' => get_the_date(),
             'modified' => get_the_modified_date()
         ));
