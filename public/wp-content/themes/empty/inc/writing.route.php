@@ -52,10 +52,10 @@ function fetchPosts(WP_REST_Request $request)
             'post_type' => array('post'),
             'posts_per_page' => $limit,
             'paged' => 1,
-            'posts_per_page' => -1,
             'category_name' => $category
         )
     );
+
 
     $max_num = $subQuery->max_num_pages + 1;
 
@@ -85,7 +85,7 @@ function fetchPosts(WP_REST_Request $request)
     );
 
     if ($results['maxPage'] < (int) $page or 1 > (int) $page) {
-        $results['status']['message'] = 'Please enter correct maximum page or currect page number';
+        $results['status']['message'] = 'Please enter correct maximum posts per a page or currect page number';
         return new WP_REST_Response($results, 200, ['Content-Type' => 'application/json']);
     }
 

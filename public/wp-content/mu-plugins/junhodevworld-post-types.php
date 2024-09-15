@@ -24,6 +24,7 @@ function junhodevworld_post_types() {
     register_post_type(
         'project',
         array(
+            'supports' => array('excerpt','title', 'editor'),
             'has_archive' => true,
             'show_in_test' => true,
             'public' => true,
