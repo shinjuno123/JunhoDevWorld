@@ -33,7 +33,7 @@ function fetchOutstadingProjects(WP_REST_Request $request) {
 
     
     $results = array(
-        'projects' => array(),
+        'outstandingProjects' => array(),
         'status' => array(
             'is_success' => false,
             'message' => '',
@@ -66,7 +66,7 @@ function fetchOutstadingProjects(WP_REST_Request $request) {
         $background_url = get_field('background')['url'];
 
 
-        array_push($results['projects'], array(
+        array_push($results['outstandingProjects'], array(
             'id'=> get_the_ID(),
             'title' => get_the_title(),
             'description' => get_the_content(),
@@ -87,17 +87,8 @@ function fetchOutstadingProjects(WP_REST_Request $request) {
 
 function fetchOtherPost(WP_REST_Request $request) {
     $limit = $request->get_param('limit');
-    $page = $request->get_param('page');
-    $category = $request->get_param('category');
+    $page = $request->get_param('page');    
 
-
-    $results = array(
-        'projects' => array(),
-        'status' => array(
-            'is_success' => false,
-            'message' => '',
-        ),
-    );
 
 
     $mainQuery = new WP_Query(
@@ -105,7 +96,6 @@ function fetchOtherPost(WP_REST_Request $request) {
             'post_type' => 'project',
             'posts_per_page' => $limit,
             'paged' => $page,
-            'category_name' => $category,
             'meta_query' => array(
                 array(
                     'key' => 'is_outstanding_project',
@@ -121,7 +111,6 @@ function fetchOtherPost(WP_REST_Request $request) {
             'post_type' => 'project',
             'posts_per_page' => $limit,
             'paged' => 1,
-            'category_name' => $category,
             'meta_query' => array(
                 array(
                     'key' => 'is_outstanding_project',
@@ -144,7 +133,7 @@ function fetchOtherPost(WP_REST_Request $request) {
     $results = array(
         'next_page_url' => $next_page_url,
         'prev_page_url' => $prev_page_url,
-        'projects' => array(),
+        'otherProjects' => array(),
         'maxPage' => $subQuery->max_num_pages,
         'currentPage' => (int) $page,
         'status' => array(
@@ -161,11 +150,12 @@ function fetchOtherPost(WP_REST_Request $request) {
     while ($mainQuery->have_posts()) {
         $mainQuery->the_post();
 
-        array_push($results['projects'], array(
+        array_push($results['otherProjects'], array(
             'id' => get_the_ID(),
             'title' => get_the_title(),
             'excerpt' => get_the_excerpt(),
             'background' => get_field('background')['url'],
+            'github_link' => get_field('github_link'),
             'created' => get_the_date(),
             'modified' => get_the_modified_date()
         ));
