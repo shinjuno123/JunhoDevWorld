@@ -62,6 +62,7 @@ function getOnlyFeaturedPosts() {
             'title' => get_the_title(),
             'excerpt' => get_the_excerpt(),
             'created' => get_the_date(),
+            'background_image' => get_field('background_image'),
             'modified' => get_the_modified_date()
         ));
     }
