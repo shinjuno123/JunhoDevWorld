@@ -27,6 +27,46 @@ function writingRoutes()
 
     );
 
+
+}
+
+function getOnlyFeaturedPosts() {
+    $results = array(
+        'next_page_url' => '',
+        'prev_page_url' => '',
+        'data' => array(),
+        'maxPage' => 1,
+        'currentPage' => 1,
+        'allCategories' => [],
+        'status' => array(
+            'is_success' => false,
+            'message' => ''
+        )
+    );
+
+    $mainQuery = new WP_Query(
+        array(
+            'post_type' => array('post'),
+            'posts_per_page' => -1,
+            'category_name' => 'FeaturedPost',
+            'orderby' => 'DSC'
+        )
+    );
+
+
+    while($mainQuery->have_posts()) {
+        $mainQuery->the_post();
+
+        array_push($results['data'], array(
+            'id' => get_the_ID(),
+            'title' => get_the_title(),
+            'excerpt' => get_the_excerpt(),
+            'created' => get_the_date(),
+            'modified' => get_the_modified_date()
+        ));
+    }
+
+    return $results;
 }
 
 
@@ -35,29 +75,29 @@ function fetchPosts(WP_REST_Request $request)
     $limit = $request->get_param('limit');
     $page = $request->get_param('page');
     $category = $request->get_param('category');
+    $onlyFeaturedPosts = $request->get_param('onlyFeaturedPosts') === 'TRUE' || $request->get_param('onlyFeaturedPosts') === 'true'? true: false;
 
 
+    if ($onlyFeaturedPosts) {
+        $results = getOnlyFeaturedPosts();
+        $results['status']['message'] = 'Succeeded to call featured posts only';
+        $results['status']['is_success'] = true;
+
+        return new WP_REST_Response($results, 200, ['Content-Type' => 'application/json']);
+    }
 
     $mainQuery = new WP_Query(
         array(
             'post_type' => array('post'),
             'posts_per_page' => $limit,
             'paged' => $page,
-            'category_name' => $category
-        )
-    );
-
-    $subQuery = new WP_Query(
-        array(
-            'post_type' => array('post'),
-            'posts_per_page' => $limit,
-            'paged' => 1,
-            'category_name' => $category
+            'category_name' => $category,
+            'orderby' => 'DSC'
         )
     );
 
 
-    $max_num = $subQuery->max_num_pages + 1;
+    $max_num = $mainQuery->max_num_pages + 1;
 
     $next_page = ($page + 1) % $max_num > 0 ? ($page + 1) % $max_num : 1;
     $prev_page = ($max_num + $page - 1) % $max_num > 0 ? ($max_num + $page - 1) % $max_num : $max_num - 1;
@@ -75,7 +115,7 @@ function fetchPosts(WP_REST_Request $request)
         'next_page_url' => $next_page_url,
         'prev_page_url' => $prev_page_url,
         'data' => array(),
-        'maxPage' => $subQuery->max_num_pages,
+        'maxPage' => $mainQuery->max_num_pages,
         'currentPage' => (int) $page,
         'allCategories' => $category_names,
         'status' => array(
@@ -91,8 +131,6 @@ function fetchPosts(WP_REST_Request $request)
 
     while ($mainQuery->have_posts()) {
         $mainQuery->the_post();
-
-
 
         $categories = get_the_category();
         $category_names = array();
