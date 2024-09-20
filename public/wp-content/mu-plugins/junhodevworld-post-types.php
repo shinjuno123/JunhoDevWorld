@@ -73,6 +73,23 @@ function junhodevworld_post_types() {
             'menu_icon' => 'dashicons-book'
         )
     );
+
+    register_post_type(
+        'history',
+        array(
+            'has_archive' => true,
+            'show_in_test' => true,
+            'public' => true,
+            'labels' => array(
+                'name' => 'History',
+                'add_new_item' => 'Add New History',
+                'edit_item' => 'Edit History',
+                'all_items' => 'All History',
+                'singular_name'=>'History'
+            ),
+            'menu_icon' => 'dashicons-hourglass'
+        )
+    );
 }
 
 add_action('init','junhodevworld_post_types');

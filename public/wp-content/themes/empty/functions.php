@@ -28,3 +28,16 @@ function wp_rest_allow_all_cors() {
         return $value;
     });
 }
+
+
+// Restrict basic wp rest api routes
+add_filter('rest_endpoints', function( $endpoints ) {
+
+    foreach( $endpoints as $route => $endpoint ){
+        if( 0 === stripos( $route, '/wp/' ) ){
+            unset( $endpoints[ $route ] );
+        }
+    }
+
+    return $endpoints;
+});
