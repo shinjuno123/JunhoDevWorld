@@ -90,6 +90,23 @@ function junhodevworld_post_types() {
             'menu_icon' => 'dashicons-hourglass'
         )
     );
+
+    register_post_type(
+        'work',
+        array(
+            'has_archive' => true,
+            'show_in_test' => true,
+            'public' => true,
+            'labels' => array(
+                'name' => 'Work Experience',
+                'add_new_item' => 'Add Work Experience',
+                'edit_item' => 'Edit Work Experience',
+                'all_items' => 'All Work Experiences',
+                'singular_name'=>'Work Experience'
+            ),
+            'menu_icon' => 'dashicons-businessman'
+        )
+    );
 }
 
 add_action('init','junhodevworld_post_types');

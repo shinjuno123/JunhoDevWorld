@@ -63,9 +63,43 @@ function fetchAdminInfo() {
     return new WP_REST_Response($results, 200, ['Content-Type' => 'application/json']);
 }
 
+
+function fetchWorkHistory() {
+    $results = array();
+
+    $mainQuery = new WP_Query(
+        array(
+            'post_type' => array('work'),
+            'posts_per_page' => -1,
+            'meta_key' => 'from',
+            'orderby' => 'meta_value',
+            'order' => 'ASC'
+        )
+    );
+
+
+    while ($mainQuery->have_posts()){
+        $mainQuery->the_post();
+
+        array_push($results, array(
+            'id' => get_the_ID(),
+            'title' => get_the_title(),
+            'description' => get_the_content(),
+            'icon' => get_field('icon'),
+            'place' => get_field('from'),
+            'date' =>  get_field('to')
+        ));
+
+    }
+
+
+    return $results;
+}
+
 function fetchAdminHistory() {
     $results = array(
         'histories' => array(),
+        'workHistories' => array(),
         'status' => array(
             'is_success' => false,
             'message' => 'Failed to load admin info'
@@ -89,11 +123,15 @@ function fetchAdminHistory() {
             'id' => get_the_ID(),
             'title' => get_the_title(),
             'description' => get_the_content(),
-            'icon' => get_field('icon')['url'],
+            'icon' => get_field('icon'),
             'place' => get_field('place'),
             'date' =>  get_field('date')
         ));
     }
+
+    wp_reset_query();
+
+    $results['workHistories'] = fetchWorkHistory();
 
     $results['status']['is_success'] = true;
     $results['status']['message'] = 'Succeeded to call history records';
