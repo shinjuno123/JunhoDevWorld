@@ -86,8 +86,9 @@ function fetchWorkHistory() {
             'title' => get_the_title(),
             'description' => get_the_content(),
             'icon' => get_field('icon'),
-            'place' => get_field('from'),
-            'date' =>  get_field('to')
+            'company'=> get_field('company'),
+            'from' => get_field('from'),
+            'to' =>  get_field('to')
         ));
 
     }
