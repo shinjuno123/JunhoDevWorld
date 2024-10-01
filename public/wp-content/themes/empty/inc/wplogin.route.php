@@ -8,6 +8,15 @@ function WPLoginRoute()
 
     register_rest_route(
         $base_route,
+        "/register",
+        array(
+            'methods' => WP_REST_SERVER::CREATABLE,
+            'callback' => 'registerUser'
+        )
+    );
+
+    register_rest_route(
+        $base_route,
         "/login",
         array(
             'methods' => WP_REST_SERVER::CREATABLE,
@@ -27,15 +36,48 @@ function WPLoginRoute()
 
 }
 
+function registerUser($request) {
+    $response = json_decode($request->get_body());
+    $results = array(
+        'status' => array(
+            'success' => false,
+            'message' => ''
+        )
+    );
+
+    $username = $response->email;
+    $password = $response->password;
+
+
+    if (username_exists($username)) {
+        $results['status']['success'] = false;
+        $results['status']['message'] = "The email already exists";
+        return new WP_REST_Response($results, 403, ['Content-Type' => 'application/json']);
+    }
+
+    $user_id = wp_create_user($username, $password, $username);
+
+    if (is_wp_error($user_id)) {
+        $results['status']['success'] = false;
+        $results['status']['message'] = $user_id->get_error_message();
+        return new WP_REST_Response($results, 403, ['Content-Type' => 'application/json']);
+    }
+
+    $results['status']['success'] = true;
+    $results['status']['message'] = "Successfully registered!";
+
+    return new WP_REST_Response($results, 200, ['Content-Type' => 'application/json']);
+
+}
+
 function loginUser($request) {
-    $response = $request->get_body();
+    $response = json_decode($request->get_body());
 
-    $res = new WP_REST_Response($response);
-    $res->set_status(200);
 
-    return ['req' => $res];
+
+    return $response;
 }
 
 function logoutUser($request) {
-
-}
+    $response = json_decode($request->get_body());
+} 
