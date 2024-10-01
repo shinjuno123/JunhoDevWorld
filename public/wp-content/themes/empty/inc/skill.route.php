@@ -11,7 +11,7 @@ function SkillRoute()
         $base_route,
         $slug,
         array(
-            'method' => WP_REST_SERVER::READABLE,
+            'methods' => WP_REST_SERVER::READABLE,
             'callback' => 'fetchSkills'
         )
     );
@@ -20,7 +20,7 @@ function SkillRoute()
         $base_route,
         $slug . '/(?P<id>\d+)',
         array(
-            'method' => WP_REST_Server::READABLE,
+            'methods' => WP_REST_Server::READABLE,
             'callback' => 'fetchSkill',
             'show_in_rest' => true
         )

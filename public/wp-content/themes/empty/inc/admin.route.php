@@ -11,7 +11,7 @@ function AdminRoute()
         $base_route,
         $slug,
         array(
-            'method' => WP_REST_SERVER::READABLE,
+            'methods' => WP_REST_SERVER::READABLE,
             'callback' => 'fetchAdminInfo'
         )
     );
@@ -21,7 +21,7 @@ function AdminRoute()
         $base_route,
         $slug . '/history',
         array(
-            'method' => WP_REST_SERVER::READABLE,
+            'methods' => WP_REST_SERVER::READABLE,
             'callback' => 'fetchAdminHistory'
         )
     );

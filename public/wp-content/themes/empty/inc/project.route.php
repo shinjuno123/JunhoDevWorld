@@ -10,7 +10,7 @@ function projectRoutes()
         $base_route,
         '/outstanding-projects',
         array(
-            'method' => WP_REST_SERVER::READABLE,
+            'methods' => WP_REST_SERVER::READABLE,
             'callback' => 'fetchOutstadingProjects'
         )
     );
@@ -19,7 +19,7 @@ function projectRoutes()
         $base_route,
         '/other-projects',
         array(
-            'method' => WP_REST_Server::READABLE,
+            'methods' => WP_REST_Server::READABLE,
             'callback' => 'fetchOtherPost',
             'show_in_rest' => true
         )
