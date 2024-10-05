@@ -42,3 +42,13 @@ add_filter('rest_endpoints', function( $endpoints ) {
 
     return $endpoints;
 });
+
+
+add_action('set_auth_cookie', function($cookie) {
+    $cookie_name = is_ssl()? SECURE_AUTH_COOKIE: AUTH_COOKIE;
+    $_COOKIE[$cookie_name] = $cookie;
+});
+
+add_action('set_logged_in_cookie', function($cookie) {
+    $_COOKIE[LOGGED_IN_COOKIE] = $cookie;
+});
