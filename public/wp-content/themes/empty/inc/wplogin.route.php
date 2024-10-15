@@ -96,7 +96,7 @@ function loginUser($request) {
             'is_success' => false,
             'message' => $user->get_error_code()
         );
-        return new WP_REST_Response($results, 503, ['Content-Type' => 'application/json']);
+        return new WP_REST_Response($results, 401, ['Content-Type' => 'application/json']);
     }
 
 
@@ -108,9 +108,10 @@ function loginUser($request) {
         'user' =>$user->$_COOKIE,
         'is_success' => is_user_logged_in($user->ID),
         'message' => 'login_success',
-        'auth_cookie' => LOGGED_IN_COOKIE,
         'validateUser' => wp_validate_auth_cookie($_COOKIE[LOGGED_IN_COOKIE], 'logged_in') == 1
     );
+
+    $results['auth_cookie'] = LOGGED_IN_COOKIE;
 
     return new WP_REST_Response($results, 200, ['Content-Type' => 'application/json']);
 }
@@ -124,7 +125,6 @@ function isLoggedIn($request) {
             'logged_in' => $_COOKIE[$response->auth_cookie],
             'is_success' => true,
             'message' => "user_logged_in",
-            'isset' => isset($_COOKIE[$response->auth_cookie])
         );
         return new WP_REST_Response($results, 200, ['Content-Type' => 'application/json']);
     }
@@ -148,8 +148,7 @@ function logoutUser($request) {
         unset($_COOKIE[$response->auth_cookie]);
         $results['status'] = array(
             'is_success' => true,
-            'message' => 'logged_out',
-            'isset' => isset($_COOKIE[$response->auth_cookie])
+            'message' => 'logged_out'
         );
         return new WP_REST_Response($results, 200, ['Content-Type' => 'application/json']);
     }
