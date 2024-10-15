@@ -6,6 +6,7 @@ require get_theme_file_path('/inc/project.route.php');
 require get_theme_file_path('/inc/skill.route.php');
 require get_theme_file_path('/inc/admin.route.php');
 require get_theme_file_path('/inc/wplogin.route.php');
+require get_theme_file_path('/inc/oauth.route.php');
 
 
 // Hook.

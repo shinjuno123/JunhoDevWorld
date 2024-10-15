@@ -23,7 +23,13 @@ function requestUserinfo($accessToken) {
         )
     ));
 
-    return $response;
+    $responseJson = json_decode($response['body']);
+
+    if (property_exists($responseJson, 'error')) {
+        return null;
+    }
+
+    return $responseJson;
 }
 
 
@@ -32,6 +38,7 @@ function verifyAccessToken($request) {
     $accessToken = $body->accessToken;
     $userInfo = requestUserinfo($accessToken);
     $results = array(
+        'userInfo'=> $userInfo,
         'status' => array(
             'is_success' => false,
             'message' => ''
@@ -40,13 +47,14 @@ function verifyAccessToken($request) {
 
     if ($userInfo == null) {
         // return 403 forbidden
-
-        return new WP_REST_Response($userInfo, 403, ['Content-Type' => 'application/json']);
+        $results['status']['is_success'] = false;
+        $results['status']['message'] = 'user_invalid';
+        return new WP_REST_Response($results, 403, ['Content-Type' => 'application/json']);
     }
 
     // return userinfo
     $results['status']['is_success'] = true;
     $results['status']['message'] = 'user_verified';
 
-    return new WP_REST_Response($userInfo, 200, ['Content-Type' => 'application/json']);
+    return new WP_REST_Response($results, 200, ['Content-Type' => 'application/json']);
 }
