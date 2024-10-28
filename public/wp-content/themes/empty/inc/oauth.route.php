@@ -64,7 +64,6 @@ function verifyAccessToken($request): WP_REST_Response
         'data_format' => 'body',
     ));
 
-    // return userinfo
     $results['status']['is_success'] = true;
     $results['status']['message'] = 'user_verified';
 
