@@ -29,19 +29,6 @@ $field_type_supports  = acf_get_field_type_prop( $field['type'], 'supports' );
 $inactive_field_class = '';
 $inactive_field_title = '';
 
-if ( acf_is_pro() && acf_get_field_type_prop( $field['type'], 'pro' ) ) {
-	$div_attrs['class'] .= ' acf-pro-field-object';
-}
-
-if ( acf_is_pro() && acf_get_field_type_prop( $field['type'], 'pro' ) && ! acf_pro_is_license_active() ) {
-	$field_type_label .= '<span class="acf-pro-label-field-type"><img src="' . esc_url( acf_get_url( 'assets/images/pro-chip.svg' ) ) . '" alt="' . esc_attr__( 'ACF PRO Logo', 'acf' ) . '"></span>';
-
-	if ( ! acf_pro_is_license_expired() ) {
-		$inactive_field_class = ' acf-js-tooltip';
-		$inactive_field_title = __( 'PRO fields cannot be edited without an active license.', 'acf' );
-	}
-}
-
 if ( ! isset( $num_field_groups ) ) {
 	$num_field_groups = 0;
 }
@@ -319,6 +306,7 @@ if ( isset( $field['conditional_logic'] ) && is_array( $field['conditional_logic
 				?>
 				<div class="acf-field-settings-footer">
 					<a class="button close-field edit-field" title="<?php esc_attr_e( 'Close Field', 'acf' ); ?>" href="#"><?php esc_html_e( 'Close Field', 'acf' ); ?></a>
+					<a class="acf-btn acf-btn-secondary close-add-field" title="<?php esc_attr_e( 'Close and Add Field', 'acf' ); ?>" href="#"><?php esc_html_e( 'Close and Add Field', 'acf' ); ?></a>
 				</div>
 			</div>
 		</div>

@@ -68,29 +68,11 @@ if ( ! class_exists( 'ACF_Admin_Internal_Post_Type_List' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'current_screen', array( $this, 'current_screen' ) );
-			add_action( 'admin_footer', array( $this, 'include_pro_features' ) );
 
 			// Handle post status change events.
 			add_action( 'trashed_post', array( $this, 'trashed_post' ) );
 			add_action( 'untrashed_post', array( $this, 'untrashed_post' ) );
 			add_action( 'deleted_post', array( $this, 'deleted_post' ) );
-		}
-
-		/**
-		 * Renders HTML for the ACF PRO features upgrade notice.
-		 */
-		public function include_pro_features() {
-			// Bail if not the edit screen
-			if ( ! acf_is_screen( 'edit-' . $this->post_type ) ) {
-				return;
-			}
-
-			// Bail if on PRO.
-			if ( acf_is_pro() && acf_pro_is_license_active() ) {
-				return;
-			}
-
-			acf_get_view( 'acf-field-group/pro-features' );
 		}
 
 		/**

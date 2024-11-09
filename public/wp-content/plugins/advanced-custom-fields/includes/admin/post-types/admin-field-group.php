@@ -238,25 +238,7 @@ if ( ! class_exists( 'acf_admin_field_group' ) ) :
 		 * @since 5.3.2
 		 */
 		public function admin_footer() {
-			$this->include_pro_features();
 			do_action( 'acf/field_group/admin_footer' );
-		}
-
-		/**
-		 * Renders HTML for the ACF PRO features upgrade notice.
-		 */
-		public function include_pro_features() {
-			// Bail if on PRO.
-			if ( acf_is_pro() && acf_pro_is_license_active() ) {
-				return;
-			}
-
-			// Bail if not the edit field group screen.
-			if ( ! acf_is_screen( 'acf-field-group' ) ) {
-				return;
-			}
-
-			acf_get_view( 'acf-field-group/pro-features' );
 		}
 
 		/**
@@ -408,15 +390,6 @@ if ( ! class_exists( 'acf_admin_field_group' ) ) :
 			);
 
 			acf_get_view( $this->post_type . '/fields', $view );
-		}
-
-		/**
-		 * This function will render the HTML for the metabox 'acf-field-group-pro-features'
-		 *
-		 * @since 6.0.0
-		 */
-		public function mb_pro_features() {
-			acf_get_view( $this->post_type . '/pro-features' );
 		}
 
 		/**

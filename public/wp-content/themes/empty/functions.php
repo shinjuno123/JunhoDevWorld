@@ -36,7 +36,7 @@ function wp_rest_allow_all_cors() {
 add_filter('rest_endpoints', function( $endpoints ) {
 
     foreach( $endpoints as $route => $endpoint ){
-        if( 0 === stripos( $route, '/wp/' ) ){
+        if( 0 === stripos( $route, '/wp/') AND  1 === stripos( $route, '/wp-admin/')){
             unset( $endpoints[ $route ] );
         }
     }

@@ -33,7 +33,7 @@ if ( ! class_exists( 'ACF_Admin' ) ) :
 		 */
 		public function admin_menu() {
 
-			// Bail early if ACF is hidden.
+			// Bail early if SCF is hidden.
 			if ( ! acf_get_setting( 'show_admin' ) ) {
 				return;
 			}
@@ -43,7 +43,7 @@ if ( ! class_exists( 'ACF_Admin' ) ) :
 			$parent_slug = 'edit.php?post_type=acf-field-group';
 
 			// Add menu items.
-			add_menu_page( __( 'ACF', 'acf' ), __( 'ACF', 'acf' ), $cap, $parent_slug, false, 'dashicons-welcome-widgets-menus', 80 );
+			add_menu_page( __( 'SCF', 'acf' ), __( 'SCF', 'acf' ), $cap, $parent_slug, false, 'dashicons-welcome-widgets-menus', 80 );
 		}
 
 		/**
@@ -107,73 +107,8 @@ if ( ! class_exists( 'ACF_Admin' ) ) :
 				add_action( 'in_admin_header', array( $this, 'in_admin_header' ) );
 				add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ) );
 				add_filter( 'update_footer', array( $this, 'admin_footer_version_text' ) );
-				$this->setup_help_tab();
 				$this->maybe_show_import_from_cptui_notice();
 			}
-		}
-
-		/**
-		 * Sets up the admin help tab.
-		 *
-		 * @date    20/4/20
-		 * @since   5.9.0
-		 *
-		 * @param   void
-		 * @return  void
-		 */
-		public function setup_help_tab() {
-			$screen = get_current_screen();
-
-			// Overview tab.
-			$screen->add_help_tab(
-				array(
-					'id'      => 'overview',
-					'title'   => __( 'Overview', 'acf' ),
-					'content' =>
-						'<p><strong>' . __( 'Overview', 'acf' ) . '</strong></p>' .
-						'<p>' . __( 'The Advanced Custom Fields plugin provides a visual form builder to customize WordPress edit screens with extra fields, and an intuitive API to display custom field values in any theme template file.', 'acf' ) . '</p>' .
-						'<p>' . sprintf(
-							__( 'Before creating your first Field Group, we recommend first reading our <a href="%s" target="_blank">Getting started</a> guide to familiarize yourself with the plugin\'s philosophy and best practises.', 'acf' ),
-							acf_add_url_utm_tags( 'https://www.advancedcustomfields.com/resources/getting-started-with-acf/', 'docs', 'help-tab' )
-						) . '</p>' .
-						'<p>' . __( 'Please use the Help & Support tab to get in touch should you find yourself requiring assistance.', 'acf' ) . '</p>' .
-						'',
-				)
-			);
-
-			// Help tab.
-			$screen->add_help_tab(
-				array(
-					'id'      => 'help',
-					'title'   => __( 'Help & Support', 'acf' ),
-					'content' =>
-						'<p><strong>' . __( 'Help & Support', 'acf' ) . '</strong></p>' .
-						'<p>' . __( 'We are fanatical about support, and want you to get the best out of your website with ACF. If you run into any difficulties, there are several places you can find help:', 'acf' ) . '</p>' .
-						'<ul>' .
-							'<li>' . sprintf(
-								__( '<a href="%s" target="_blank">Documentation</a>. Our extensive documentation contains references and guides for most situations you may encounter.', 'acf' ),
-								acf_add_url_utm_tags( 'https://www.advancedcustomfields.com/resources/', 'docs', 'help-tab' )
-							) . '</li>' .
-							'<li>' . sprintf(
-								__( '<a href="%s" target="_blank">Discussions</a>. We have an active and friendly community on our Community Forums who may be able to help you figure out the \'how-tos\' of the ACF world.', 'acf' ),
-								acf_add_url_utm_tags( 'https://support.advancedcustomfields.com/', 'docs', 'help-tab' )
-							) . '</li>' .
-							'<li>' . sprintf(
-								__( '<a href="%s" target="_blank">Help Desk</a>. The support professionals on our Help Desk will assist with your more in depth, technical challenges.', 'acf' ),
-								acf_add_url_utm_tags( 'https://www.advancedcustomfields.com/support/', 'docs', 'help-tab' )
-							) . '</li>' .
-						'</ul>',
-				)
-			);
-
-			// Sidebar.
-			$screen->set_help_sidebar(
-				'<p><strong>' . __( 'Information', 'acf' ) . '</strong></p>' .
-				'<p><span class="dashicons dashicons-admin-plugins"></span> ' . sprintf( __( 'Version %s', 'acf' ), ACF_VERSION ) . '</p>' .
-				'<p><span class="dashicons dashicons-wordpress"></span> <a href="https://wordpress.org/plugins/advanced-custom-fields/" target="_blank">' . __( 'View details', 'acf' ) . '</a></p>' .
-				'<p><span class="dashicons dashicons-admin-home"></span> <a href="' . acf_add_url_utm_tags( 'https://www.advancedcustomfields.com/', 'docs', 'help-tab' ) . '" target="_blank" target="_blank">' . __( 'Visit website', 'acf' ) . '</a></p>' .
-				''
-			);
 		}
 
 		/**
@@ -315,15 +250,7 @@ if ( ! class_exists( 'ACF_Admin' ) ) :
 		 * @return  string
 		 */
 		public function admin_footer_text( $text ) {
-			$wp_engine_link = acf_add_url_utm_tags( 'https://wpengine.com/', 'bx_prod_referral', acf_is_pro() ? 'acf_pro_plugin_footer_text' : 'acf_free_plugin_footer_text', false, 'acf_plugin', 'referral' );
-			$acf_link       = acf_add_url_utm_tags( 'https://www.advancedcustomfields.com/', 'footer', 'footer' );
-
-			return sprintf(
-				/* translators: This text is prepended by a link to ACF's website, and appended by a link to WP Engine's website. */
-				'<a href="%1$s" target="_blank">' . ( acf_is_pro() ? 'ACF PRO' : 'ACF' ) . '</a> ' . __( 'is developed and maintained by', 'acf' ) . ' <a href="%2$s" target="_blank">WP Engine</a>.',
-				$acf_link,
-				$wp_engine_link
-			);
+			return '';
 		}
 
 		/**
@@ -335,23 +262,7 @@ if ( ! class_exists( 'ACF_Admin' ) ) :
 		 * @return  string
 		 */
 		public function admin_footer_version_text( $text ) {
-			$documentation_link = acf_add_url_utm_tags( 'https://www.advancedcustomfields.com/resources/', 'footer', 'footer' );
-			$support_link       = acf_add_url_utm_tags( 'https://www.advancedcustomfields.com/support/', 'footer', 'footer' );
-			$feedback_link      = acf_add_url_utm_tags( 'https://www.advancedcustomfields.com/feedback/', 'footer', 'footer' );
-			$version_link       = acf_add_url_utm_tags( 'https://www.advancedcustomfields.com/changelog/', 'footer', 'footer' );
-
-			return sprintf(
-				'<a href="%s" target="_blank">%s</a> &#8729; <a href="%s" target="_blank">%s</a> &#8729; <a href="%s" target="_blank">%s</a> &#8729; <a href="%s" target="_blank">%s %s</a>',
-				$documentation_link,
-				__( 'Documentation', 'acf' ),
-				$support_link,
-				__( 'Support', 'acf' ),
-				$feedback_link,
-				__( 'Feedback', 'acf' ),
-				$version_link,
-				acf_is_pro() ? __( 'ACF PRO', 'acf' ) : __( 'ACF', 'acf' ),
-				ACF_VERSION
-			);
+			return '';
 		}
 
 		/**

@@ -151,24 +151,6 @@ if ( ! class_exists( 'ACF_Site_Health' ) ) {
 		public function add_activation_event() {
 			$event_name = 'first_activated';
 
-			if ( acf_is_pro() ) {
-				$event_name = 'first_activated_pro';
-
-				if ( 'acf/first_activated' !== current_filter() ) {
-					$site_health = $this->get_site_health();
-
-					/**
-					 * We already have an event for when pro was first activated,
-					 * so we don't need to log an additional event here.
-					 */
-					if ( ! empty( $site_health[ 'event_' . $event_name ] ) ) {
-						return false;
-					}
-
-					$event_name = 'activated_pro';
-				}
-			}
-
 			return $this->add_site_health_event( $event_name );
 		}
 
@@ -266,9 +248,9 @@ if ( ! class_exists( 'ACF_Site_Health' ) ) {
 			global $wpdb;
 
 			$fields         = array();
-			$is_pro         = acf_is_pro();
-			$license        = $is_pro ? acf_pro_get_license() : array();
-			$license_status = $is_pro ? acf_pro_get_license_status() : array();
+			$is_pro         = false;
+			$license        = array();
+			$license_status = array();
 			$field_groups   = acf_get_field_groups();
 			$post_types     = acf_get_post_types();
 			$taxonomies     = acf_get_taxonomies();
@@ -283,41 +265,9 @@ if ( ! class_exists( 'ACF_Site_Health' ) ) {
 
 			$fields['plugin_type'] = array(
 				'label' => __( 'Plugin Type', 'acf' ),
-				'value' => $is_pro ? __( 'PRO', 'acf' ) : __( 'Free', 'acf' ),
-				'debug' => $is_pro ? 'PRO' : 'Free',
+				'value' => __( 'Free', 'acf' ),
+				'debug' => 'Free',
 			);
-
-			if ( $is_pro ) {
-				$fields['activated'] = array(
-					'label' => __( 'License Activated', 'acf' ),
-					'value' => ! empty( $license ) ? $yes : $no,
-					'debug' => ! empty( $license ),
-				);
-
-				$fields['activated_url'] = array(
-					'label' => __( 'Licensed URL', 'acf' ),
-					'value' => ! empty( $license['url'] ) ? $license['url'] : '',
-				);
-
-				$fields['license_type'] = array(
-					'label' => __( 'License Type', 'acf' ),
-					'value' => $license_status['name'],
-				);
-
-				$fields['license_status'] = array(
-					'label' => __( 'License Status', 'acf' ),
-					'value' => $license_status['status'],
-				);
-
-				$expiry = ! empty( $license_status['expiry'] ) ? $license_status['expiry'] : '';
-				$format = get_option( 'date_format', 'F j, Y' );
-
-				$fields['subscription_expires'] = array(
-					'label' => __( 'Subscription Expiry Date', 'acf' ),
-					'value' => is_numeric( $expiry ) ? date_i18n( $format, $expiry ) : '',
-					'debug' => $expiry,
-				);
-			}
 
 			$fields['wp_version'] = array(
 				'label' => __( 'WordPress Version', 'acf' ),

@@ -269,6 +269,6 @@ function acf_render_bidirectional_field_settings( $field ) {
  */
 function acf_get_bidirectional_field_settings_instruction_text() {
 	/* translators: %s the URL to ACF's bidirectional relationship documentation */
-	$message = '<p class="acf-feature-notice with-warning-icon">' . sprintf( __( 'Enabling the bidirectional setting allows you to update a value in the target fields for each value selected for this field, adding or removing the Post ID, Taxonomy ID or User ID of the item being updated. For more information, please read the <a href="%s" target="_blank">documentation</a>.', 'acf' ), acf_add_url_utm_tags( 'https://www.advancedcustomfields.com/resources/bidirectional-relationships/', 'docs', 'bidirectional' ) ) . '</p>';
+	$message = '<p class="acf-feature-notice with-warning-icon">' . __( 'Enabling the bidirectional setting allows you to update a value in the target fields for each value selected for this field, adding or removing the Post ID, Taxonomy ID or User ID of the item being updated.', 'acf'  ) . '</p>';
 	return $message;
 }

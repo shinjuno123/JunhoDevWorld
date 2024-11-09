@@ -38,7 +38,7 @@ if ( $page_title ) {
 	<?php
 	if ( ! empty( $post_type_object ) && current_user_can( $post_type_object->cap->create_posts ) ) {
 		$class = 'acf-btn acf-btn-sm';
-		if ( 'acf-ui-options-page' === $post_type && acf_is_pro() && ! acf_pro_is_license_active() ) {
+		if ( 'acf-ui-options-page' === $post_type ) {
 			$class .= ' disabled';
 		}
 
