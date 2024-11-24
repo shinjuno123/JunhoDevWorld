@@ -2,6 +2,11 @@
 
 add_action('rest_api_init', 'WPLoginRoute');
 
+/**
+ * Registers REST API routes for handling user login and registration.
+ *
+ * @since 1.0.0
+ */
 function WPLoginRoute()
 {
     $base_route = '/account';
@@ -45,6 +50,14 @@ function WPLoginRoute()
 
 }
 
+/**
+ * Handles user registration.
+ *
+ * @since 1.0.0
+ *
+ * @param WP_REST_Request $request The request object.
+ * @return WP_REST_Response The response object.
+ */
 function registerUser($request) {
     $response = json_decode($request->get_body());
     $results = array(
@@ -79,6 +92,14 @@ function registerUser($request) {
 
 }
 
+/**
+ * Logs the user in.
+ *
+ * @since 1.0.0
+ *
+ * @param WP_REST_Request $request The request object containing the username and password.
+ * @return WP_REST_Response The response object indicating the login status.
+ */
 function loginUser($request) {
     $response = json_decode($request->get_body());
     $results = array();
@@ -116,6 +137,14 @@ function loginUser($request) {
     return new WP_REST_Response($results, 200, ['Content-Type' => 'application/json']);
 }
 
+/**
+ * Checks if the user is logged in by validating the auth cookie from the request.
+ *
+ * @since 1.0.0
+ *
+ * @param WP_REST_Request $request The request object containing the auth cookie.
+ * @return WP_REST_Response The response object indicating the login status.
+ */
 function isLoggedIn($request) {
     $response = json_decode($request->get_body());
 
@@ -138,6 +167,14 @@ function isLoggedIn($request) {
 
 
 
+/**
+ * Logs out a user by removing the auth cookie from the request.
+ *
+ * @since 1.0.0
+ *
+ * @param WP_REST_Request $request The request object containing the auth cookie to be removed.
+ * @return WP_REST_Response The response object indicating the logout status.
+ */
 function logoutUser($request) {
     $response = json_decode($request->get_body());
     $results = array();    

@@ -3,6 +3,13 @@
 add_action('rest_api_init', 'noteRoutes');
 
 
+/**
+ * Registers the /note/v1/notes endpoint for fetching notes.
+ *
+ * Fetches all notes from the database and returns them in a JSON response.
+ *
+ * @since 0.1.0
+ */
 function noteRoutes() {
     $base_route = 'note/v1';
     $slug = '/notes';
@@ -18,6 +25,22 @@ function noteRoutes() {
 }
 
 
+/**
+ * Callback function for the /note/v1/notes endpoint.
+ *
+ * Fetches all notes from the database and returns them in a JSON response.
+ *
+ * The function takes a WP_REST_Request object as an argument. The request
+ * object contains the URL parameters passed in the request. The function
+ * fetches the notes using the given page and limit, and formats the results
+ * into a JSON object.
+ *
+ * @since 0.1.0
+ *
+ * @param WP_REST_Request $request The request object.
+ *
+ * @return array The JSON response.
+ */
 function fetchNotes(WP_REST_Request $request){
     $limit = (int) $request->get_param('limit');
     $page = (int) $request->get_param('page');

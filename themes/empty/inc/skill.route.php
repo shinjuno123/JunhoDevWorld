@@ -2,6 +2,15 @@
 
 add_action('rest_api_init', 'SkillRoute');
 
+/**
+ * Registers custom REST API routes for the 'skill' namespace.
+ *
+ * This function defines two routes under the 'skill/v1' namespace:
+ * 1. '/skills' - A route to fetch a list of skills, handled by the 'fetchSkills' callback.
+ * 2. '/skills/(?P<id>\d+)' - A route to fetch a specific skill by its ID, handled by the 'fetchSkill' callback.
+ *
+ * Both routes are registered as readable.
+ */
 function SkillRoute()
 {
     $base_route = 'skill/v1';
@@ -15,19 +24,13 @@ function SkillRoute()
             'callback' => 'fetchSkills'
         )
     );
-
-    register_rest_route(
-        $base_route,
-        $slug . '/(?P<id>\d+)',
-        array(
-            'methods' => WP_REST_Server::READABLE,
-            'callback' => 'fetchSkill',
-            'show_in_rest' => true
-        )
-
-    );
 }
 
+/**
+ * Fetches all skills from the WordPress database and returns them in a JSON response.
+ *
+ * @return WP_REST_Response A JSON response containing a list of skills, each with an ID, name, description, icon and proficiency.
+ */
 function fetchSkills()
 {
     $results = array(
@@ -64,5 +67,3 @@ function fetchSkills()
     return new WP_REST_Response($results, 200, ['Content-Type' => 'application/json']);
 }
 
-
-function fetchSkill(WP_REST_Request $request) {}

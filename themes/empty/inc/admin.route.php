@@ -2,6 +2,16 @@
 
 add_action('rest_api_init', 'AdminRoute');
 
+/**
+ * Registers REST API routes for admin information.
+ *
+ * This function sets up the routes for fetching admin information and admin history
+ * using the WordPress REST API. It registers two routes under the 'admin/v1' namespace:
+ * - '/admin-info': Calls the 'fetchAdminInfo' function to retrieve admin information.
+ * - '/admin-info/history': Calls the 'fetchAdminHistory' function to retrieve admin history.
+ *
+ * @since 1.0.0
+ */
 function AdminRoute()
 {
     $base_route = 'admin/v1';
@@ -28,6 +38,22 @@ function AdminRoute()
 
 }
 
+/**
+ * Retrieves admin information.
+ *
+ * This function sets up the route for fetching admin information and history.
+ * It uses the WordPress REST API to register a route under the 'admin/v1' namespace
+ * with the '/admin-info' slug. This route is reachable via the GET method.
+ *
+ * The function fetches the current administrator's information, including their
+ * name, description, and avatar URL. It returns this information as a JSON object
+ * with the 'adminInfo' key, and also sets up a 'status' key to indicate whether
+ * the request was successful or not.
+ *
+ * @since 1.0.0
+ *
+ * @return WP_REST_Response The response object.
+ */
 function fetchAdminInfo() {
     $results = array(
         'adminInfo' => array(),
@@ -64,6 +90,13 @@ function fetchAdminInfo() {
 }
 
 
+/**
+ * Fetches all work history posts.
+ *
+ * @since 1.0.0
+ *
+ * @return array Array of work history post objects.
+ */
 function fetchWorkHistory() {
     $results = array();
 
@@ -97,6 +130,13 @@ function fetchWorkHistory() {
     return $results;
 }
 
+/**
+ * Fetches histories and work histories.
+ *
+ * @since 1.0.0
+ *
+ * @return WP_REST_Response Returns a JSON response containing history and work history records.
+ */
 function fetchAdminHistory() {
     $results = array(
         'histories' => array(),

@@ -2,6 +2,16 @@
 
 add_action('rest_api_init', 'projectRoutes');
 
+/**
+ * Registers REST API routes for fetching outstanding projects and other projects.
+ *
+ * This function sets up the routes for fetching outstanding projects and other projects
+ * using the WordPress REST API. It registers two routes under the 'project/v1' namespace:
+ * - '/outstanding-projects': Calls the 'fetchOutstadingProjects' function to retrieve outstanding projects.
+ * - '/other-projects': Calls the 'fetchOtherPost' function to retrieve other projects.
+ *
+ * @since 0.1.0
+ */
 function projectRoutes()
 {
     $base_route = 'project/v1';
@@ -29,6 +39,24 @@ function projectRoutes()
 }
 
 
+/**
+ * Handles a GET request to the outstanding projects endpoint.
+ *
+ * This function is used as the callback for the /outstanding-projects endpoint.
+ * It fetches all projects and then filters out the projects that are not outstanding,
+ * and returns the outstanding projects as an array of objects with the keys id, title,
+ * description, skills, background, github_link, and isOutstandingProject.
+ *
+ * The response is returned as a JSON object with the key outstandingProjects mapped
+ * to the array of outstanding projects, and the key status mapped to an object with
+ * the keys is_success and message.
+ *
+ * @param WP_REST_Request $request The GET request object.
+ *
+ * @since 0.1.0
+ *
+ * @return WP_REST_Response A JSON response with the outstanding projects.
+ */
 function fetchOutstadingProjects(WP_REST_Request $request) {
 
     
@@ -85,6 +113,26 @@ function fetchOutstadingProjects(WP_REST_Request $request) {
 }
 
 
+/**
+ * Handles a GET request to the other projects endpoint.
+ *
+ * This function is used as the callback for the /other-projects endpoint.
+ * It fetches projects that are not marked as outstanding and returns them
+ * with pagination. Each project is represented as an array with keys id,
+ * title, excerpt, background, github_link, created, and modified.
+ *
+ * The response is returned as a JSON object with 'otherProjects' mapped
+ * to the array of projects, 'status' with keys is_success and message,
+ * and pagination URLs for next and previous pages.
+ *
+ * If the requested page number is out of range, an error message is returned.
+ *
+ * @param WP_REST_Request $request The GET request object.
+ *
+ * @since 0.1.0
+ *
+ * @return WP_REST_Response A JSON response with the list of other projects.
+ */
 function fetchOtherPost(WP_REST_Request $request) {
     $limit = $request->get_param('limit');
     $page = $request->get_param('page');    
