@@ -1,0 +1,17 @@
+/* 
+    Theme Name: Empty
+    Author: Junho Shin
+    Version: 1.0
+*/
+
+#header{
+    display: none;
+}
+
+#footer {
+    display: none;
+}
+
+#page > hr {
+    display: none;
+}
