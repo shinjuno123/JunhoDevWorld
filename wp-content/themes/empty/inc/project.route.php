@@ -36,6 +36,80 @@ function projectRoutes()
 
     );
 
+    register_rest_route(
+        $base_route,
+        '/projects',
+        array(
+            'methods' => WP_REST_Server::READABLE,
+            'callback' => 'fetchProjects',
+            'show_in_rest' => true
+        )
+    );
+
+}
+
+
+/**
+ * Handles a GET request to the /projects endpoint.
+ *
+ * This function is used as the callback for the /projects endpoint.
+ * It fetches projects that are related to the given skill and returns all of them. 
+ * Each project is represented as an array with keys id, title, github_link.
+ *
+ * The response is returned as a JSON object with 'projects' mapped to the array
+ * of projects, 'status' with keys is_success and message, and pagination URLs
+ * for next and previous pages.
+ *
+ * If the requested page number is out of range, an error message is returned.
+ *
+ * @param WP_REST_Request $request The GET request object.
+ *
+ * @since 0.1.0
+ *
+ * @return WP_REST_Response A JSON response with the list of projects.
+ */
+function fetchProjects(WP_REST_Request $request)
+{
+    $skill_id = $request->get_param('skill');
+
+    $results = array(
+        'projects' => array(),
+        'status' => array(
+            'is_success' => false,
+            'message' => '',
+        ),
+    );
+
+
+    $query = new WP_Query(array(
+        'post_type' => 'project',
+        'orderby' => 'DSC',
+        'posts_per_page' => -1,
+        'meta_query' => array(
+            array(
+                'key' => 'skills',
+                'value' => '"' . $skill_id . '"',
+                'compare' => 'LIKE'
+            )
+        )
+    ));
+
+
+    while ($query->have_posts()) {
+        $query->the_post();
+
+        array_push($results['projects'], array(
+            'id' => get_the_ID(),
+            'title' => get_the_title(),
+            'github_link' => get_field('github_link'),
+
+        ));
+    }
+
+    $results['status']['is_success'] = true;
+    $results['status']['message'] = 'success';
+
+    return new WP_REST_Response($results, 200, ['Content-Type' => 'application/json']);
 }
 
 
@@ -57,9 +131,10 @@ function projectRoutes()
  *
  * @return WP_REST_Response A JSON response with the outstanding projects.
  */
-function fetchOutstadingProjects(WP_REST_Request $request) {
+function fetchOutstadingProjects(WP_REST_Request $request)
+{
 
-    
+
     $results = array(
         'outstandingProjects' => array(),
         'status' => array(
@@ -78,24 +153,24 @@ function fetchOutstadingProjects(WP_REST_Request $request) {
     );
 
 
-    while($mainQuery->have_posts()) {
+    while ($mainQuery->have_posts()) {
         $mainQuery->the_post();
         $is_outstanding_project = get_field('is_outstanding_project', get_the_ID());
 
-        if(!$is_outstanding_project) {
+        if (!$is_outstanding_project) {
             continue;
         }
 
-        
-        $skills = array_map(function($skillPost){
+
+        $skills = array_map(function ($skillPost) {
             return $skillPost->post_title;
-        },get_field('skills', get_the_ID()));
+        }, get_field('skills', get_the_ID()));
 
         $background_url = get_field('background')['url'];
 
 
         array_push($results['outstandingProjects'], array(
-            'id'=> get_the_ID(),
+            'id' => get_the_ID(),
             'title' => get_the_title(),
             'description' => get_the_content(),
             'skills' => $skills,
@@ -109,7 +184,7 @@ function fetchOutstadingProjects(WP_REST_Request $request) {
 
 
     return new WP_REST_Response($results, 200, ['Content-Type' => 'application/json']);
-    
+
 }
 
 
@@ -133,9 +208,10 @@ function fetchOutstadingProjects(WP_REST_Request $request) {
  *
  * @return WP_REST_Response A JSON response with the list of other projects.
  */
-function fetchOtherPost(WP_REST_Request $request) {
+function fetchOtherPost(WP_REST_Request $request)
+{
     $limit = $request->get_param('limit');
-    $page = $request->get_param('page');    
+    $page = $request->get_param('page');
 
 
 
